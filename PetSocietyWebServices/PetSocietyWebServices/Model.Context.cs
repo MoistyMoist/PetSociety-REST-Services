@@ -30,6 +30,7 @@ namespace PetSocietyWebServices
         public DbSet<ATTENDEE> ATTENDEEs { get; set; }
         public DbSet<EVENT> EVENTs { get; set; }
         public DbSet<FEED> FEEDs { get; set; }
+        public DbSet<GALLERY> GALLERies { get; set; }
         public DbSet<IMAGE> IMAGEs { get; set; }
         public DbSet<LOCATION> LOCATIONs { get; set; }
         public DbSet<LOST> LOSTs { get; set; }

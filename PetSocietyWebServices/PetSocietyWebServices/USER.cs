@@ -16,14 +16,15 @@ namespace PetSocietyWebServices
     {
         public USER()
         {
-            this.PETs = new HashSet<PET>();
-            this.LOCATIONs = new HashSet<LOCATION>();
-            this.EVENTs = new HashSet<EVENT>();
             this.ATTENDEEs = new HashSet<ATTENDEE>();
+            this.EVENTs = new HashSet<EVENT>();
+            this.GALLERies = new HashSet<GALLERY>();
+            this.LOCATIONs = new HashSet<LOCATION>();
             this.LOSTs = new HashSet<LOST>();
+            this.PETs = new HashSet<PET>();
+            this.PINs = new HashSet<PIN>();
             this.REVIEWs = new HashSet<REVIEW>();
             this.STRAYs = new HashSet<STRAY>();
-            this.GALLERies = new HashSet<GALLERY>();
         }
     
         public int UserID { get; set; }
@@ -42,14 +43,14 @@ namespace PetSocietyWebServices
         public Nullable<int> ProfileImageID { get; set; }
         public Nullable<int> PinID { get; set; }
     
-        public virtual ICollection<PET> PETs { get; set; }
-        public virtual ICollection<LOCATION> LOCATIONs { get; set; }
-        public virtual ICollection<EVENT> EVENTs { get; set; }
         public virtual ICollection<ATTENDEE> ATTENDEEs { get; set; }
-        public virtual ICollection<LOST> LOSTs { get; set; }
-        public virtual ICollection<REVIEW> REVIEWs { get; set; }
-        public virtual PIN PIN { get; set; }
-        public virtual ICollection<STRAY> STRAYs { get; set; }
+        public virtual ICollection<EVENT> EVENTs { get; set; }
         public virtual ICollection<GALLERY> GALLERies { get; set; }
+        public virtual ICollection<LOCATION> LOCATIONs { get; set; }
+        public virtual ICollection<LOST> LOSTs { get; set; }
+        public virtual ICollection<PET> PETs { get; set; }
+        public virtual ICollection<PIN> PINs { get; set; }
+        public virtual ICollection<REVIEW> REVIEWs { get; set; }
+        public virtual ICollection<STRAY> STRAYs { get; set; }
     }
 }
