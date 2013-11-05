@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="3dc147dcfc604444a6fa9aff2e885fcf" Name="Diagram1">
         <EntityTypeShape EntityType="PetSocietyDBModel.ACHIEVEMENT" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="PetSocietyDBModel.ADVERT" Width="1.5" PointX="7.125" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PetSocietyDBModel.ADVERT" Width="1.5" PointX="4.25" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="PetSocietyDBModel.ATTENDEE" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
         <EntityTypeShape EntityType="PetSocietyDBModel.EVENT" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="PetSocietyDBModel.FEED" Width="1.5" PointX="7.5" PointY="16.25" IsExpanded="true" />
