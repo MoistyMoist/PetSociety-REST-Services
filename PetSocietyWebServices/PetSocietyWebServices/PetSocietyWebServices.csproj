@@ -176,6 +176,10 @@
     <Compile Include="Controllers\AccountControls\LoginController.cs" />
     <Compile Include="Controllers\AccountControls\RegisterController.cs" />
     <Compile Include="Controllers\AccountControls\UpdateController.cs" />
+    <Compile Include="Controllers\CrowdSourcingControls\AddLocationController.cs" />
+    <Compile Include="Controllers\CrowdSourcingControls\AddStrayController.cs" />
+    <Compile Include="Controllers\CrowdSourcingControls\ReviewLocationController.cs" />
+    <Compile Include="Controllers\CrowdSourcingControls\ReviewStrayController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="EVENT.cs">
