@@ -39,6 +39,5 @@ namespace PetSocietyWebServices
         public DbSet<REVIEW> REVIEWs { get; set; }
         public DbSet<STRAY> STRAYs { get; set; }
         public DbSet<USER> USERs { get; set; }
-        public DbSet<GALLERY> GALLERies { get; set; }
     }
 }
