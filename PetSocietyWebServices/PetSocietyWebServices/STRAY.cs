@@ -14,11 +14,6 @@ namespace PetSocietyWebServices
     
     public partial class STRAY
     {
-        public STRAY()
-        {
-            this.FEEDs = new HashSet<FEED>();
-        }
-    
         public int StrayID { get; set; }
         public string X { get; set; }
         public string Y { get; set; }
@@ -31,10 +26,5 @@ namespace PetSocietyWebServices
         public Nullable<int> ImageID { get; set; }
         public Nullable<int> PinID { get; set; }
         public Nullable<int> ReviewID { get; set; }
-    
-        public virtual ICollection<FEED> FEEDs { get; set; }
-        public virtual IMAGE IMAGE { get; set; }
-        public virtual IMAGE IMAGE1 { get; set; }
-        public virtual REVIEW REVIEW { get; set; }
     }
 }

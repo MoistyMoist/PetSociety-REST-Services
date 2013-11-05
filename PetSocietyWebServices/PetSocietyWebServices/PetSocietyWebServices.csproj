@@ -211,6 +211,9 @@
     <Compile Include="PET.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="PIN.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="REVIEW.cs">
       <DependentUpon>Model.tt</DependentUpon>

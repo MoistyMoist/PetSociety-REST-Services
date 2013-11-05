@@ -12,12 +12,9 @@ namespace PetSocietyWebServices
     using System;
     using System.Collections.Generic;
     
-    public partial class ACHIEVEMENT
+    public partial class PIN
     {
-        public int AchievementID { get; set; }
-        public byte[] Title { get; set; }
-        public string Type { get; set; }
-        public string Rank { get; set; }
-        public string Condition { get; set; }
+        public int PinID { get; set; }
+        public string ImageURL { get; set; }
     }
 }

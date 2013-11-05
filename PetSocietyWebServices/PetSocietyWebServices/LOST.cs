@@ -14,11 +14,6 @@ namespace PetSocietyWebServices
     
     public partial class LOST
     {
-        public LOST()
-        {
-            this.FEEDs = new HashSet<FEED>();
-        }
-    
         public int LostID { get; set; }
         public string Time { get; set; }
         public string Date { get; set; }
@@ -29,8 +24,9 @@ namespace PetSocietyWebServices
         public string Found { get; set; }
         public string Reward { get; set; }
         public Nullable<int> PetID { get; set; }
+        public int UserID { get; set; }
     
-        public virtual ICollection<FEED> FEEDs { get; set; }
         public virtual PET PET { get; set; }
+        public virtual USER USER { get; set; }
     }
 }

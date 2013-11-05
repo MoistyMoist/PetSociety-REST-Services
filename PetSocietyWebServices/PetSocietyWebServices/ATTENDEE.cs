@@ -16,8 +16,10 @@ namespace PetSocietyWebServices
     {
         public int AttendeeID { get; set; }
         public string Status { get; set; }
-        public Nullable<int> EventID { get; set; }
+        public int EventID { get; set; }
+        public int UserID { get; set; }
     
         public virtual EVENT EVENT { get; set; }
+        public virtual USER USER { get; set; }
     }
 }

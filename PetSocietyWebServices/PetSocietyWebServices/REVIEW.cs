@@ -14,12 +14,6 @@ namespace PetSocietyWebServices
     
     public partial class REVIEW
     {
-        public REVIEW()
-        {
-            this.FEEDs = new HashSet<FEED>();
-            this.STRAYs = new HashSet<STRAY>();
-        }
-    
         public int ReviewID { get; set; }
         public string Description { get; set; }
         public string Title { get; set; }
@@ -28,9 +22,9 @@ namespace PetSocietyWebServices
         public string DateCreated { get; set; }
         public string TimeCreated { get; set; }
         public int LocationID { get; set; }
+        public int UserID { get; set; }
     
-        public virtual ICollection<FEED> FEEDs { get; set; }
         public virtual LOCATION LOCATION { get; set; }
-        public virtual ICollection<STRAY> STRAYs { get; set; }
+        public virtual USER USER { get; set; }
     }
 }

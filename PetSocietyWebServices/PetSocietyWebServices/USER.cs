@@ -11,50 +11,40 @@ namespace PetSocietyWebServices
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
-
-    [DataContract(IsReference = true)]
+    
     public partial class USER
     {
         public USER()
         {
-            this.FEEDs = new HashSet<FEED>();
             this.PETs = new HashSet<PET>();
+            this.LOCATIONs = new HashSet<LOCATION>();
+            this.EVENTs = new HashSet<EVENT>();
+            this.ATTENDEEs = new HashSet<ATTENDEE>();
+            this.LOSTs = new HashSet<LOST>();
+            this.REVIEWs = new HashSet<REVIEW>();
         }
-        [DataMember(Order = 1)] 
-        public int UserID { get; set; }
-        [DataMember(Order = 2)] 
-        public string Name { get; set; }
-        [DataMember(Order = 3)] 
-        public string Email { get; set; }
-        [DataMember(Order = 4)] 
-        public string Birthday { get; set; }
-        [DataMember(Order = 5)] 
-        public string Password { get; set; }
-        [DataMember(Order = 6)] 
-        public string Address { get; set; }
-        [DataMember(Order = 7)] 
-        public string Biography { get; set; }
-        [DataMember(Order = 8)] 
-        public string Privicy { get; set; }
-        [DataMember(Order = 9)] 
-        public string Sex { get; set; }
-        [DataMember(Order = 10)] 
-        public string Contact { get; set; }
-        [DataMember(Order = 11)] 
-        public string Credibility { get; set; }
-        [DataMember(Order = 12)] 
-        public string X { get; set; }
-        [DataMember(Order = 13)] 
-        public string Y { get; set; }
-        [DataMember(Order = 14)]
-        public virtual IMAGE ProfileImageID { get; set; }
-        [DataMember(Order = 15)]
-        public virtual IMAGE PinID { get; set; }
     
-        public virtual ICollection<FEED> FEEDs { get; set; }
-        public virtual IMAGE IMAGE { get; set; }
-        public virtual IMAGE IMAGE1 { get; set; }
+        public int UserID { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Birthday { get; set; }
+        public string Password { get; set; }
+        public string Address { get; set; }
+        public string Biography { get; set; }
+        public string Privicy { get; set; }
+        public string Sex { get; set; }
+        public string Contact { get; set; }
+        public string Credibility { get; set; }
+        public string X { get; set; }
+        public string Y { get; set; }
+        public Nullable<int> ProfileImageID { get; set; }
+        public Nullable<int> PinID { get; set; }
+    
         public virtual ICollection<PET> PETs { get; set; }
+        public virtual ICollection<LOCATION> LOCATIONs { get; set; }
+        public virtual ICollection<EVENT> EVENTs { get; set; }
+        public virtual ICollection<ATTENDEE> ATTENDEEs { get; set; }
+        public virtual ICollection<LOST> LOSTs { get; set; }
+        public virtual ICollection<REVIEW> REVIEWs { get; set; }
     }
 }

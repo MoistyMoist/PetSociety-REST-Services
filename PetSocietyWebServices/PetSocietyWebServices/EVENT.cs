@@ -17,7 +17,6 @@ namespace PetSocietyWebServices
         public EVENT()
         {
             this.ATTENDEEs = new HashSet<ATTENDEE>();
-            this.FEEDs = new HashSet<FEED>();
         }
     
         public int EventID { get; set; }
@@ -32,9 +31,9 @@ namespace PetSocietyWebServices
         public string Status { get; set; }
         public string Privacy { get; set; }
         public Nullable<int> PinID { get; set; }
+        public int UserID { get; set; }
     
+        public virtual USER USER { get; set; }
         public virtual ICollection<ATTENDEE> ATTENDEEs { get; set; }
-        public virtual IMAGE IMAGE { get; set; }
-        public virtual ICollection<FEED> FEEDs { get; set; }
     }
 }

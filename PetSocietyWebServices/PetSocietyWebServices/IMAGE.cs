@@ -11,49 +11,17 @@ namespace PetSocietyWebServices
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
-
-    [DataContract(IsReference = true)]
+    
     public partial class IMAGE
     {
-        public IMAGE()
-        {
-            this.ACHIEVEMENTs = new HashSet<ACHIEVEMENT>();
-            this.EVENTs = new HashSet<EVENT>();
-            this.LOCATIONs = new HashSet<LOCATION>();
-            this.PETs = new HashSet<PET>();
-            this.PETs1 = new HashSet<PET>();
-            this.STRAYs = new HashSet<STRAY>();
-            this.STRAYs1 = new HashSet<STRAY>();
-            this.USERs = new HashSet<USER>();
-            this.USERs1 = new HashSet<USER>();
-        }
-
-        [DataMember(Order = 1)] 
         public int ImageID { get; set; }
-        [DataMember(Order = 2)] 
         public string Type { get; set; }
-        [DataMember(Order = 3)] 
         public string ImageURL { get; set; }
-        [DataMember(Order = 4)] 
         public Nullable<int> UserID { get; set; }
-        [DataMember(Order = 5)] 
         public Nullable<int> PetID { get; set; }
-        [DataMember(Order = 6)] 
         public Nullable<int> EventID { get; set; }
-        [DataMember(Order = 7)] 
         public Nullable<int> AdvertID { get; set; }
-        [DataMember(Order = 8)] 
         public Nullable<int> FeedID { get; set; }
-    
-        public virtual ICollection<ACHIEVEMENT> ACHIEVEMENTs { get; set; }
-        public virtual ICollection<EVENT> EVENTs { get; set; }
-        public virtual ICollection<LOCATION> LOCATIONs { get; set; }
-        public virtual ICollection<PET> PETs { get; set; }
-        public virtual ICollection<PET> PETs1 { get; set; }
-        public virtual ICollection<STRAY> STRAYs { get; set; }
-        public virtual ICollection<STRAY> STRAYs1 { get; set; }
-        public virtual ICollection<USER> USERs { get; set; }
-        public virtual ICollection<USER> USERs1 { get; set; }
+        public Nullable<int> PinID { get; set; }
     }
 }

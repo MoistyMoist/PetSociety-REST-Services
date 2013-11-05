@@ -16,7 +16,6 @@ namespace PetSocietyWebServices
     {
         public LOCATION()
         {
-            this.FEEDs = new HashSet<FEED>();
             this.REVIEWs = new HashSet<REVIEW>();
         }
     
@@ -30,9 +29,9 @@ namespace PetSocietyWebServices
         public string DateCreated { get; set; }
         public string TimeCreated { get; set; }
         public Nullable<int> PinID { get; set; }
+        public int UserID { get; set; }
     
-        public virtual ICollection<FEED> FEEDs { get; set; }
-        public virtual IMAGE IMAGE { get; set; }
+        public virtual USER USER { get; set; }
         public virtual ICollection<REVIEW> REVIEWs { get; set; }
     }
 }

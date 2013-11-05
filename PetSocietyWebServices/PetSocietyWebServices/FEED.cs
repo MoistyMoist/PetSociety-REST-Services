@@ -26,13 +26,5 @@ namespace PetSocietyWebServices
         public Nullable<int> ReviewID { get; set; }
         public Nullable<int> LostID { get; set; }
         public string Action { get; set; }
-    
-        public virtual EVENT EVENT { get; set; }
-        public virtual USER USER { get; set; }
-        public virtual PET PET { get; set; }
-        public virtual STRAY STRAY { get; set; }
-        public virtual LOCATION LOCATION { get; set; }
-        public virtual REVIEW REVIEW { get; set; }
-        public virtual LOST LOST { get; set; }
     }
 }

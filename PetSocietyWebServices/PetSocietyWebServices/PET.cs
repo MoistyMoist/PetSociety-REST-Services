@@ -16,7 +16,6 @@ namespace PetSocietyWebServices
     {
         public PET()
         {
-            this.FEEDs = new HashSet<FEED>();
             this.LOSTs = new HashSet<LOST>();
         }
     
@@ -27,13 +26,10 @@ namespace PetSocietyWebServices
         public string Type { get; set; }
         public string Biography { get; set; }
         public string Age { get; set; }
-        public Nullable<int> UserID { get; set; }
+        public int UserID { get; set; }
         public Nullable<int> PinID { get; set; }
         public Nullable<int> ProfileImageID { get; set; }
     
-        public virtual ICollection<FEED> FEEDs { get; set; }
-        public virtual IMAGE IMAGE { get; set; }
-        public virtual IMAGE IMAGE1 { get; set; }
         public virtual ICollection<LOST> LOSTs { get; set; }
         public virtual USER USER { get; set; }
     }

@@ -34,6 +34,7 @@ namespace PetSocietyWebServices
         public DbSet<LOCATION> LOCATIONs { get; set; }
         public DbSet<LOST> LOSTs { get; set; }
         public DbSet<PET> PETs { get; set; }
+        public DbSet<PIN> PINs { get; set; }
         public DbSet<REVIEW> REVIEWs { get; set; }
         public DbSet<STRAY> STRAYs { get; set; }
         public DbSet<USER> USERs { get; set; }
