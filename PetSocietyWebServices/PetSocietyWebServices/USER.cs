@@ -13,6 +13,7 @@ namespace PetSocietyWebServices
     using System.Collections.Generic;
     using System.Runtime.Serialization;
 
+
     [DataContract(IsReference = true)]
     public partial class USER
     {
@@ -21,35 +22,35 @@ namespace PetSocietyWebServices
             this.FEEDs = new HashSet<FEED>();
             this.PETs = new HashSet<PET>();
         }
-        [DataMember(Order = 1)] 
+        [DataMember(Order = 1)]
         public int UserID { get; set; }
-        [DataMember(Order = 2)] 
+        [DataMember(Order = 2)]
         public string Name { get; set; }
-        [DataMember(Order = 3)] 
+        [DataMember(Order = 3)]
         public string Email { get; set; }
-        [DataMember(Order = 4)] 
+        [DataMember(Order = 4)]
         public string Birthday { get; set; }
-        [DataMember(Order = 5)] 
+        [DataMember(Order = 5)]
         public string Password { get; set; }
-        [DataMember(Order = 6)] 
+        [DataMember(Order = 6)]
         public string Address { get; set; }
-        [DataMember(Order = 7)] 
+        [DataMember(Order = 7)]
         public string Biography { get; set; }
-        [DataMember(Order = 8)] 
+        [DataMember(Order = 8)]
         public string Privicy { get; set; }
-        [DataMember(Order = 9)] 
+        [DataMember(Order = 9)]
         public string Sex { get; set; }
-        [DataMember(Order = 10)] 
+        [DataMember(Order = 10)]
         public string Contact { get; set; }
-        [DataMember(Order = 11)] 
+        [DataMember(Order = 11)]
         public string Credibility { get; set; }
-        [DataMember(Order = 12)] 
+        [DataMember(Order = 12)]
         public string X { get; set; }
-        [DataMember(Order = 13)] 
+        [DataMember(Order = 13)]
         public string Y { get; set; }
-        [DataMember(Order = 14)] 
+        [DataMember(Order = 14)]
         public Nullable<int> ProfileImageID { get; set; }
-        [DataMember(Order = 15)] 
+        [DataMember(Order = 15)]
         public Nullable<int> PinID { get; set; }
     
         public virtual ICollection<FEED> FEEDs { get; set; }
