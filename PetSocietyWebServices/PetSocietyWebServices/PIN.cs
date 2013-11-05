@@ -15,6 +15,10 @@ namespace PetSocietyWebServices
     public partial class PIN
     {
         public int PinID { get; set; }
-        public string ImageURL { get; set; }
+        public int ImageID { get; set; }
+    
+        public virtual USER USER { get; set; }
+        public virtual PET PET1 { get; set; }
+        public virtual IMAGE IMAGE { get; set; }
     }
 }

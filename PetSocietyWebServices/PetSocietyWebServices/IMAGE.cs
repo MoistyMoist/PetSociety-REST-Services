@@ -14,14 +14,19 @@ namespace PetSocietyWebServices
     
     public partial class IMAGE
     {
+        public IMAGE()
+        {
+            this.PINs = new HashSet<PIN>();
+        }
+    
         public int ImageID { get; set; }
         public string Type { get; set; }
         public string ImageURL { get; set; }
         public Nullable<int> UserID { get; set; }
         public Nullable<int> PetID { get; set; }
-        public Nullable<int> EventID { get; set; }
-        public Nullable<int> AdvertID { get; set; }
-        public Nullable<int> FeedID { get; set; }
-        public Nullable<int> PinID { get; set; }
+        public Nullable<int> GalleryID { get; set; }
+    
+        public virtual ICollection<PIN> PINs { get; set; }
+        public virtual GALLERY GALLERY { get; set; }
     }
 }

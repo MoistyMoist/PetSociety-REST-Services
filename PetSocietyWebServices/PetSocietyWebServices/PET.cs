@@ -17,6 +17,7 @@ namespace PetSocietyWebServices
         public PET()
         {
             this.LOSTs = new HashSet<LOST>();
+            this.GALLERies = new HashSet<GALLERY>();
         }
     
         public int PetID { get; set; }
@@ -32,5 +33,7 @@ namespace PetSocietyWebServices
     
         public virtual ICollection<LOST> LOSTs { get; set; }
         public virtual USER USER { get; set; }
+        public virtual PIN PIN1 { get; set; }
+        public virtual ICollection<GALLERY> GALLERies { get; set; }
     }
 }

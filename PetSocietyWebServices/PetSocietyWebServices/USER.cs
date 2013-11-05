@@ -22,6 +22,8 @@ namespace PetSocietyWebServices
             this.ATTENDEEs = new HashSet<ATTENDEE>();
             this.LOSTs = new HashSet<LOST>();
             this.REVIEWs = new HashSet<REVIEW>();
+            this.STRAYs = new HashSet<STRAY>();
+            this.GALLERies = new HashSet<GALLERY>();
         }
     
         public int UserID { get; set; }
@@ -46,5 +48,8 @@ namespace PetSocietyWebServices
         public virtual ICollection<ATTENDEE> ATTENDEEs { get; set; }
         public virtual ICollection<LOST> LOSTs { get; set; }
         public virtual ICollection<REVIEW> REVIEWs { get; set; }
+        public virtual PIN PIN { get; set; }
+        public virtual ICollection<STRAY> STRAYs { get; set; }
+        public virtual ICollection<GALLERY> GALLERies { get; set; }
     }
 }
