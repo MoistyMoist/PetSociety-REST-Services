@@ -23,8 +23,10 @@ namespace PetSocietyWebServices
         public string TimeCreated { get; set; }
         public int LocationID { get; set; }
         public int UserID { get; set; }
+        public Nullable<int> StrayID { get; set; }
     
         public virtual LOCATION LOCATION { get; set; }
         public virtual USER USER { get; set; }
+        public virtual STRAY STRAY { get; set; }
     }
 }

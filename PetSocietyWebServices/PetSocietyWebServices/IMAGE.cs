@@ -26,7 +26,7 @@ namespace PetSocietyWebServices
         public Nullable<int> PetID { get; set; }
         public Nullable<int> GalleryID { get; set; }
     
-        public virtual ICollection<PIN> PINs { get; set; }
         public virtual GALLERY GALLERY { get; set; }
+        public virtual ICollection<PIN> PINs { get; set; }
     }
 }

@@ -14,6 +14,11 @@ namespace PetSocietyWebServices
     
     public partial class STRAY
     {
+        public STRAY()
+        {
+            this.REVIEWs = new HashSet<REVIEW>();
+        }
+    
         public int StrayID { get; set; }
         public string X { get; set; }
         public string Y { get; set; }
@@ -26,5 +31,9 @@ namespace PetSocietyWebServices
         public Nullable<int> ImageID { get; set; }
         public Nullable<int> PinID { get; set; }
         public Nullable<int> ReviewID { get; set; }
+        public int UserID { get; set; }
+    
+        public virtual ICollection<REVIEW> REVIEWs { get; set; }
+        public virtual USER USER { get; set; }
     }
 }

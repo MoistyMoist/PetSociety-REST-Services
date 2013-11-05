@@ -12,13 +12,19 @@ namespace PetSocietyWebServices
     using System;
     using System.Collections.Generic;
     
-    public partial class PIN
+    public partial class GALLERY
     {
-        public int PinID { get; set; }
-        public int ImageID { get; set; }
+        public GALLERY()
+        {
+            this.IMAGEs = new HashSet<IMAGE>();
+        }
     
-        public virtual IMAGE IMAGE { get; set; }
-        public virtual PET PET { get; set; }
+        public int GalleryID { get; set; }
+        public Nullable<int> UserID { get; set; }
+        public Nullable<int> PetID { get; set; }
+    
         public virtual USER USER { get; set; }
+        public virtual PET PET { get; set; }
+        public virtual ICollection<IMAGE> IMAGEs { get; set; }
     }
 }

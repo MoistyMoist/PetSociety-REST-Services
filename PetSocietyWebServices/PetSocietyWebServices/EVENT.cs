@@ -33,7 +33,7 @@ namespace PetSocietyWebServices
         public Nullable<int> PinID { get; set; }
         public int UserID { get; set; }
     
-        public virtual USER USER { get; set; }
         public virtual ICollection<ATTENDEE> ATTENDEEs { get; set; }
+        public virtual USER USER { get; set; }
     }
 }
