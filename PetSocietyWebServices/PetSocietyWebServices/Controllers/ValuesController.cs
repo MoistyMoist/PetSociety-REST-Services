@@ -20,6 +20,7 @@ namespace PetSocietyWebServices.Controllers
         {
             return "value";
         }
+        [HttpGet]
         public List<USER> GetTest()
         {
             using (PetSocietyDBEntities db = new PetSocietyDBEntities())

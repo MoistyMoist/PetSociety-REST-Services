@@ -47,10 +47,10 @@ namespace PetSocietyWebServices
         public string X { get; set; }
         [DataMember(Order = 13)] 
         public string Y { get; set; }
-        [DataMember(Order = 14)] 
-        public Nullable<int> ProfileImageID { get; set; }
-        [DataMember(Order = 15)] 
-        public Nullable<int> PinID { get; set; }
+        [DataMember(Order = 14)]
+        public virtual IMAGE ProfileImageID { get; set; }
+        [DataMember(Order = 15)]
+        public virtual IMAGE PinID { get; set; }
     
         public virtual ICollection<FEED> FEEDs { get; set; }
         public virtual IMAGE IMAGE { get; set; }
