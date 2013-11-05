@@ -14,12 +14,6 @@ namespace PetSocietyWebServices.Controllers
     {
 
 
-
-        // GET api/values/5
-        public string Get(int id)
-        {
-            return "value";
-        }
         [HttpGet]
         public List<USER> GetTest()
         {
@@ -35,19 +29,6 @@ namespace PetSocietyWebServices.Controllers
               return errors;
             }
         }
-        // POST api/values
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        public void Delete(int id)
-        {
-        }
+       
     }
 }
