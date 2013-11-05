@@ -211,6 +211,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\AchievementModel.cs" />
+    <Compile Include="Models\AdvertModel.cs" />
+    <Compile Include="Models\AttendeeModel.cs" />
+    <Compile Include="Models\EventModel.cs" />
+    <Compile Include="Models\FeedModel.cs" />
+    <Compile Include="Models\GalleryModel.cs" />
+    <Compile Include="Models\ImageModel.cs" />
+    <Compile Include="Models\LocationModel.cs" />
+    <Compile Include="Models\LostModel.cs" />
+    <Compile Include="Models\PetModel.cs" />
+    <Compile Include="Models\PinModel.cs" />
+    <Compile Include="Models\ReviewModel.cs" />
+    <Compile Include="Models\StrayModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="PET.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -360,7 +374,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
