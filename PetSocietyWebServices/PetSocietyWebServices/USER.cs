@@ -12,7 +12,7 @@ namespace PetSocietyWebServices
     using System;
     using System.Collections.Generic;
     using System.Runtime.Serialization;
-
+    [Serializable]
     [DataContract(IsReference = true)]
     public partial class USER
     {
@@ -56,26 +56,24 @@ namespace PetSocietyWebServices
         public string Y { get; set; }
         [DataMember(Order = 14)]
         public Nullable<int> ProfileImageID { get; set; }
-        [DataMember(Order = 15)]
-        public Nullable<int> PinID { get; set; }
 
-        //[DataMember(Order = 16)]
+        [DataMember(Order = 15)]
         public virtual ICollection<ATTENDEE> ATTENDEEs { get; set; }
-        //[DataMember(Order = 17)]
+        [DataMember(Order = 16)]
         public virtual ICollection<EVENT> EVENTs { get; set; }
-        //[DataMember(Order = 18)]
+        [DataMember(Order = 17)]
         public virtual ICollection<GALLERY> GALLERies { get; set; }
-        // [DataMember(Order = 19)]
+        [DataMember(Order = 18)]
         public virtual ICollection<LOCATION> LOCATIONs { get; set; }
-        //[DataMember(Order = 20)]
+        [DataMember(Order = 19)]
         public virtual ICollection<LOST> LOSTs { get; set; }
-        //  [DataMember(Order = 21)]
+        [DataMember(Order = 20)]
         public virtual ICollection<PET> PETs { get; set; }
-        //    [DataMember(Order = 22)]
+        [DataMember(Order = 21)]
         public virtual ICollection<PIN> PINs { get; set; }
-        //      [DataMember(Order = 23)]
+        [DataMember(Order = 22)]
         public virtual ICollection<REVIEW> REVIEWs { get; set; }
-        //        [DataMember(Order = 24)]
+        [DataMember(Order = 23)]
         public virtual ICollection<STRAY> STRAYs { get; set; }
     }
 }

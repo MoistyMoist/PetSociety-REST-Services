@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PetSocietyDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PetSocietyDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="PetSocietyDBModelStoreContainer">
           <EntitySet Name="ACHIEVEMENT" EntityType="PetSocietyDBModel.Store.ACHIEVEMENT" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ADVERT" EntityType="PetSocietyDBModel.Store.ADVERT" store:Type="Tables" Schema="dbo" />
@@ -235,6 +235,7 @@
           </Key>
           <Property Name="PinID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ImageID" Type="int" Nullable="false" />
+          <Property Name="Type" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="REVIEW">
           <Key>
@@ -287,7 +288,6 @@
           <Property Name="X" Type="varchar(max)" />
           <Property Name="Y" Type="varchar(max)" />
           <Property Name="ProfileImageID" Type="int" />
-          <Property Name="PinID" Type="int" />
         </EntityType>
         <Association Name="FK_ATTENDEE_0">
           <End Role="EVENT" Type="PetSocietyDBModel.Store.EVENT" Multiplicity="1" />
@@ -517,8 +517,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PetSocietyDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -549,10 +548,6 @@
             <End Role="USER" EntitySet="USERs" />
             <End Role="EVENT" EntitySet="EVENTs" />
           </AssociationSet>
-          <AssociationSet Name="FK_PIN_3" Association="PetSocietyDBModel.FK_PIN_3">
-            <End Role="EVENT" EntitySet="EVENTs" />
-            <End Role="PIN" EntitySet="PINs" />
-          </AssociationSet>
           <AssociationSet Name="FK_GALLERY_0" Association="PetSocietyDBModel.FK_GALLERY_0">
             <End Role="USER" EntitySet="USERs" />
             <End Role="GALLERY" EntitySet="GALLERies" />
@@ -572,10 +567,6 @@
           <AssociationSet Name="FK_LOCATION_0" Association="PetSocietyDBModel.FK_LOCATION_0">
             <End Role="USER" EntitySet="USERs" />
             <End Role="LOCATION" EntitySet="LOCATIONs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PIN_4" Association="PetSocietyDBModel.FK_PIN_4">
-            <End Role="LOCATION" EntitySet="LOCATIONs" />
-            <End Role="PIN" EntitySet="PINs" />
           </AssociationSet>
           <AssociationSet Name="FK_REVIEW_0" Association="PetSocietyDBModel.FK_REVIEW_0">
             <End Role="LOCATION" EntitySet="LOCATIONs" />
@@ -612,6 +603,14 @@
           <AssociationSet Name="FK_STRAY_0" Association="PetSocietyDBModel.FK_STRAY_0">
             <End Role="USER" EntitySet="USERs" />
             <End Role="STRAY" EntitySet="STRAYs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PIN_3" Association="PetSocietyDBModel.FK_PIN_3">
+            <End Role="EVENT" EntitySet="EVENTs" />
+            <End Role="PIN" EntitySet="PINs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PIN_4" Association="PetSocietyDBModel.FK_PIN_4">
+            <End Role="LOCATION" EntitySet="LOCATIONs" />
+            <End Role="PIN" EntitySet="PINs" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="ACHIEVEMENT">
@@ -724,8 +723,8 @@
           <Property Name="PinID" Type="Int32" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="USER" Relationship="PetSocietyDBModel.FK_LOCATION_0" FromRole="LOCATION" ToRole="USER" />
-          <NavigationProperty Name="PINs" Relationship="PetSocietyDBModel.FK_PIN_4" FromRole="LOCATION" ToRole="PIN" />
           <NavigationProperty Name="REVIEWs" Relationship="PetSocietyDBModel.FK_REVIEW_0" FromRole="LOCATION" ToRole="REVIEW" />
+          <NavigationProperty Name="PINs" Relationship="PetSocietyDBModel.FK_PIN_4" FromRole="LOCATION" ToRole="PIN" />
         </EntityType>
         <EntityType Name="LOST">
           <Key>
@@ -771,11 +770,12 @@
           </Key>
           <Property Name="PinID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="ImageID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="EVENT" Relationship="PetSocietyDBModel.FK_PIN_3" FromRole="PIN" ToRole="EVENT" />
           <NavigationProperty Name="IMAGE" Relationship="PetSocietyDBModel.FK_PIN_2" FromRole="PIN" ToRole="IMAGE" />
-          <NavigationProperty Name="LOCATION" Relationship="PetSocietyDBModel.FK_PIN_4" FromRole="PIN" ToRole="LOCATION" />
           <NavigationProperty Name="PET" Relationship="PetSocietyDBModel.FK_PIN_1" FromRole="PIN" ToRole="PET" />
           <NavigationProperty Name="USER" Relationship="PetSocietyDBModel.FK_PIN_0" FromRole="PIN" ToRole="USER" />
+          <NavigationProperty Name="EVENT" Relationship="PetSocietyDBModel.FK_PIN_3" FromRole="PIN" ToRole="EVENT" />
+          <NavigationProperty Name="LOCATION" Relationship="PetSocietyDBModel.FK_PIN_4" FromRole="PIN" ToRole="LOCATION" />
+          <Property Type="String" Name="Type" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="REVIEW">
           <Key>
@@ -833,7 +833,6 @@
           <Property Name="X" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="Y" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="ProfileImageID" Type="Int32" />
-          <Property Name="PinID" Type="Int32" />
           <NavigationProperty Name="ATTENDEEs" Relationship="PetSocietyDBModel.FK_ATTENDEE_1" FromRole="USER" ToRole="ATTENDEE" />
           <NavigationProperty Name="EVENTs" Relationship="PetSocietyDBModel.FK_EVENT_0" FromRole="USER" ToRole="EVENT" />
           <NavigationProperty Name="GALLERies" Relationship="PetSocietyDBModel.FK_GALLERY_0" FromRole="USER" ToRole="GALLERY" />
@@ -877,18 +876,6 @@
             </Principal>
             <Dependent Role="EVENT">
               <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PIN_3">
-          <End Role="EVENT" Type="PetSocietyDBModel.EVENT" Multiplicity="1" />
-          <End Role="PIN" Type="PetSocietyDBModel.PIN" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EVENT">
-              <PropertyRef Name="EventID" />
-            </Principal>
-            <Dependent Role="PIN">
-              <PropertyRef Name="PinID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -949,18 +936,6 @@
             </Principal>
             <Dependent Role="LOCATION">
               <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PIN_4">
-          <End Role="LOCATION" Type="PetSocietyDBModel.LOCATION" Multiplicity="1" />
-          <End Role="PIN" Type="PetSocietyDBModel.PIN" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LOCATION">
-              <PropertyRef Name="LocationID" />
-            </Principal>
-            <Dependent Role="PIN">
-              <PropertyRef Name="PinID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1069,6 +1044,30 @@
             </Principal>
             <Dependent Role="STRAY">
               <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PIN_3">
+          <End Type="PetSocietyDBModel.EVENT" Role="EVENT" Multiplicity="1" />
+          <End Type="PetSocietyDBModel.PIN" Role="PIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVENT">
+              <PropertyRef Name="EventID" />
+            </Principal>
+            <Dependent Role="PIN">
+              <PropertyRef Name="PinID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PIN_4">
+          <End Type="PetSocietyDBModel.LOCATION" Role="LOCATION" Multiplicity="1" />
+          <End Type="PetSocietyDBModel.PIN" Role="PIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOCATION">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="PIN">
+              <PropertyRef Name="PinID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1222,6 +1221,7 @@
           <EntitySetMapping Name="PINs">
             <EntityTypeMapping TypeName="PetSocietyDBModel.PIN">
               <MappingFragment StoreEntitySet="PIN">
+                <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="PinID" ColumnName="PinID" />
                 <ScalarProperty Name="ImageID" ColumnName="ImageID" />
               </MappingFragment>
@@ -1279,7 +1279,6 @@
                 <ScalarProperty Name="X" ColumnName="X" />
                 <ScalarProperty Name="Y" ColumnName="Y" />
                 <ScalarProperty Name="ProfileImageID" ColumnName="ProfileImageID" />
-                <ScalarProperty Name="PinID" ColumnName="PinID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
