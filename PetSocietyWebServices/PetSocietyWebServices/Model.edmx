@@ -72,6 +72,14 @@
             <End Role="IMAGE" EntitySet="IMAGE" />
             <End Role="PIN" EntitySet="PIN" />
           </AssociationSet>
+          <AssociationSet Name="FK_PIN_3" Association="PetSocietyDBModel.Store.FK_PIN_3">
+            <End Role="EVENT" EntitySet="EVENT" />
+            <End Role="PIN" EntitySet="PIN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PIN_4" Association="PetSocietyDBModel.Store.FK_PIN_4">
+            <End Role="LOCATION" EntitySet="LOCATION" />
+            <End Role="PIN" EntitySet="PIN" />
+          </AssociationSet>
           <AssociationSet Name="FK_REVIEW_0" Association="PetSocietyDBModel.Store.FK_REVIEW_0">
             <End Role="LOCATION" EntitySet="LOCATION" />
             <End Role="REVIEW" EntitySet="REVIEW" />
@@ -437,6 +445,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PIN_3">
+          <End Role="EVENT" Type="PetSocietyDBModel.Store.EVENT" Multiplicity="1" />
+          <End Role="PIN" Type="PetSocietyDBModel.Store.PIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVENT">
+              <PropertyRef Name="EventID" />
+            </Principal>
+            <Dependent Role="PIN">
+              <PropertyRef Name="PinID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PIN_4">
+          <End Role="LOCATION" Type="PetSocietyDBModel.Store.LOCATION" Multiplicity="1" />
+          <End Role="PIN" Type="PetSocietyDBModel.Store.PIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOCATION">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="PIN">
+              <PropertyRef Name="PinID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_REVIEW_0">
           <End Role="LOCATION" Type="PetSocietyDBModel.Store.LOCATION" Multiplicity="1" />
           <End Role="REVIEW" Type="PetSocietyDBModel.Store.REVIEW" Multiplicity="*" />
@@ -517,6 +549,10 @@
             <End Role="USER" EntitySet="USERs" />
             <End Role="EVENT" EntitySet="EVENTs" />
           </AssociationSet>
+          <AssociationSet Name="FK_PIN_3" Association="PetSocietyDBModel.FK_PIN_3">
+            <End Role="EVENT" EntitySet="EVENTs" />
+            <End Role="PIN" EntitySet="PINs" />
+          </AssociationSet>
           <AssociationSet Name="FK_GALLERY_0" Association="PetSocietyDBModel.FK_GALLERY_0">
             <End Role="USER" EntitySet="USERs" />
             <End Role="GALLERY" EntitySet="GALLERies" />
@@ -536,6 +572,10 @@
           <AssociationSet Name="FK_LOCATION_0" Association="PetSocietyDBModel.FK_LOCATION_0">
             <End Role="USER" EntitySet="USERs" />
             <End Role="LOCATION" EntitySet="LOCATIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PIN_4" Association="PetSocietyDBModel.FK_PIN_4">
+            <End Role="LOCATION" EntitySet="LOCATIONs" />
+            <End Role="PIN" EntitySet="PINs" />
           </AssociationSet>
           <AssociationSet Name="FK_REVIEW_0" Association="PetSocietyDBModel.FK_REVIEW_0">
             <End Role="LOCATION" EntitySet="LOCATIONs" />
@@ -625,6 +665,7 @@
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ATTENDEEs" Relationship="PetSocietyDBModel.FK_ATTENDEE_0" FromRole="EVENT" ToRole="ATTENDEE" />
           <NavigationProperty Name="USER" Relationship="PetSocietyDBModel.FK_EVENT_0" FromRole="EVENT" ToRole="USER" />
+          <NavigationProperty Name="PINs" Relationship="PetSocietyDBModel.FK_PIN_3" FromRole="EVENT" ToRole="PIN" />
         </EntityType>
         <EntityType Name="FEED">
           <Key>
@@ -683,6 +724,7 @@
           <Property Name="PinID" Type="Int32" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="USER" Relationship="PetSocietyDBModel.FK_LOCATION_0" FromRole="LOCATION" ToRole="USER" />
+          <NavigationProperty Name="PINs" Relationship="PetSocietyDBModel.FK_PIN_4" FromRole="LOCATION" ToRole="PIN" />
           <NavigationProperty Name="REVIEWs" Relationship="PetSocietyDBModel.FK_REVIEW_0" FromRole="LOCATION" ToRole="REVIEW" />
         </EntityType>
         <EntityType Name="LOST">
@@ -729,7 +771,9 @@
           </Key>
           <Property Name="PinID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="ImageID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EVENT" Relationship="PetSocietyDBModel.FK_PIN_3" FromRole="PIN" ToRole="EVENT" />
           <NavigationProperty Name="IMAGE" Relationship="PetSocietyDBModel.FK_PIN_2" FromRole="PIN" ToRole="IMAGE" />
+          <NavigationProperty Name="LOCATION" Relationship="PetSocietyDBModel.FK_PIN_4" FromRole="PIN" ToRole="LOCATION" />
           <NavigationProperty Name="PET" Relationship="PetSocietyDBModel.FK_PIN_1" FromRole="PIN" ToRole="PET" />
           <NavigationProperty Name="USER" Relationship="PetSocietyDBModel.FK_PIN_0" FromRole="PIN" ToRole="USER" />
         </EntityType>
@@ -836,6 +880,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PIN_3">
+          <End Role="EVENT" Type="PetSocietyDBModel.EVENT" Multiplicity="1" />
+          <End Role="PIN" Type="PetSocietyDBModel.PIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVENT">
+              <PropertyRef Name="EventID" />
+            </Principal>
+            <Dependent Role="PIN">
+              <PropertyRef Name="PinID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_GALLERY_0">
           <End Role="USER" Type="PetSocietyDBModel.USER" Multiplicity="0..1" />
           <End Role="GALLERY" Type="PetSocietyDBModel.GALLERY" Multiplicity="*" />
@@ -893,6 +949,18 @@
             </Principal>
             <Dependent Role="LOCATION">
               <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PIN_4">
+          <End Role="LOCATION" Type="PetSocietyDBModel.LOCATION" Multiplicity="1" />
+          <End Role="PIN" Type="PetSocietyDBModel.PIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOCATION">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="PIN">
+              <PropertyRef Name="PinID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
