@@ -19,8 +19,8 @@ namespace PetSocietyWebServices.Controllers
         {
             using (PetSocietyDBEntities db = new PetSocietyDBEntities())
             {
-            
 
+                db.Configuration.LazyLoadingEnabled = false;
                 List<USER> errors = new List<USER>();
 
               errors =db.USERs.ToList();

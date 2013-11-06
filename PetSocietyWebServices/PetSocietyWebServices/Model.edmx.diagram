@@ -36,6 +36,8 @@
         <AssociationConnector Association="PetSocietyDBModel.FK_GALLERY_0" />
         <AssociationConnector Association="PetSocietyDBModel.FK_GALLERY_1" />
         <AssociationConnector Association="PetSocietyDBModel.FK_IMAGE_0" />
+        <AssociationConnector Association="PetSocietyDBModel.FK_PIN_3" />
+        <AssociationConnector Association="PetSocietyDBModel.FK_PIN_4" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
