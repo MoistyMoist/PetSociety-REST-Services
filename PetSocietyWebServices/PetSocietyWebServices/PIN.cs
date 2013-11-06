@@ -16,9 +16,12 @@ namespace PetSocietyWebServices
     {
         public int PinID { get; set; }
         public int ImageID { get; set; }
+        public string Type { get; set; }
     
         public virtual IMAGE IMAGE { get; set; }
         public virtual PET PET { get; set; }
         public virtual USER USER { get; set; }
+        public virtual EVENT EVENT { get; set; }
+        public virtual LOCATION LOCATION { get; set; }
     }
 }

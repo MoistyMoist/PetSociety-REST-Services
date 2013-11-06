@@ -17,6 +17,7 @@ namespace PetSocietyWebServices
         public LOCATION()
         {
             this.REVIEWs = new HashSet<REVIEW>();
+            this.PINs = new HashSet<PIN>();
         }
     
         public int LocationID { get; set; }
@@ -33,5 +34,6 @@ namespace PetSocietyWebServices
     
         public virtual USER USER { get; set; }
         public virtual ICollection<REVIEW> REVIEWs { get; set; }
+        public virtual ICollection<PIN> PINs { get; set; }
     }
 }
