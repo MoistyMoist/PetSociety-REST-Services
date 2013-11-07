@@ -4,36 +4,29 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using MySql.Data.MySqlClient;
+using System.Configuration;
+using System.Net.Mail;
+using PetSocietyWebServices.Models;
 
 namespace PetSocietyWebServices.Controllers.AccountControls
 {
     public class LoginController : ApiController
     {
-        // GET api/login
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
+       
         // GET api/login/5
-        public string Get(int id)
+        public USER Get(string token, string INemail, string INpassword)
         {
-            return "value";
-        }
 
-        // POST api/login
-        public void Post([FromBody]string value)
-        {
-        }
+            using (PetSocietyDBEntities db = new PetSocietyDBEntities())
+            {
 
-        // PUT api/login/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+                db.Configuration.LazyLoadingEnabled = false;
+                USER OUTuser = new USER();
 
-        // DELETE api/login/5
-        public void Delete(int id)
-        {
+                //OUTuser = db.USERs;
+                return OUTuser;
+            }
         }
     }
 }
