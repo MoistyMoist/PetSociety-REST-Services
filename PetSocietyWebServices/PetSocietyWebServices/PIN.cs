@@ -11,7 +11,9 @@ namespace PetSocietyWebServices
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+    [Serializable]
+    [DataContract(IsReference = true)]
     public partial class PIN
     {
         public int PinID { get; set; }
