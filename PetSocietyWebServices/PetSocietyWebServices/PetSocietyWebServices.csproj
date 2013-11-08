@@ -173,6 +173,7 @@
     <Compile Include="ATTENDEE.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AccountControls\ForgetPassController.cs" />
     <Compile Include="Controllers\AccountControls\LoginController.cs" />
     <Compile Include="Controllers\AccountControls\RegisterController.cs" />
     <Compile Include="Controllers\AccountControls\UpdateController.cs" />
