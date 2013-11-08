@@ -16,14 +16,22 @@ namespace PetSocietyWebServices
     [DataContract(IsReference = true)]
     public partial class PIN
     {
+         [DataMember(Order = 1)]
         public int PinID { get; set; }
+         [DataMember(Order = 2)]
         public int ImageID { get; set; }
+         [DataMember(Order = 3)]
         public string Type { get; set; }
-    
+
+         [DataMember(Order = 4)]
         public virtual EVENT EVENT { get; set; }
+         [DataMember(Order = 5)]
         public virtual IMAGE IMAGE { get; set; }
+         [DataMember(Order = 6)]
         public virtual LOCATION LOCATION { get; set; }
+         [DataMember(Order = 7)]
         public virtual PET PET { get; set; }
+         [DataMember(Order = 8)]
         public virtual USER USER { get; set; }
     }
 }

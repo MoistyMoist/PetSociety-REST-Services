@@ -3,6 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetSocietyWebServices", "PetSocietyWebServices\PetSocietyWebServices.csproj", "{8825814A-DDA6-4568-BCCB-B4AA1B253AB0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EBD6AFE7-2C0D-4F97-9115-FDA97EC60661}"
+	ProjectSection(SolutionItems) = preProject
+		Petsociety.azurewebsites.net.PublishSettings = Petsociety.azurewebsites.net.PublishSettings
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
