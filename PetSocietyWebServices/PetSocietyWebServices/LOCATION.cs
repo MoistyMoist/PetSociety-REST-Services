@@ -11,7 +11,10 @@ namespace PetSocietyWebServices
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
+    [Serializable]
+    [DataContract(IsReference = true)]
     public partial class LOCATION
     {
         public LOCATION()
@@ -20,21 +23,34 @@ namespace PetSocietyWebServices
             this.REVIEWs = new HashSet<REVIEW>();
             this.PINs = new HashSet<PIN>();
         }
-    
+        [DataMember(Order = 1)]
         public int LocationID { get; set; }
+        [DataMember(Order = 2)]
         public string X { get; set; }
+        [DataMember(Order = 3)]
         public string Y { get; set; }
+        [DataMember(Order = 4)]
         public string Description { get; set; }
+        [DataMember(Order = 5)]
         public string Title { get; set; }
+        [DataMember(Order = 6)]
         public string Address { get; set; }
+        [DataMember(Order = 7)]
         public string Type { get; set; }
+        [DataMember(Order = 8)]
         public string DateCreated { get; set; }
+        [DataMember(Order = 9)]
         public string TimeCreated { get; set; }
+        [DataMember(Order = 10)]
         public Nullable<int> PinID { get; set; }
+        [DataMember(Order = 11)]
         public int UserID { get; set; }
-    
+
+        [DataMember(Order = 12)]
         public virtual USER USER { get; set; }
+        [DataMember(Order = 13)]
         public virtual ICollection<PIN> PINs { get; set; }
+        [DataMember(Order = 14)]
         public virtual ICollection<REVIEW> REVIEWs { get; set; }
     }
 }
