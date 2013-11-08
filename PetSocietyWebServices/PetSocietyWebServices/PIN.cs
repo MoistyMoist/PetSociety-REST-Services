@@ -13,7 +13,7 @@ namespace PetSocietyWebServices
     using System.Collections.Generic;
     using System.Runtime.Serialization;
     [Serializable]
-    [DataContract(IsReference = true)]
+    [DataContract(IsReference = true)]gg
     public partial class PIN
     {
         public int PinID { get; set; }
