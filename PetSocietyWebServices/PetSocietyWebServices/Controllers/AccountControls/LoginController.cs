@@ -22,7 +22,7 @@ namespace PetSocietyWebServices.Controllers.AccountControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 // create an Entity Framework query
-                var query = from c in db.USERs
+                var query = from c in db.USERs.Include("Friend_List").Include("LOCATIONs")
                             where (c.Email.Equals(INemail) && c.Password.Equals(INpassword))
                             select c;
 
