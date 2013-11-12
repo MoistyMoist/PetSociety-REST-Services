@@ -12,21 +12,13 @@ namespace PetSocietyWebServices
     using System;
     using System.Collections.Generic;
     
-    public partial class LOST
+    public partial class FRIEND_LIST
     {
-        public int LostID { get; set; }
-        public string Time { get; set; }
-        public string Date { get; set; }
-        public string Address { get; set; }
-        public string Description { get; set; }
-        public string X { get; set; }
-        public string Y { get; set; }
-        public string Found { get; set; }
-        public string Reward { get; set; }
-        public Nullable<int> PetID { get; set; }
+        public int Firend_ListID { get; set; }
         public int UserID { get; set; }
+        public int FriendID { get; set; }
     
-        public virtual PET PET { get; set; }
         public virtual USER USER { get; set; }
+        public virtual USER USER1 { get; set; }
     }
 }

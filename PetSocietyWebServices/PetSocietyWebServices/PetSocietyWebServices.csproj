@@ -260,7 +260,7 @@
     <Compile Include="EVENT.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="FEED.cs">
+    <Compile Include="FRIEND_LIST.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="GALLERY.cs">
@@ -297,7 +297,6 @@
     <Compile Include="Models\AdvertModel.cs" />
     <Compile Include="Models\AttendeeModel.cs" />
     <Compile Include="Models\EventModel.cs" />
-    <Compile Include="Models\FeedModel.cs" />
     <Compile Include="Models\GalleryModel.cs" />
     <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Models\LocationModel.cs" />

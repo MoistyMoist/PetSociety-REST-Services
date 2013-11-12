@@ -29,7 +29,6 @@ namespace PetSocietyWebServices
         public DbSet<ADVERT> ADVERTs { get; set; }
         public DbSet<ATTENDEE> ATTENDEEs { get; set; }
         public DbSet<EVENT> EVENTs { get; set; }
-        public DbSet<FEED> FEEDs { get; set; }
         public DbSet<GALLERY> GALLERies { get; set; }
         public DbSet<IMAGE> IMAGEs { get; set; }
         public DbSet<LOCATION> LOCATIONs { get; set; }
@@ -39,5 +38,6 @@ namespace PetSocietyWebServices
         public DbSet<REVIEW> REVIEWs { get; set; }
         public DbSet<STRAY> STRAYs { get; set; }
         public DbSet<USER> USERs { get; set; }
+        public DbSet<FRIEND_LIST> FRIEND_LIST { get; set; }
     }
 }

@@ -9,7 +9,6 @@
         <EntityTypeShape EntityType="PetSocietyDBModel.ADVERT" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="PetSocietyDBModel.ATTENDEE" Width="1.5" PointX="12" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="PetSocietyDBModel.EVENT" Width="1.5" PointX="9.75" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="PetSocietyDBModel.FEED" Width="1.5" PointX="9.125" PointY="11.125" IsExpanded="true" />
         <EntityTypeShape EntityType="PetSocietyDBModel.IMAGE" Width="1.5" PointX="0.5" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="PetSocietyDBModel.LOCATION" Width="1.5" PointX="9.25" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="PetSocietyDBModel.LOST" Width="1.5" PointX="7.5" PointY="5.125" IsExpanded="true" />
@@ -38,6 +37,9 @@
         <AssociationConnector Association="PetSocietyDBModel.FK_IMAGE_0" />
         <AssociationConnector Association="PetSocietyDBModel.FK_PIN_3" />
         <AssociationConnector Association="PetSocietyDBModel.FK_PIN_4" />
+        <EntityTypeShape EntityType="PetSocietyDBModel.FRIEND_LIST" Width="1.5" PointX="0.75" PointY="17.75" />
+        <AssociationConnector Association="PetSocietyDBModel.FK_FRIEND_LIST_0" />
+        <AssociationConnector Association="PetSocietyDBModel.FK_FRIEND_LIST_1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
