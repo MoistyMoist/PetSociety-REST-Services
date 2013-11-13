@@ -19,6 +19,5 @@ namespace PetSocietyWebServices
         public int FriendID { get; set; }
     
         public virtual USER USER { get; set; }
-        public virtual USER USER1 { get; set; }
     }
 }

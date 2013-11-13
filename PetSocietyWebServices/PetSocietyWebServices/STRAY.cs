@@ -22,7 +22,7 @@ namespace PetSocietyWebServices
         public int StrayID { get; set; }
         public string X { get; set; }
         public string Y { get; set; }
-        public string Description { get; set; }
+        public string Biography { get; set; }
         public string Title { get; set; }
         public string TimeSeen { get; set; }
         public string DateSeen { get; set; }

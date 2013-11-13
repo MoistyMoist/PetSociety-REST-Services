@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="PetSocietyDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="PetSocietyDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="PetSocietyDBModelStoreContainer">
           <EntitySet Name="ACHIEVEMENT" EntityType="PetSocietyDBModel.Store.ACHIEVEMENT" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ADVERT" EntityType="PetSocietyDBModel.Store.ADVERT" store:Type="Tables" Schema="dbo" />
@@ -33,10 +33,6 @@
             <End Role="EVENT" EntitySet="EVENT" />
           </AssociationSet>
           <AssociationSet Name="FK_FRIEND_LIST_0" Association="PetSocietyDBModel.Store.FK_FRIEND_LIST_0">
-            <End Role="USER" EntitySet="USER" />
-            <End Role="FRIEND_LIST" EntitySet="FRIEND_LIST" />
-          </AssociationSet>
-          <AssociationSet Name="FK_FRIEND_LIST_1" Association="PetSocietyDBModel.Store.FK_FRIEND_LIST_1">
             <End Role="USER" EntitySet="USER" />
             <End Role="FRIEND_LIST" EntitySet="FRIEND_LIST" />
           </AssociationSet>
@@ -258,7 +254,7 @@
           <Property Name="StrayID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="X" Type="varchar(max)" Nullable="false" />
           <Property Name="Y" Type="varchar(max)" Nullable="false" />
-          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="Biography" Type="varchar(max)" />
           <Property Name="Title" Type="varchar(max)" />
           <Property Name="TimeSeen" Type="varchar(max)" />
           <Property Name="DateSeen" Type="varchar(max)" />
@@ -333,18 +329,6 @@
             </Principal>
             <Dependent Role="FRIEND_LIST">
               <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_FRIEND_LIST_1">
-          <End Role="USER" Type="PetSocietyDBModel.Store.USER" Multiplicity="1" />
-          <End Role="FRIEND_LIST" Type="PetSocietyDBModel.Store.FRIEND_LIST" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="USER">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="FRIEND_LIST">
-              <PropertyRef Name="FriendID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -540,7 +524,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PetSocietyDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -549,6 +534,7 @@
           <EntitySet Name="ADVERTs" EntityType="PetSocietyDBModel.ADVERT" />
           <EntitySet Name="ATTENDEEs" EntityType="PetSocietyDBModel.ATTENDEE" />
           <EntitySet Name="EVENTs" EntityType="PetSocietyDBModel.EVENT" />
+          <EntitySet Name="FRIEND_LIST" EntityType="PetSocietyDBModel.FRIEND_LIST" />
           <EntitySet Name="GALLERies" EntityType="PetSocietyDBModel.GALLERY" />
           <EntitySet Name="IMAGEs" EntityType="PetSocietyDBModel.IMAGE" />
           <EntitySet Name="LOCATIONs" EntityType="PetSocietyDBModel.LOCATION" />
@@ -570,6 +556,14 @@
             <End Role="USER" EntitySet="USERs" />
             <End Role="EVENT" EntitySet="EVENTs" />
           </AssociationSet>
+          <AssociationSet Name="FK_PIN_3" Association="PetSocietyDBModel.FK_PIN_3">
+            <End Role="EVENT" EntitySet="EVENTs" />
+            <End Role="PIN" EntitySet="PINs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FRIEND_LIST_0" Association="PetSocietyDBModel.FK_FRIEND_LIST_0">
+            <End Role="USER" EntitySet="USERs" />
+            <End Role="FRIEND_LIST" EntitySet="FRIEND_LIST" />
+          </AssociationSet>
           <AssociationSet Name="FK_GALLERY_0" Association="PetSocietyDBModel.FK_GALLERY_0">
             <End Role="USER" EntitySet="USERs" />
             <End Role="GALLERY" EntitySet="GALLERies" />
@@ -589,6 +583,10 @@
           <AssociationSet Name="FK_LOCATION_0" Association="PetSocietyDBModel.FK_LOCATION_0">
             <End Role="USER" EntitySet="USERs" />
             <End Role="LOCATION" EntitySet="LOCATIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PIN_4" Association="PetSocietyDBModel.FK_PIN_4">
+            <End Role="LOCATION" EntitySet="LOCATIONs" />
+            <End Role="PIN" EntitySet="PINs" />
           </AssociationSet>
           <AssociationSet Name="FK_REVIEW_0" Association="PetSocietyDBModel.FK_REVIEW_0">
             <End Role="LOCATION" EntitySet="LOCATIONs" />
@@ -625,23 +623,6 @@
           <AssociationSet Name="FK_STRAY_0" Association="PetSocietyDBModel.FK_STRAY_0">
             <End Role="USER" EntitySet="USERs" />
             <End Role="STRAY" EntitySet="STRAYs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PIN_3" Association="PetSocietyDBModel.FK_PIN_3">
-            <End Role="EVENT" EntitySet="EVENTs" />
-            <End Role="PIN" EntitySet="PINs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PIN_4" Association="PetSocietyDBModel.FK_PIN_4">
-            <End Role="LOCATION" EntitySet="LOCATIONs" />
-            <End Role="PIN" EntitySet="PINs" />
-          </AssociationSet>
-          <EntitySet Name="FRIEND_LIST" EntityType="PetSocietyDBModel.FRIEND_LIST" />
-          <AssociationSet Name="FK_FRIEND_LIST_0" Association="PetSocietyDBModel.FK_FRIEND_LIST_0">
-            <End Role="USER" EntitySet="USERs" />
-            <End Role="FRIEND_LIST" EntitySet="FRIEND_LIST" />
-          </AssociationSet>
-          <AssociationSet Name="FK_FRIEND_LIST_1" Association="PetSocietyDBModel.FK_FRIEND_LIST_1">
-            <End Role="USER" EntitySet="USERs" />
-            <End Role="FRIEND_LIST" EntitySet="FRIEND_LIST" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="ACHIEVEMENT">
@@ -697,6 +678,15 @@
           <NavigationProperty Name="USER" Relationship="PetSocietyDBModel.FK_EVENT_0" FromRole="EVENT" ToRole="USER" />
           <NavigationProperty Name="PINs" Relationship="PetSocietyDBModel.FK_PIN_3" FromRole="EVENT" ToRole="PIN" />
         </EntityType>
+        <EntityType Name="FRIEND_LIST">
+          <Key>
+            <PropertyRef Name="Firend_ListID" />
+          </Key>
+          <Property Name="Firend_ListID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="FriendID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="USER" Relationship="PetSocietyDBModel.FK_FRIEND_LIST_0" FromRole="FRIEND_LIST" ToRole="USER" />
+        </EntityType>
         <EntityType Name="GALLERY">
           <Key>
             <PropertyRef Name="GalleryID" />
@@ -737,8 +727,8 @@
           <Property Name="PinID" Type="Int32" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="USER" Relationship="PetSocietyDBModel.FK_LOCATION_0" FromRole="LOCATION" ToRole="USER" />
-          <NavigationProperty Name="REVIEWs" Relationship="PetSocietyDBModel.FK_REVIEW_0" FromRole="LOCATION" ToRole="REVIEW" />
           <NavigationProperty Name="PINs" Relationship="PetSocietyDBModel.FK_PIN_4" FromRole="LOCATION" ToRole="PIN" />
+          <NavigationProperty Name="REVIEWs" Relationship="PetSocietyDBModel.FK_REVIEW_0" FromRole="LOCATION" ToRole="REVIEW" />
         </EntityType>
         <EntityType Name="LOST">
           <Key>
@@ -784,12 +774,12 @@
           </Key>
           <Property Name="PinID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="ImageID" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="EVENT" Relationship="PetSocietyDBModel.FK_PIN_3" FromRole="PIN" ToRole="EVENT" />
           <NavigationProperty Name="IMAGE" Relationship="PetSocietyDBModel.FK_PIN_2" FromRole="PIN" ToRole="IMAGE" />
+          <NavigationProperty Name="LOCATION" Relationship="PetSocietyDBModel.FK_PIN_4" FromRole="PIN" ToRole="LOCATION" />
           <NavigationProperty Name="PET" Relationship="PetSocietyDBModel.FK_PIN_1" FromRole="PIN" ToRole="PET" />
           <NavigationProperty Name="USER" Relationship="PetSocietyDBModel.FK_PIN_0" FromRole="PIN" ToRole="USER" />
-          <NavigationProperty Name="EVENT" Relationship="PetSocietyDBModel.FK_PIN_3" FromRole="PIN" ToRole="EVENT" />
-          <NavigationProperty Name="LOCATION" Relationship="PetSocietyDBModel.FK_PIN_4" FromRole="PIN" ToRole="LOCATION" />
-          <Property Type="String" Name="Type" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="REVIEW">
           <Key>
@@ -816,7 +806,7 @@
           <Property Name="StrayID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="X" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="Y" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
-          <Property Name="Description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Biography" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="Title" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="TimeSeen" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="DateSeen" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
@@ -849,6 +839,7 @@
           <Property Name="ProfileImageID" Type="Int32" />
           <NavigationProperty Name="ATTENDEEs" Relationship="PetSocietyDBModel.FK_ATTENDEE_1" FromRole="USER" ToRole="ATTENDEE" />
           <NavigationProperty Name="EVENTs" Relationship="PetSocietyDBModel.FK_EVENT_0" FromRole="USER" ToRole="EVENT" />
+          <NavigationProperty Name="FRIEND_LIST" Relationship="PetSocietyDBModel.FK_FRIEND_LIST_0" FromRole="USER" ToRole="FRIEND_LIST" />
           <NavigationProperty Name="GALLERies" Relationship="PetSocietyDBModel.FK_GALLERY_0" FromRole="USER" ToRole="GALLERY" />
           <NavigationProperty Name="LOCATIONs" Relationship="PetSocietyDBModel.FK_LOCATION_0" FromRole="USER" ToRole="LOCATION" />
           <NavigationProperty Name="LOSTs" Relationship="PetSocietyDBModel.FK_LOST_1" FromRole="USER" ToRole="LOST" />
@@ -856,8 +847,6 @@
           <NavigationProperty Name="PINs" Relationship="PetSocietyDBModel.FK_PIN_0" FromRole="USER" ToRole="PIN" />
           <NavigationProperty Name="REVIEWs" Relationship="PetSocietyDBModel.FK_REVIEW_1" FromRole="USER" ToRole="REVIEW" />
           <NavigationProperty Name="STRAYs" Relationship="PetSocietyDBModel.FK_STRAY_0" FromRole="USER" ToRole="STRAY" />
-          <NavigationProperty Name="FRIEND_LIST" Relationship="PetSocietyDBModel.FK_FRIEND_LIST_0" FromRole="USER" ToRole="FRIEND_LIST" />
-          <NavigationProperty Name="FRIEND_LIST1" Relationship="PetSocietyDBModel.FK_FRIEND_LIST_1" FromRole="USER" ToRole="FRIEND_LIST" />
         </EntityType>
         <Association Name="FK_ATTENDEE_0">
           <End Role="EVENT" Type="PetSocietyDBModel.EVENT" Multiplicity="1" />
@@ -891,6 +880,30 @@
               <PropertyRef Name="UserID" />
             </Principal>
             <Dependent Role="EVENT">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PIN_3">
+          <End Role="EVENT" Type="PetSocietyDBModel.EVENT" Multiplicity="1" />
+          <End Role="PIN" Type="PetSocietyDBModel.PIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVENT">
+              <PropertyRef Name="EventID" />
+            </Principal>
+            <Dependent Role="PIN">
+              <PropertyRef Name="PinID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FRIEND_LIST_0">
+          <End Role="USER" Type="PetSocietyDBModel.USER" Multiplicity="1" />
+          <End Role="FRIEND_LIST" Type="PetSocietyDBModel.FRIEND_LIST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="FRIEND_LIST">
               <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
@@ -952,6 +965,18 @@
             </Principal>
             <Dependent Role="LOCATION">
               <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PIN_4">
+          <End Role="LOCATION" Type="PetSocietyDBModel.LOCATION" Multiplicity="1" />
+          <End Role="PIN" Type="PetSocietyDBModel.PIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOCATION">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="PIN">
+              <PropertyRef Name="PinID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1063,64 +1088,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PIN_3">
-          <End Type="PetSocietyDBModel.EVENT" Role="EVENT" Multiplicity="1" />
-          <End Type="PetSocietyDBModel.PIN" Role="PIN" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EVENT">
-              <PropertyRef Name="EventID" />
-            </Principal>
-            <Dependent Role="PIN">
-              <PropertyRef Name="PinID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PIN_4">
-          <End Type="PetSocietyDBModel.LOCATION" Role="LOCATION" Multiplicity="1" />
-          <End Type="PetSocietyDBModel.PIN" Role="PIN" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LOCATION">
-              <PropertyRef Name="LocationID" />
-            </Principal>
-            <Dependent Role="PIN">
-              <PropertyRef Name="PinID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="FRIEND_LIST">
-          <Key>
-            <PropertyRef Name="Firend_ListID" />
-          </Key>
-          <Property Type="Int32" Name="Firend_ListID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="UserID" Nullable="false" />
-          <Property Type="Int32" Name="FriendID" Nullable="false" />
-          <NavigationProperty Name="USER" Relationship="PetSocietyDBModel.FK_FRIEND_LIST_0" FromRole="FRIEND_LIST" ToRole="USER" />
-          <NavigationProperty Name="USER1" Relationship="PetSocietyDBModel.FK_FRIEND_LIST_1" FromRole="FRIEND_LIST" ToRole="USER" />
-        </EntityType>
-        <Association Name="FK_FRIEND_LIST_0">
-          <End Type="PetSocietyDBModel.USER" Role="USER" Multiplicity="1" />
-          <End Type="PetSocietyDBModel.FRIEND_LIST" Role="FRIEND_LIST" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="USER">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="FRIEND_LIST">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_FRIEND_LIST_1">
-          <End Type="PetSocietyDBModel.USER" Role="USER" Multiplicity="1" />
-          <End Type="PetSocietyDBModel.FRIEND_LIST" Role="FRIEND_LIST" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="USER">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="FRIEND_LIST">
-              <PropertyRef Name="FriendID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1176,6 +1143,15 @@
                 <ScalarProperty Name="Privacy" ColumnName="Privacy" />
                 <ScalarProperty Name="PinID" ColumnName="PinID" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FRIEND_LIST">
+            <EntityTypeMapping TypeName="PetSocietyDBModel.FRIEND_LIST">
+              <MappingFragment StoreEntitySet="FRIEND_LIST">
+                <ScalarProperty Name="Firend_ListID" ColumnName="Firend_ListID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FriendID" ColumnName="FriendID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1253,9 +1229,9 @@
           <EntitySetMapping Name="PINs">
             <EntityTypeMapping TypeName="PetSocietyDBModel.PIN">
               <MappingFragment StoreEntitySet="PIN">
-                <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="PinID" ColumnName="PinID" />
                 <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1281,7 +1257,7 @@
                 <ScalarProperty Name="StrayID" ColumnName="StrayID" />
                 <ScalarProperty Name="X" ColumnName="X" />
                 <ScalarProperty Name="Y" ColumnName="Y" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Biography" ColumnName="Biography" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="TimeSeen" ColumnName="TimeSeen" />
                 <ScalarProperty Name="DateSeen" ColumnName="DateSeen" />
@@ -1311,15 +1287,6 @@
                 <ScalarProperty Name="X" ColumnName="X" />
                 <ScalarProperty Name="Y" ColumnName="Y" />
                 <ScalarProperty Name="ProfileImageID" ColumnName="ProfileImageID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="FRIEND_LIST">
-            <EntityTypeMapping TypeName="PetSocietyDBModel.FRIEND_LIST">
-              <MappingFragment StoreEntitySet="FRIEND_LIST">
-                <ScalarProperty Name="FriendID" ColumnName="FriendID" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="Firend_ListID" ColumnName="Firend_ListID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
