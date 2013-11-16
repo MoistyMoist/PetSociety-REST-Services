@@ -236,6 +236,7 @@
     <Compile Include="ATTENDEE.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AccountControls\AddPetController.cs" />
     <Compile Include="Controllers\AccountControls\ForgetPassController.cs" />
     <Compile Include="Controllers\AccountControls\LoginController.cs" />
     <Compile Include="Controllers\AccountControls\RegisterController.cs" />
@@ -256,6 +257,7 @@
     <Compile Include="Controllers\LostControls\ReportLostController.cs" />
     <Compile Include="Controllers\MisanalousControls\CreateFeedController.cs" />
     <Compile Include="Controllers\MisanalousControls\RetrieveFeedsController.cs" />
+    <Compile Include="Controllers\AccountControls\UpdatePetController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="EVENT.cs">
       <DependentUpon>Model.tt</DependentUpon>
