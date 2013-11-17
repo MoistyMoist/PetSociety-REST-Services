@@ -47,6 +47,9 @@ namespace PetSocietyWebServices.Controllers.AccountControls
 
                if (token.Equals("token"))
                {
+
+                   //check email
+
                    query.Add(newUser);
                    try
                    {
