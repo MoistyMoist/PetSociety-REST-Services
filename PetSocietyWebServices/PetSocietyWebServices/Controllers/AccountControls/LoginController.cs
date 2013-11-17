@@ -15,6 +15,7 @@ namespace PetSocietyWebServices.Controllers.AccountControls
     {
        
         // GET api/login/
+        [HttpGet]
         public UserModel Get(string token, string INemail, string INpassword)
         {
 
