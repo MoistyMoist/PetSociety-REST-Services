@@ -4,17 +4,19 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PetSocietyDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PetSocietyDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="PetSocietyDBModelStoreContainer">
           <EntitySet Name="ACHIEVEMENT" EntityType="PetSocietyDBModel.Store.ACHIEVEMENT" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ADVERT" EntityType="PetSocietyDBModel.Store.ADVERT" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ATTENDEE" EntityType="PetSocietyDBModel.Store.ATTENDEE" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="EVENT" EntityType="PetSocietyDBModel.Store.EVENT" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="FRIEND_LIST" EntityType="PetSocietyDBModel.Store.FRIEND_LIST" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FRIEND_REQUEST" EntityType="PetSocietyDBModel.Store.FRIEND_REQUEST" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="GALLERY" EntityType="PetSocietyDBModel.Store.GALLERY" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="IMAGE" EntityType="PetSocietyDBModel.Store.IMAGE" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="LOCATION" EntityType="PetSocietyDBModel.Store.LOCATION" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="LOST" EntityType="PetSocietyDBModel.Store.LOST" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ORGANIZATION" EntityType="PetSocietyDBModel.Store.ORGANIZATION" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PET" EntityType="PetSocietyDBModel.Store.PET" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PIN" EntityType="PetSocietyDBModel.Store.PIN" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="REVIEW" EntityType="PetSocietyDBModel.Store.REVIEW" store:Type="Tables" Schema="dbo" />
@@ -35,6 +37,10 @@
           <AssociationSet Name="FK_FRIEND_LIST_0" Association="PetSocietyDBModel.Store.FK_FRIEND_LIST_0">
             <End Role="USER" EntitySet="USER" />
             <End Role="FRIEND_LIST" EntitySet="FRIEND_LIST" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FRIEND_REQUEST_0" Association="PetSocietyDBModel.Store.FK_FRIEND_REQUEST_0">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="FRIEND_REQUEST" EntitySet="FRIEND_REQUEST" />
           </AssociationSet>
           <AssociationSet Name="FK_GALLERY_0" Association="PetSocietyDBModel.Store.FK_GALLERY_0">
             <End Role="USER" EntitySet="USER" />
@@ -116,7 +122,7 @@
             <PropertyRef Name="AdvertID" />
           </Key>
           <Property Name="AdvertID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="OrganizationID" Type="int" Nullable="false" />
           <Property Name="Title" Type="varchar(max)" Nullable="false" />
           <Property Name="Description" Type="varchar(max)" />
           <Property Name="DateCreated" Type="varchar(max)" />
@@ -154,6 +160,15 @@
             <PropertyRef Name="Firend_ListID" />
           </Key>
           <Property Name="Firend_ListID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="FriendID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FRIEND_REQUEST">
+          <Key>
+            <PropertyRef Name="Friend_RequestID" />
+          </Key>
+          <Property Name="Friend_RequestID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Accepted" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="FriendID" Type="int" Nullable="false" />
         </EntityType>
@@ -207,6 +222,18 @@
           <Property Name="Reward" Type="varchar(max)" />
           <Property Name="PetID" Type="int" />
           <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="ORGANIZATION">
+          <Key>
+            <PropertyRef Name="OrganizationID" />
+          </Key>
+          <Property Name="OrganizationID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar(max)" Nullable="false" />
+          <Property Name="Description" Type="varchar(max)" Nullable="false" />
+          <Property Name="Email" Type="varchar(max)" Nullable="false" />
+          <Property Name="password" Type="varchar(max)" Nullable="false" />
+          <Property Name="ImageID" Type="int" />
         </EntityType>
         <EntityType Name="PET">
           <Key>
@@ -222,6 +249,7 @@
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="PinID" Type="int" />
           <Property Name="ProfileImageID" Type="int" />
+          <Property Name="DateCreated" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="PIN">
           <Key>
@@ -271,14 +299,14 @@
           </Key>
           <Property Name="UserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="varchar(max)" Nullable="false" />
-          <Property Name="Email" Type="varchar(max)" />
+          <Property Name="Email" Type="varchar(max)" Nullable="false" />
           <Property Name="Birthday" Type="varchar(max)" />
           <Property Name="Password" Type="varchar(max)" Nullable="false" />
           <Property Name="Address" Type="varchar(max)" />
           <Property Name="Biography" Type="varchar(max)" />
-          <Property Name="Privicy" Type="varchar" MaxLength="1" />
-          <Property Name="Sex" Type="varchar" Nullable="false" MaxLength="1" />
-          <Property Name="Contact" Type="varchar" MaxLength="8" />
+          <Property Name="Privicy" Type="varchar" Nullable="false" MaxLength="1" />
+          <Property Name="Sex" Type="varchar(max)" Nullable="false" />
+          <Property Name="Contact" Type="varchar(max)" />
           <Property Name="Credibility" Type="varchar(max)" Nullable="false" />
           <Property Name="X" Type="varchar(max)" />
           <Property Name="Y" Type="varchar(max)" />
@@ -328,6 +356,18 @@
               <PropertyRef Name="UserID" />
             </Principal>
             <Dependent Role="FRIEND_LIST">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FRIEND_REQUEST_0">
+          <End Role="USER" Type="PetSocietyDBModel.Store.USER" Multiplicity="1" />
+          <End Role="FRIEND_REQUEST" Type="PetSocietyDBModel.Store.FRIEND_REQUEST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="FRIEND_REQUEST">
               <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
@@ -524,8 +564,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PetSocietyDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -535,10 +574,12 @@
           <EntitySet Name="ATTENDEEs" EntityType="PetSocietyDBModel.ATTENDEE" />
           <EntitySet Name="EVENTs" EntityType="PetSocietyDBModel.EVENT" />
           <EntitySet Name="FRIEND_LIST" EntityType="PetSocietyDBModel.FRIEND_LIST" />
+          <EntitySet Name="FRIEND_REQUEST" EntityType="PetSocietyDBModel.FRIEND_REQUEST" />
           <EntitySet Name="GALLERies" EntityType="PetSocietyDBModel.GALLERY" />
           <EntitySet Name="IMAGEs" EntityType="PetSocietyDBModel.IMAGE" />
           <EntitySet Name="LOCATIONs" EntityType="PetSocietyDBModel.LOCATION" />
           <EntitySet Name="LOSTs" EntityType="PetSocietyDBModel.LOST" />
+          <EntitySet Name="ORGANIZATIONs" EntityType="PetSocietyDBModel.ORGANIZATION" />
           <EntitySet Name="PETs" EntityType="PetSocietyDBModel.PET" />
           <EntitySet Name="PINs" EntityType="PetSocietyDBModel.PIN" />
           <EntitySet Name="REVIEWs" EntityType="PetSocietyDBModel.REVIEW" />
@@ -563,6 +604,10 @@
           <AssociationSet Name="FK_FRIEND_LIST_0" Association="PetSocietyDBModel.FK_FRIEND_LIST_0">
             <End Role="USER" EntitySet="USERs" />
             <End Role="FRIEND_LIST" EntitySet="FRIEND_LIST" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FRIEND_REQUEST_0" Association="PetSocietyDBModel.FK_FRIEND_REQUEST_0">
+            <End Role="USER" EntitySet="USERs" />
+            <End Role="FRIEND_REQUEST" EntitySet="FRIEND_REQUEST" />
           </AssociationSet>
           <AssociationSet Name="FK_GALLERY_0" Association="PetSocietyDBModel.FK_GALLERY_0">
             <End Role="USER" EntitySet="USERs" />
@@ -640,7 +685,7 @@
             <PropertyRef Name="AdvertID" />
           </Key>
           <Property Name="AdvertID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="OrganizationID" Type="Int32" Nullable="false" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="Description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="DateCreated" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
@@ -686,6 +731,16 @@
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="FriendID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="USER" Relationship="PetSocietyDBModel.FK_FRIEND_LIST_0" FromRole="FRIEND_LIST" ToRole="USER" />
+        </EntityType>
+        <EntityType Name="FRIEND_REQUEST">
+          <Key>
+            <PropertyRef Name="Friend_RequestID" />
+          </Key>
+          <Property Name="Friend_RequestID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Accepted" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="FriendID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="USER" Relationship="PetSocietyDBModel.FK_FRIEND_REQUEST_0" FromRole="FRIEND_REQUEST" ToRole="USER" />
         </EntityType>
         <EntityType Name="GALLERY">
           <Key>
@@ -747,6 +802,18 @@
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="PET" Relationship="PetSocietyDBModel.FK_LOST_0" FromRole="LOST" ToRole="PET" />
           <NavigationProperty Name="USER" Relationship="PetSocietyDBModel.FK_LOST_1" FromRole="LOST" ToRole="USER" />
+          <Property Type="String" Name="DateCreated" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ORGANIZATION">
+          <Key>
+            <PropertyRef Name="OrganizationID" />
+          </Key>
+          <Property Name="OrganizationID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="ImageID" Type="Int32" />
         </EntityType>
         <EntityType Name="PET">
           <Key>
@@ -762,6 +829,7 @@
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="PinID" Type="Int32" />
           <Property Name="ProfileImageID" Type="Int32" />
+          <Property Name="DateCreated" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="GALLERies" Relationship="PetSocietyDBModel.FK_GALLERY_1" FromRole="PET" ToRole="GALLERY" />
           <NavigationProperty Name="LOSTs" Relationship="PetSocietyDBModel.FK_LOST_0" FromRole="PET" ToRole="LOST" />
           <NavigationProperty Name="USER" Relationship="PetSocietyDBModel.FK_PET_0" FromRole="PET" ToRole="USER" />
@@ -825,14 +893,14 @@
           </Key>
           <Property Name="UserID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
-          <Property Name="Email" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="Birthday" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="Address" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="Biography" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
-          <Property Name="Privicy" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
-          <Property Name="Sex" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="false" />
-          <Property Name="Contact" Type="String" MaxLength="8" Unicode="false" FixedLength="false" />
+          <Property Name="Privicy" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="Sex" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Contact" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="Credibility" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="X" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="Y" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
@@ -840,6 +908,7 @@
           <NavigationProperty Name="ATTENDEEs" Relationship="PetSocietyDBModel.FK_ATTENDEE_1" FromRole="USER" ToRole="ATTENDEE" />
           <NavigationProperty Name="EVENTs" Relationship="PetSocietyDBModel.FK_EVENT_0" FromRole="USER" ToRole="EVENT" />
           <NavigationProperty Name="FRIEND_LIST" Relationship="PetSocietyDBModel.FK_FRIEND_LIST_0" FromRole="USER" ToRole="FRIEND_LIST" />
+          <NavigationProperty Name="FRIEND_REQUEST" Relationship="PetSocietyDBModel.FK_FRIEND_REQUEST_0" FromRole="USER" ToRole="FRIEND_REQUEST" />
           <NavigationProperty Name="GALLERies" Relationship="PetSocietyDBModel.FK_GALLERY_0" FromRole="USER" ToRole="GALLERY" />
           <NavigationProperty Name="LOCATIONs" Relationship="PetSocietyDBModel.FK_LOCATION_0" FromRole="USER" ToRole="LOCATION" />
           <NavigationProperty Name="LOSTs" Relationship="PetSocietyDBModel.FK_LOST_1" FromRole="USER" ToRole="LOST" />
@@ -904,6 +973,18 @@
               <PropertyRef Name="UserID" />
             </Principal>
             <Dependent Role="FRIEND_LIST">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FRIEND_REQUEST_0">
+          <End Role="USER" Type="PetSocietyDBModel.USER" Multiplicity="1" />
+          <End Role="FRIEND_REQUEST" Type="PetSocietyDBModel.FRIEND_REQUEST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="FRIEND_REQUEST">
               <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
@@ -1109,7 +1190,7 @@
             <EntityTypeMapping TypeName="PetSocietyDBModel.ADVERT">
               <MappingFragment StoreEntitySet="ADVERT">
                 <ScalarProperty Name="AdvertID" ColumnName="AdvertID" />
-                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="OrganizationID" ColumnName="OrganizationID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
@@ -1150,6 +1231,16 @@
             <EntityTypeMapping TypeName="PetSocietyDBModel.FRIEND_LIST">
               <MappingFragment StoreEntitySet="FRIEND_LIST">
                 <ScalarProperty Name="Firend_ListID" ColumnName="Firend_ListID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FriendID" ColumnName="FriendID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FRIEND_REQUEST">
+            <EntityTypeMapping TypeName="PetSocietyDBModel.FRIEND_REQUEST">
+              <MappingFragment StoreEntitySet="FRIEND_REQUEST">
+                <ScalarProperty Name="Friend_RequestID" ColumnName="Friend_RequestID" />
+                <ScalarProperty Name="Accepted" ColumnName="Accepted" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="FriendID" ColumnName="FriendID" />
               </MappingFragment>
@@ -1196,6 +1287,7 @@
           <EntitySetMapping Name="LOSTs">
             <EntityTypeMapping TypeName="PetSocietyDBModel.LOST">
               <MappingFragment StoreEntitySet="LOST">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
                 <ScalarProperty Name="LostID" ColumnName="LostID" />
                 <ScalarProperty Name="Time" ColumnName="Time" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
@@ -1207,6 +1299,18 @@
                 <ScalarProperty Name="Reward" ColumnName="Reward" />
                 <ScalarProperty Name="PetID" ColumnName="PetID" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORGANIZATIONs">
+            <EntityTypeMapping TypeName="PetSocietyDBModel.ORGANIZATION">
+              <MappingFragment StoreEntitySet="ORGANIZATION">
+                <ScalarProperty Name="OrganizationID" ColumnName="OrganizationID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="ImageID" ColumnName="ImageID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1223,6 +1327,7 @@
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="PinID" ColumnName="PinID" />
                 <ScalarProperty Name="ProfileImageID" ColumnName="ProfileImageID" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -11,9 +11,7 @@ namespace PetSocietyWebServices
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
-
-    [DataContract(IsReference = true)]
+    
     public partial class GALLERY
     {
         public GALLERY()

@@ -12,12 +12,13 @@ namespace PetSocietyWebServices
     using System;
     using System.Collections.Generic;
     
-    public partial class ACHIEVEMENT
+    public partial class ORGANIZATION
     {
-        public int AchievementID { get; set; }
-        public byte[] Title { get; set; }
-        public string Type { get; set; }
-        public string Rank { get; set; }
-        public string Condition { get; set; }
+        public int OrganizationID { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string Email { get; set; }
+        public string password { get; set; }
+        public Nullable<int> ImageID { get; set; }
     }
 }

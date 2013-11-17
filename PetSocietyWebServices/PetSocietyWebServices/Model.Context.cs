@@ -30,10 +30,12 @@ namespace PetSocietyWebServices
         public DbSet<ATTENDEE> ATTENDEEs { get; set; }
         public DbSet<EVENT> EVENTs { get; set; }
         public DbSet<FRIEND_LIST> FRIEND_LIST { get; set; }
+        public DbSet<FRIEND_REQUEST> FRIEND_REQUEST { get; set; }
         public DbSet<GALLERY> GALLERies { get; set; }
         public DbSet<IMAGE> IMAGEs { get; set; }
         public DbSet<LOCATION> LOCATIONs { get; set; }
         public DbSet<LOST> LOSTs { get; set; }
+        public DbSet<ORGANIZATION> ORGANIZATIONs { get; set; }
         public DbSet<PET> PETs { get; set; }
         public DbSet<PIN> PINs { get; set; }
         public DbSet<REVIEW> REVIEWs { get; set; }

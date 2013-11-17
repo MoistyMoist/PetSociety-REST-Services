@@ -11,9 +11,7 @@ namespace PetSocietyWebServices
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
-
-    [DataContract(IsReference = true)]
+    
     public partial class LOST
     {
         public int LostID { get; set; }
@@ -27,6 +25,7 @@ namespace PetSocietyWebServices
         public string Reward { get; set; }
         public Nullable<int> PetID { get; set; }
         public int UserID { get; set; }
+        public string DateCreated { get; set; }
     
         public virtual PET PET { get; set; }
         public virtual USER USER { get; set; }

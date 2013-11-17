@@ -11,13 +11,11 @@ namespace PetSocietyWebServices
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
-
-    [DataContract(IsReference = true)]
+    
     public partial class ADVERT
     {
         public int AdvertID { get; set; }
-        public int CompanyID { get; set; }
+        public int OrganizationID { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string DateCreated { get; set; }

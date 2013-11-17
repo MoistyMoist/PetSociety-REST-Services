@@ -13,21 +13,18 @@ namespace PetSocietyWebServices.Controllers.AccountControls
 {
     public class LoginController : ApiController
     {
-       
-        // GET api/login/
         [HttpGet]
         public UserModel Get(string token, string INemail, string INpassword)
         {
-
             using (PetSocietyDBEntities db = new PetSocietyDBEntities())
             {
                 db.Configuration.LazyLoadingEnabled = false;
-                // create an Entity Framework query
+                //LOAD THE QUERY
                 var query = from c in db.USERs.Include("Friend_List").Include("LOCATIONs")
                             where (c.Email.Equals(INemail) && c.Password.Equals(INpassword))
                             select c;
 
-                // execute query and return a list of customer objects
+                //CONVERT THE RESULT TO A LIST
                 List<USER> OUTusers = query.ToList();
                 if(token.Equals("token"))
                 {

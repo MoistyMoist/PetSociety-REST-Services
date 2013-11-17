@@ -266,6 +266,9 @@
     <Compile Include="FRIEND_LIST.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="FRIEND_REQUEST.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="GALLERY.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -309,6 +312,9 @@
     <Compile Include="Models\ReviewModel.cs" />
     <Compile Include="Models\StrayModel.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="ORGANIZATION.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="PET.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

@@ -17,20 +17,17 @@ namespace PetSocietyWebServices.Controllers.AccountControls
        [HttpGet]
        public UserModel RegisterUser(String token,String INname, String INemail, String INbirthday, String INpassword, String INaddress, String INbiography, String INprivicy, String INsex, String INcontact, String INx, String INy)
        {
-
            using (PetSocietyDBEntities db = new PetSocietyDBEntities())
            {
                int result = 0;
                List<string> errors = new List<string>();
                db.Configuration.LazyLoadingEnabled = false;
                db.Configuration.ProxyCreationEnabled = false;
-               // create an Entity Framework query
-
+               //LOAD THE QUERY
                var query = db.USERs;
                List<USER> OUTusers = query.ToList();
 
-               //create the new user object
-
+               //CREATING THE USER OBJECT
                USER newUser = new USER();
                newUser.Name = INname;
                newUser.Email = INemail;
@@ -47,14 +44,10 @@ namespace PetSocietyWebServices.Controllers.AccountControls
 
                if (token.Equals("token"))
                {
-
-                   //check email
-
                    query.Add(newUser);
                    try
                    {
                        result = db.SaveChanges();
-
                    }
                    catch (DbEntityValidationException dbEx)
                    {
@@ -69,8 +62,8 @@ namespace PetSocietyWebServices.Controllers.AccountControls
                            }
                        }
                    }
-                   //if fail to add ew user
-                   if(result==0)
+                   //IF SOME ERROR HAPPENDS
+                   if (result == 0)
                    {
                        UserModel model = new UserModel();
                        model.Status = 1;
@@ -78,16 +71,16 @@ namespace PetSocietyWebServices.Controllers.AccountControls
                        model.ErrorList = errors;
                        model.Data = null;
                        return model;
-                    }
-                    else
-                    {
-                        UserModel model = new UserModel();
-                        model.Status = 0;
-                        model.Message = "Registeration Successfull";
-                        model.ErrorList = errors;
-                        model.Data = new List<USER> { newUser};
-                        return model;
-                    }
+                   }
+                   else
+                   {
+                       UserModel model = new UserModel();
+                       model.Status = 0;
+                       model.Message = "Registeration Successfull";
+                       model.ErrorList = errors;
+                       model.Data = new List<USER> { newUser };
+                       return model;
+                   }
                }
                else
                {
@@ -96,10 +89,7 @@ namespace PetSocietyWebServices.Controllers.AccountControls
                    model.Message = "Token error, invalid token";
                    return model;
                }
-
            }
-
        }
-
     }
 }
