@@ -4,36 +4,21 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using MySql.Data.MySqlClient;
+using System.Configuration;
+using System.Net.Mail;
+using System.Data.Entity.Validation;
+using PetSocietyWebServices.Models;
+
 
 namespace PetSocietyWebServices.Controllers
 {
     public class UpdatePetController : ApiController
     {
-        // GET api/updatepet
-        public IEnumerable<string> Get()
+        [HttpGet]
+        public PetModel UpdatePet(String token, int INpetID)
         {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/updatepet/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/updatepet
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/updatepet/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/updatepet/5
-        public void Delete(int id)
-        {
+            return new PetModel();
         }
     }
 }
