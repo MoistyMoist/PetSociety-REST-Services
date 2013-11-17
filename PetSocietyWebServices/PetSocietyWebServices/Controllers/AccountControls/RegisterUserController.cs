@@ -12,7 +12,7 @@ using PetSocietyWebServices.Models;
 
 namespace PetSocietyWebServices.Controllers.AccountControls
 {
-    public class RegisterController : ApiController
+    public class RegisterUserController : ApiController
     {
        [HttpGet]
        public UserModel RegisterUser(String token,String INname, String INemail, String INbirthday, String INpassword, String INaddress, String INbiography, String INprivicy, String INsex, String INcontact, String INx, String INy)

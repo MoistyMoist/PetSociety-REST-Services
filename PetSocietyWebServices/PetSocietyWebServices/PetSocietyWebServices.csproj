@@ -239,10 +239,10 @@
     <Compile Include="Controllers\AccountControls\AddPetController.cs" />
     <Compile Include="Controllers\AccountControls\ForgetPassController.cs" />
     <Compile Include="Controllers\AccountControls\LoginController.cs" />
-    <Compile Include="Controllers\AccountControls\RegisterController.cs" />
+    <Compile Include="Controllers\AccountControls\RegisterUserController.cs" />
     <Compile Include="Controllers\AccountControls\RetrieveGalleryController.cs" />
     <Compile Include="Controllers\AccountControls\RetrieveImageController.cs" />
-    <Compile Include="Controllers\AccountControls\UpdateController.cs" />
+    <Compile Include="Controllers\AccountControls\UpdateUserController.cs" />
     <Compile Include="Controllers\AccountControls\UpoadImageController.cs" />
     <Compile Include="Controllers\AnalysisControls\AnalysisAccidentController.cs" />
     <Compile Include="Controllers\AnalysisControls\AnalysisEventController.cs" />

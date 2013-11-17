@@ -16,6 +16,19 @@ namespace PetSocietyWebServices.Controllers.AccountControls
     {
         public PetModel AddPet(String INname, String INbreed, String INtype, String INsex, String INage, String INbiography, String INUserID, String INimageID, String INpinID)
         {
+            using (PetSocietyDBEntities db = new PetSocietyDBEntities())
+            {
+                int result = 0;
+                List<string> errors = new List<string>();
+                db.Configuration.LazyLoadingEnabled = false;
+                db.Configuration.ProxyCreationEnabled = false;
+                //LOAD THE QUERY
+                var query = db.PETs;
+                List<PET> OUTusers = query.ToList();
+
+
+
+            }
             //create a new gallery
             return new PetModel();
         }

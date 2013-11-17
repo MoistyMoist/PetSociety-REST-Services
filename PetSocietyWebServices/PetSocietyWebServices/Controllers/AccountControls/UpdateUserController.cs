@@ -12,7 +12,7 @@ using PetSocietyWebServices.Models;
 
 namespace PetSocietyWebServices.Controllers.AccountControls
 {
-    public class UpdateController : ApiController
+    public class UpdateUserController : ApiController
     {
         [HttpGet]
         public UserModel UpdateUser(String token,int INuserID, String INname, String INemail, String INbirthday, String INpassword, String INaddress, String INbiography, String INprivicy,String INcredibility, String INsex, String INcontact, String INx, String INy)
