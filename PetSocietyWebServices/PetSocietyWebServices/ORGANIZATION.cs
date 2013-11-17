@@ -16,11 +16,17 @@ namespace PetSocietyWebServices
     [DataContract(IsReference = true)]
     public partial class ORGANIZATION
     {
+        [DataMember(Order = 1)]
         public int OrganizationID { get; set; }
+        [DataMember(Order = 2)]
         public string Name { get; set; }
+        [DataMember(Order = 3)]
         public string Description { get; set; }
+        [DataMember(Order = 4)]
         public string Email { get; set; }
+        [DataMember(Order = 5)]
         public string password { get; set; }
+        [DataMember(Order = 6)]
         public Nullable<int> ImageID { get; set; }
     }
 }

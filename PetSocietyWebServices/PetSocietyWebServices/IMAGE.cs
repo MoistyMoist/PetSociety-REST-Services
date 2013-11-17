@@ -20,15 +20,22 @@ namespace PetSocietyWebServices
         {
             this.PINs = new HashSet<PIN>();
         }
-    
+        [DataMember(Order = 1)]
         public int ImageID { get; set; }
+        [DataMember(Order = 2)]
         public string Type { get; set; }
+        [DataMember(Order = 3)]
         public string ImageURL { get; set; }
+        [DataMember(Order = 4)]
         public Nullable<int> UserID { get; set; }
+        [DataMember(Order = 5)]
         public Nullable<int> PetID { get; set; }
+        [DataMember(Order = 6)]
         public Nullable<int> GalleryID { get; set; }
-    
+
+        [DataMember(Order = 7)]
         public virtual GALLERY GALLERY { get; set; }
+        [DataMember(Order = 8)]
         public virtual ICollection<PIN> PINs { get; set; }
     }
 }

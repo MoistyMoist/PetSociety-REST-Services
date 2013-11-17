@@ -16,10 +16,14 @@ namespace PetSocietyWebServices
     [DataContract(IsReference = true)]
     public partial class FRIEND_LIST
     {
+        [DataMember(Order = 1)]
         public int Firend_ListID { get; set; }
+        [DataMember(Order = 2)]
         public int UserID { get; set; }
+        [DataMember(Order = 3)]
         public int FriendID { get; set; }
-    
+
+        [DataMember(Order = 4)]
         public virtual USER USER { get; set; }
     }
 }

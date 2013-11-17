@@ -16,11 +16,16 @@ namespace PetSocietyWebServices
     [DataContract(IsReference = true)]
     public partial class FRIEND_REQUEST
     {
+        [DataMember(Order = 1)]
         public int Friend_RequestID { get; set; }
+        [DataMember(Order = 2)]
         public string Accepted { get; set; }
+        [DataMember(Order = 3)]
         public int UserID { get; set; }
+        [DataMember(Order = 4)]
         public int FriendID { get; set; }
-    
+
+        [DataMember(Order = 5)]
         public virtual USER USER { get; set; }
     }
 }

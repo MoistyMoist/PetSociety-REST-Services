@@ -22,22 +22,37 @@ namespace PetSocietyWebServices
             this.LOSTs = new HashSet<LOST>();
             this.PINs = new HashSet<PIN>();
         }
-    
+        [DataMember(Order = 1)]
         public int PetID { get; set; }
+        [DataMember(Order = 2)]
         public string Name { get; set; }
+        [DataMember(Order = 3)]
         public string Breed { get; set; }
+        [DataMember(Order = 4)]
         public string Sex { get; set; }
+        [DataMember(Order = 5)]
         public string Type { get; set; }
+        [DataMember(Order = 6)]
         public string Biography { get; set; }
+        [DataMember(Order = 7)]
         public string Age { get; set; }
+        [DataMember(Order = 8)]
         public int UserID { get; set; }
+        [DataMember(Order = 9)]
         public Nullable<int> PinID { get; set; }
+        [DataMember(Order = 10)]
         public Nullable<int> ProfileImageID { get; set; }
+        [DataMember(Order = 11)]
         public string DateCreated { get; set; }
-    
+
+        [DataMember(Order = 12)]
         public virtual ICollection<GALLERY> GALLERies { get; set; }
+        [DataMember(Order = 13)]
         public virtual ICollection<LOST> LOSTs { get; set; }
+        [DataMember(Order = 14)]
         public virtual USER USER { get; set; }
+        [DataMember(Order = 15)]
         public virtual ICollection<PIN> PINs { get; set; }
     }
+
 }

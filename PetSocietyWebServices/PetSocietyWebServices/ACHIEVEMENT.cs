@@ -16,10 +16,15 @@ namespace PetSocietyWebServices
     [DataContract(IsReference = true)]
     public partial class ACHIEVEMENT
     {
+        [DataMember(Order = 1)]
         public int AchievementID { get; set; }
+        [DataMember(Order = 2)]
         public byte[] Title { get; set; }
+        [DataMember(Order = 3)]
         public string Type { get; set; }
+        [DataMember(Order = 4)]
         public string Rank { get; set; }
+        [DataMember(Order = 5)]
         public string Condition { get; set; }
     }
 }
