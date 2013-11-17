@@ -242,12 +242,15 @@
     <Compile Include="Controllers\AccountControls\LoginController.cs" />
     <Compile Include="Controllers\AccountControls\RegisterController.cs" />
     <Compile Include="Controllers\AccountControls\UpdateController.cs" />
+    <Compile Include="Controllers\AccountControls\UpoadImageController.cs" />
+    <Compile Include="Controllers\AnalysisControls\AnalysisAccidentController.cs" />
     <Compile Include="Controllers\AnalysisControls\AnalysisEventController.cs" />
     <Compile Include="Controllers\AnalysisControls\AnalysisLostController.cs" />
     <Compile Include="Controllers\AnalysisControls\AnalysisPetController.cs" />
     <Compile Include="Controllers\AnalysisControls\AnalysisStrayController.cs" />
     <Compile Include="Controllers\CrowdSourcingControls\AddLocationController.cs" />
     <Compile Include="Controllers\CrowdSourcingControls\AddStrayController.cs" />
+    <Compile Include="Controllers\CrowdSourcingControls\RetrieveNearbyController.cs" />
     <Compile Include="Controllers\CrowdSourcingControls\ReviewLocationController.cs" />
     <Compile Include="Controllers\CrowdSourcingControls\ReviewStrayController.cs" />
     <Compile Include="Controllers\EventControls\AddEventController.cs" />
@@ -256,10 +259,9 @@
     <Compile Include="Controllers\EventControls\UpdateEventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LostControls\ReportLostController.cs" />
-    <Compile Include="Controllers\MisanalousControls\CreateFeedController.cs" />
-    <Compile Include="Controllers\MisanalousControls\RetrieveFeedsController.cs" />
+    <Compile Include="Controllers\LostControls\RetrieveLostController.cs" />
     <Compile Include="Controllers\AccountControls\UpdatePetController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="EVENT.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
