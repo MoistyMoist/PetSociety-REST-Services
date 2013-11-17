@@ -44,43 +44,65 @@ namespace PetSocietyWebServices.Controllers.AccountControls
 
                if (token.Equals("token"))
                {
-                   query.Add(newUser);
-                   try
+                   Boolean emailAlreadyExist=false;
+                   for (int i = 0; i < query.ToList().Count;i++ )
                    {
-                       result = db.SaveChanges();
-                   }
-                   catch (DbEntityValidationException dbEx)
-                   {
-                       result = 0;
-                       foreach (var validationErrors in dbEx.EntityValidationErrors)
+                       if (query.ToList().ElementAt(i).Email.Equals(newUser.Email))
                        {
-                           foreach (var validationError in validationErrors.ValidationErrors)
-                           {
-                               string error = "Property: " + validationError.PropertyName + "Error: " + validationError.ErrorMessage;
-                               errors.Add(error);
-                               System.Diagnostics.Debug.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
-                           }
+                           emailAlreadyExist = true;
+                           break;
                        }
                    }
-                   //IF SOME ERROR HAPPENDS
-                   if (result == 0)
+                   
+                   if(emailAlreadyExist)
                    {
-                       UserModel model = new UserModel();
-                       model.Status = 1;
-                       model.Message = "Failed to add user.\nTry again later";
-                       model.ErrorList = errors;
-                       model.Data = null;
-                       return model;
+                        UserModel model = new UserModel();
+                        model.Status = 1;
+                        model.Message = "Email Exists already.";
+                        model.ErrorList = errors;
+                        model.Data = null;
+                        return model;    
                    }
                    else
                    {
-                       UserModel model = new UserModel();
-                       model.Status = 0;
-                       model.Message = "Registeration Successfull";
-                       model.ErrorList = errors;
-                       model.Data = new List<USER> { newUser };
-                       return model;
-                   }
+                        query.Add(newUser);
+                        try
+                        {
+                            result = db.SaveChanges();
+                        }
+                        catch (DbEntityValidationException dbEx)
+                        {
+                            result = 0;
+                               foreach (var validationErrors in dbEx.EntityValidationErrors)
+                               {
+                                   foreach (var validationError in validationErrors.ValidationErrors)
+                                   {
+                                       string error = "Property: " + validationError.PropertyName + "Error: " + validationError.ErrorMessage;
+                                       errors.Add(error);
+                                       System.Diagnostics.Debug.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                                   }
+                               }
+                           }
+                           //IF SOME ERROR HAPPENDS
+                           if (result == 0)
+                           {
+                               UserModel model = new UserModel();
+                               model.Status = 1;
+                               model.Message = "Failed to add user.\nTry again later";
+                               model.ErrorList = errors;
+                               model.Data = null;
+                               return model;
+                           }
+                           else
+                           {
+                               UserModel model = new UserModel();
+                               model.Status = 0;
+                               model.Message = "Registeration Successfull";
+                               model.ErrorList = errors;
+                               model.Data = new List<USER> { newUser };
+                               return model;
+                           }
+                   } 
                }
                else
                {

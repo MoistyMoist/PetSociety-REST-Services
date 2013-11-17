@@ -237,10 +237,11 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountControls\AddPetController.cs" />
-    <Compile Include="Controllers\AccountControls\CheckEmailController.cs" />
     <Compile Include="Controllers\AccountControls\ForgetPassController.cs" />
     <Compile Include="Controllers\AccountControls\LoginController.cs" />
     <Compile Include="Controllers\AccountControls\RegisterController.cs" />
+    <Compile Include="Controllers\AccountControls\RetrieveGalleryController.cs" />
+    <Compile Include="Controllers\AccountControls\RetrieveImageController.cs" />
     <Compile Include="Controllers\AccountControls\UpdateController.cs" />
     <Compile Include="Controllers\AccountControls\UpoadImageController.cs" />
     <Compile Include="Controllers\AnalysisControls\AnalysisAccidentController.cs" />
@@ -249,10 +250,8 @@
     <Compile Include="Controllers\AnalysisControls\AnalysisPetController.cs" />
     <Compile Include="Controllers\AnalysisControls\AnalysisStrayController.cs" />
     <Compile Include="Controllers\CrowdSourcingControls\AddLocationController.cs" />
-    <Compile Include="Controllers\CrowdSourcingControls\AddStrayController.cs" />
     <Compile Include="Controllers\CrowdSourcingControls\RetrieveNearbyController.cs" />
     <Compile Include="Controllers\CrowdSourcingControls\ReviewLocationController.cs" />
-    <Compile Include="Controllers\CrowdSourcingControls\ReviewStrayController.cs" />
     <Compile Include="Controllers\EventControls\AddEventController.cs" />
     <Compile Include="Controllers\EventControls\DeleteEventController.cs" />
     <Compile Include="Controllers\EventControls\RetrieveEventController.cs" />
