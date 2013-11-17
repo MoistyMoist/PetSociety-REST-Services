@@ -15,7 +15,7 @@ namespace PetSocietyWebServices.Controllers.AccountControls
     public class UpdateController : ApiController
     {
         [HttpGet]
-        public UserModel UpdateUser(String token,int INuserID, String INname, String INemail, String INbirthday, String INpassword, String INaddress, String INbiography, String INprivicy, String INsex, String INcontact, String INx, String INy)
+        public UserModel UpdateUser(String token,int INuserID, String INname, String INemail, String INbirthday, String INpassword, String INaddress, String INbiography, String INprivicy,String INcredibility, String INsex, String INcontact, String INx, String INy)
         {
             using (PetSocietyDBEntities db = new PetSocietyDBEntities())
             {
@@ -47,11 +47,9 @@ namespace PetSocietyWebServices.Controllers.AccountControls
                         user.Privicy = INprivicy;
                         user.Sex = INsex;
                         user.Contact = INcontact;
-                        user.Credibility = "0";
+                        user.Credibility = INcredibility;
                         user.X = INx;
                         user.Y = INy;
-
-                        //query.ToList()=OUTusers;
 
                         try
                         {
