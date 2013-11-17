@@ -18,7 +18,6 @@ namespace PetSocietyWebServices
     {
         public LOCATION()
         {
-            this.PINs = new HashSet<PIN>();
             this.REVIEWs = new HashSet<REVIEW>();
         }
         [DataMember(Order = 1)]
@@ -47,7 +46,7 @@ namespace PetSocietyWebServices
         [DataMember(Order = 12)]
         public virtual USER USER { get; set; }
         [DataMember(Order = 13)]
-        public virtual ICollection<PIN> PINs { get; set; }
+        public virtual PIN PIN { get; set; }
         [DataMember(Order = 14)]
         public virtual ICollection<REVIEW> REVIEWs { get; set; }
     }

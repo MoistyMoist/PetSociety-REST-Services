@@ -19,7 +19,6 @@ namespace PetSocietyWebServices
         public EVENT()
         {
             this.ATTENDEEs = new HashSet<ATTENDEE>();
-            this.PINs = new HashSet<PIN>();
         }
         [DataMember(Order = 1)]
         public int EventID { get; set; }
@@ -52,7 +51,7 @@ namespace PetSocietyWebServices
         public virtual ICollection<ATTENDEE> ATTENDEEs { get; set; }
         [DataMember(Order = 15)]
         public virtual USER USER { get; set; }
-        [DataMember(Order = 16)]   
-        public virtual ICollection<PIN> PINs { get; set; }
+        [DataMember(Order = 16)]
+        public virtual PIN PIN { get; set; }
     }
 }

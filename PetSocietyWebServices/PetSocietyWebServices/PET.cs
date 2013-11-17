@@ -20,7 +20,6 @@ namespace PetSocietyWebServices
         {
             this.GALLERies = new HashSet<GALLERY>();
             this.LOSTs = new HashSet<LOST>();
-            this.PINs = new HashSet<PIN>();
         }
         [DataMember(Order = 1)]
         public int PetID { get; set; }
@@ -52,7 +51,7 @@ namespace PetSocietyWebServices
         [DataMember(Order = 14)]
         public virtual USER USER { get; set; }
         [DataMember(Order = 15)]
-        public virtual ICollection<PIN> PINs { get; set; }
+        public virtual PIN PIN { get; set; }
     }
 
 }

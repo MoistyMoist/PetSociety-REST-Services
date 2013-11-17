@@ -16,10 +16,6 @@ namespace PetSocietyWebServices
     [DataContract(IsReference = true)]
     public partial class IMAGE
     {
-        public IMAGE()
-        {
-            this.PINs = new HashSet<PIN>();
-        }
         [DataMember(Order = 1)]
         public int ImageID { get; set; }
         [DataMember(Order = 2)]
@@ -36,6 +32,6 @@ namespace PetSocietyWebServices
         [DataMember(Order = 7)]
         public virtual GALLERY GALLERY { get; set; }
         [DataMember(Order = 8)]
-        public virtual ICollection<PIN> PINs { get; set; }
+        public virtual PIN PIN { get; set; }
     }
 }

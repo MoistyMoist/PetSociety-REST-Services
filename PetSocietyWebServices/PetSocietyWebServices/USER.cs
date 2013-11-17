@@ -26,7 +26,6 @@ namespace PetSocietyWebServices
             this.LOCATIONs = new HashSet<LOCATION>();
             this.LOSTs = new HashSet<LOST>();
             this.PETs = new HashSet<PET>();
-            this.PINs = new HashSet<PIN>();
             this.REVIEWs = new HashSet<REVIEW>();
             this.STRAYs = new HashSet<STRAY>();
         }
@@ -76,7 +75,7 @@ namespace PetSocietyWebServices
         [DataMember(Order = 22)]
         public virtual ICollection<PET> PETs { get; set; }
         [DataMember(Order = 23)]
-        public virtual ICollection<PIN> PINs { get; set; }
+        public virtual PIN PIN { get; set; }
         [DataMember(Order = 24)]
         public virtual ICollection<REVIEW> REVIEWs { get; set; }
         [DataMember(Order = 25)]
