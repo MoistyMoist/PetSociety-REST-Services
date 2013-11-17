@@ -240,6 +240,7 @@
     <Compile Include="Controllers\AccountControls\ForgetPassController.cs" />
     <Compile Include="Controllers\AccountControls\LoginController.cs" />
     <Compile Include="Controllers\AccountControls\RegisterUserController.cs" />
+    <Compile Include="Controllers\AccountControls\RetrieveUserController.cs" />
     <Compile Include="Controllers\AccountControls\RetrieveGalleryController.cs" />
     <Compile Include="Controllers\AccountControls\RetrieveImageController.cs" />
     <Compile Include="Controllers\AccountControls\UpdateUserController.cs" />
@@ -250,9 +251,12 @@
     <Compile Include="Controllers\AnalysisControls\AnalysisPetController.cs" />
     <Compile Include="Controllers\AnalysisControls\AnalysisStrayController.cs" />
     <Compile Include="Controllers\CrowdSourcingControls\AddLocationController.cs" />
-    <Compile Include="Controllers\CrowdSourcingControls\RetrieveNearbyController.cs" />
-    <Compile Include="Controllers\CrowdSourcingControls\ReviewLocationController.cs" />
+    <Compile Include="Controllers\CrowdSourcingControls\AddReviewController.cs" />
+    <Compile Include="Controllers\CrowdSourcingControls\DislikeReviewController.cs" />
+    <Compile Include="Controllers\CrowdSourcingControls\LikeReviewController.cs" />
+    <Compile Include="Controllers\CrowdSourcingControls\RetrieveLocationController.cs" />
     <Compile Include="Controllers\EventControls\AddEventController.cs" />
+    <Compile Include="Controllers\EventControls\AttendEventController.cs" />
     <Compile Include="Controllers\EventControls\DeleteEventController.cs" />
     <Compile Include="Controllers\EventControls\RetrieveEventController.cs" />
     <Compile Include="Controllers\EventControls\UpdateEventController.cs" />
@@ -260,6 +264,8 @@
     <Compile Include="Controllers\LostControls\ReportLostController.cs" />
     <Compile Include="Controllers\LostControls\RetrieveLostController.cs" />
     <Compile Include="Controllers\AccountControls\UpdatePetController.cs" />
+    <Compile Include="Controllers\Social\AddFriendController.cs" />
+    <Compile Include="Controllers\Social\AnswerFriendRequestController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="EVENT.cs">
       <DependentUpon>Model.tt</DependentUpon>

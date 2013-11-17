@@ -14,6 +14,7 @@ namespace PetSocietyWebServices.Controllers.AccountControls
 {
     public class AddPetController : ApiController
     {
+        [HttpGet]
         public PetModel AddPet(String INname, String INbreed, String INtype, String INsex, String INage, String INbiography, String INUserID, String INimageID, String INpinID)
         {
             using (PetSocietyDBEntities db = new PetSocietyDBEntities())
@@ -29,7 +30,6 @@ namespace PetSocietyWebServices.Controllers.AccountControls
 
 
             }
-            //create a new gallery
             return new PetModel();
         }
     }
