@@ -240,6 +240,7 @@
     <Compile Include="Controllers\AccountControls\ForgetPassController.cs" />
     <Compile Include="Controllers\AccountControls\LoginController.cs" />
     <Compile Include="Controllers\AccountControls\RegisterUserController.cs" />
+    <Compile Include="Controllers\AccountControls\ResetPasswordController.cs" />
     <Compile Include="Controllers\AccountControls\RetrieveUserController.cs" />
     <Compile Include="Controllers\AccountControls\RetrieveGalleryController.cs" />
     <Compile Include="Controllers\AccountControls\RetrieveImageController.cs" />

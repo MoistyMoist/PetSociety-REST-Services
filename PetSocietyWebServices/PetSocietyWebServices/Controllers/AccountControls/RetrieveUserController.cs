@@ -4,36 +4,21 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using MySql.Data.MySqlClient;
+using System.Configuration;
+using System.Net.Mail;
+using System.Data.Entity.Validation;
+using PetSocietyWebServices.Models;
+
 
 namespace PetSocietyWebServices.Controllers.AccountControls
 {
     public class RetrieveUserController : ApiController
     {
-        // GET api/retrievealluser
-        public IEnumerable<string> Get()
+        [HttpGet]
+        public UserModel RetrieveUsers(String token)
         {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/retrievealluser/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/retrievealluser
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/retrievealluser/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/retrievealluser/5
-        public void Delete(int id)
-        {
+            return new UserModel();
         }
     }
 }
