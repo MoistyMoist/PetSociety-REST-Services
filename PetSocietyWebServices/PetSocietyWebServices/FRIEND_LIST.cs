@@ -11,7 +11,9 @@ namespace PetSocietyWebServices
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
+    [DataContract(IsReference = true)]
     public partial class FRIEND_LIST
     {
         public int Firend_ListID { get; set; }
