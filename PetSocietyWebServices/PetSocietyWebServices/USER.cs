@@ -12,7 +12,7 @@ namespace PetSocietyWebServices
     using System;
     using System.Collections.Generic;
     using System.Runtime.Serialization;
-
+    
     [DataContract(IsReference = true)]
     public partial class USER
     {
@@ -57,9 +57,7 @@ namespace PetSocietyWebServices
         public string Y { get; set; }
         [DataMember(Order = 14)]
         public Nullable<int> ProfileImageID { get; set; }
-
-
-        [DataMember(Order = 15)]
+    
         public virtual ICollection<ATTENDEE> ATTENDEEs { get; set; }
         [DataMember(Order = 16)]
         public virtual ICollection<EVENT> EVENTs { get; set; }
@@ -80,4 +78,5 @@ namespace PetSocietyWebServices
         [DataMember(Order = 24)]
         public virtual ICollection<STRAY> STRAYs { get; set; }
     }
+
 }
