@@ -19,6 +19,7 @@ namespace PetSocietyWebServices
         public EVENT()
         {
             this.ATTENDEEs = new HashSet<ATTENDEE>();
+            this.GALLERies = new HashSet<GALLERY>();
         }
         [DataMember(Order = 1)]
         public int EventID { get; set; }
@@ -53,5 +54,7 @@ namespace PetSocietyWebServices
         public virtual USER USER { get; set; }
         [DataMember(Order = 16)]
         public virtual PIN PIN { get; set; }
+        [DataMember(Order = 17)]
+        public virtual ICollection<GALLERY> GALLERies { get; set; }
     }
 }

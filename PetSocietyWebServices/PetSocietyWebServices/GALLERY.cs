@@ -26,12 +26,20 @@ namespace PetSocietyWebServices
         public Nullable<int> UserID { get; set; }
         [DataMember(Order = 3)]
         public Nullable<int> PetID { get; set; }
-
         [DataMember(Order = 4)]
-        public virtual USER USER { get; set; }
+        public Nullable<int> LocationID { get; set; }
         [DataMember(Order = 5)]
+        public Nullable<int> EventID { get; set; }
+
+        [DataMember(Order = 6)]
+        public virtual USER USER { get; set; }
+        [DataMember(Order = 7)]
         public virtual PET PET { get; set; }
         [DataMember(Order = 6)]
         public virtual ICollection<IMAGE> IMAGEs { get; set; }
+        [DataMember(Order = 7)]
+        public virtual EVENT EVENT { get; set; }
+        [DataMember(Order = 8)]
+        public virtual LOCATION LOCATION { get; set; }
     }
 }

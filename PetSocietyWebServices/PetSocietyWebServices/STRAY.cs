@@ -46,10 +46,12 @@ namespace PetSocietyWebServices
         public Nullable<int> ReviewID { get; set; }
         [DataMember(Order = 13)]
         public int UserID { get; set; }
-
         [DataMember(Order = 14)]
-        public virtual ICollection<REVIEW> REVIEWs { get; set; }
+        public string Status { get; set; }
+
         [DataMember(Order = 15)]
+        public virtual ICollection<REVIEW> REVIEWs { get; set; }
+        [DataMember(Order = 16)]
         public virtual USER USER { get; set; }
     }
 

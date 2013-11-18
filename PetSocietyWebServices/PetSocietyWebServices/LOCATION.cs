@@ -19,6 +19,7 @@ namespace PetSocietyWebServices
         public LOCATION()
         {
             this.REVIEWs = new HashSet<REVIEW>();
+            this.GALLERies = new HashSet<GALLERY>();
         }
         [DataMember(Order = 1)]
         public int LocationID { get; set; }
@@ -49,5 +50,7 @@ namespace PetSocietyWebServices
         public virtual PIN PIN { get; set; }
         [DataMember(Order = 14)]
         public virtual ICollection<REVIEW> REVIEWs { get; set; }
+        [DataMember(Order = 15)]
+        public virtual ICollection<GALLERY> GALLERies { get; set; }
     }
 }

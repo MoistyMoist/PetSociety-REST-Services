@@ -42,6 +42,8 @@
         <AssociationConnector Association="PetSocietyDBModel.FK_REVIEW_1" ManuallyRouted="false" />
         <AssociationConnector Association="PetSocietyDBModel.FK_REVIEW_2" ManuallyRouted="false" />
         <AssociationConnector Association="PetSocietyDBModel.FK_STRAY_0" ManuallyRouted="false" />
+        <AssociationConnector Association="PetSocietyDBModel.FK_GALLERY_3" />
+        <AssociationConnector Association="PetSocietyDBModel.FK_GALLERY_2" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
