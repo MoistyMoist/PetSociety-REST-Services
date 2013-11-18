@@ -15,6 +15,6 @@ namespace PetSocietyWebServices.Controllers.Social
     public class AddFriendController : ApiController
     {
         
-        }
+     
     }
 }

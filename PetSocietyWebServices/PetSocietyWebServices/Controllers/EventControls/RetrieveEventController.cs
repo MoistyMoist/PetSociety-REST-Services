@@ -12,6 +12,8 @@ using PetSocietyWebServices.Models;
 
 namespace PetSocietyWebServices.Controllers.EventControls
 {
-    
+    public class RetrieveEventController : ApiController
+    {
+       
     }
 }
