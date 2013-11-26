@@ -14,6 +14,10 @@ namespace PetSocietyWebServices.Controllers.LostControls
 {
     public class ReportLostController : ApiController
     {
-       
+       [HttpGet]
+        public LostModel createlost(string token)
+       {
+           return null;
+       }
     }
 }
