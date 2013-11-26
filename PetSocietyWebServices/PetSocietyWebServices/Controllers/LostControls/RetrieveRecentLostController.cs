@@ -12,20 +12,12 @@ using PetSocietyWebServices.Models;
 
 namespace PetSocietyWebServices.Controllers.LostControls
 {
-    public class RetrieveLostController : ApiController
+    public class RetrieveRecentLostController : ApiController
     {
         [HttpGet]
-        public LostModel Retrieve(string token)
+        public LostModel RetrieveRecent(string token, int amount)
         {
             return null;
         }
-
-        [HttpGet]
-        public LostModel RetrieveByID (string token, string id)
-        {
-            return null;
-        }
-
-        
     }
 }
