@@ -14,6 +14,45 @@ namespace PetSocietyWebServices.Controllers.AnalysisControls
 {
     public class AnalysisAccidentController : ApiController
     {
-       
+       [HttpGet]
+        public LocationModel GetAccidents(string token)
+        {
+            using (PetSocietyDBEntities db = new PetSocietyDBEntities())
+            {
+                db.Configuration.LazyLoadingEnabled = false;
+                //LOAD THE QUERY
+                var query = from c in db.LOCATIONs.Include("Galleries.Images")
+                            where (c.Type.Equals("accidents")|| c.Type.Equals("ACCIDENTS"))
+                            select c;
+
+                //CONVERT THE RESULT TO A LIST
+                List<LOCATION> OUTlocations = query.ToList();
+                if (token.Equals("token"))
+                {
+                    if (OUTlocations.Count() == 0)
+                    {
+                        LocationModel model = new LocationModel();
+                        model.Status = 1;
+                        model.Message = "Sorry. an error occured";
+                        return model;
+                    }
+                    else
+                    {
+                        LocationModel model = new LocationModel();
+                        model.Status = 0;
+                        model.Message = "retrieve success";
+                        model.Data = OUTlocations;
+                        return model;
+                    }
+                }
+                else
+                {
+                    LocationModel model = new LocationModel();
+                    model.Status = 1;
+                    model.Message = "Token error, invalid token";
+                    return model;
+                }
+            }
+        }
     }
 }
