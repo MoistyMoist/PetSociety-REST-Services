@@ -251,11 +251,12 @@
     <Compile Include="Controllers\AnalysisControls\AnalysisLostController.cs" />
     <Compile Include="Controllers\AnalysisControls\AnalysisPetController.cs" />
     <Compile Include="Controllers\AnalysisControls\AnalysisStrayController.cs" />
+    <Compile Include="Controllers\AnalysisControls\RetrieveLocationReviewByIDController.cs" />
+    <Compile Include="Controllers\AnalysisControls\RetrieveStrayReviewsByIDController.cs" />
     <Compile Include="Controllers\CrowdSourcingControls\AddLocationController.cs" />
     <Compile Include="Controllers\CrowdSourcingControls\AddReviewController.cs" />
     <Compile Include="Controllers\CrowdSourcingControls\DislikeReviewController.cs" />
     <Compile Include="Controllers\CrowdSourcingControls\LikeReviewController.cs" />
-    <Compile Include="Controllers\CrowdSourcingControls\RetrieveLocationController.cs" />
     <Compile Include="Controllers\EventControls\AddEventController.cs" />
     <Compile Include="Controllers\EventControls\AttendEventController.cs" />
     <Compile Include="Controllers\EventControls\DeleteEventController.cs" />
