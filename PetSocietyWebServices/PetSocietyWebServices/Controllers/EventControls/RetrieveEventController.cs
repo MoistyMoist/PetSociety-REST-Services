@@ -185,5 +185,46 @@ namespace PetSocietyWebServices.Controllers.EventControls
                 }
             }
         }
+
+        [HttpGet]
+        public EventModel retrieveEventByID(string INtoken, int INeventID)
+        {
+            using (PetSocietyDBEntities db = new PetSocietyDBEntities())
+            {
+                db.Configuration.LazyLoadingEnabled = false;
+                //LOAD THE QUERY
+                var query = from c in db.EVENTs
+                            where (c.EventID == INeventID)
+                            select c;
+
+                //CONVERT THE RESULT TO A LIST
+                List<EVENT> OUTevent = query.ToList();
+                if (INtoken.Equals("token"))
+                {
+                    if (OUTevent.Count() == 0)
+                    {
+                        EventModel model = new EventModel();
+                        model.Status = 1;
+                        model.Message = "NO events exists";
+                        return model;
+                    }
+                    else
+                    {
+                        EventModel model = new EventModel();
+                        model.Status = 0;
+                        model.Message = "Retrieve successfull";
+                        model.Data = OUTevent;
+                        return model;
+                    }
+                }
+                else
+                {
+                    EventModel model = new EventModel();
+                    model.Status = 1;
+                    model.Message = "Token error, invalid token";
+                    return model;
+                }
+            }
+        }
     }
 }
