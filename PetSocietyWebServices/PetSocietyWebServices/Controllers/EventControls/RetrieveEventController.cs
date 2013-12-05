@@ -63,7 +63,6 @@ namespace PetSocietyWebServices.Controllers.EventControls
             }
         }
 
-
         [HttpGet]
         public EventModel retrieveAllEvent(string INtoken)
         {
