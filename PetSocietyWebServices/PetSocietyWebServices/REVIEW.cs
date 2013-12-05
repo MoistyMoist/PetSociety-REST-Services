@@ -40,7 +40,7 @@ namespace PetSocietyWebServices
         public virtual LOCATION LOCATION { get; set; }
         [DataMember(Order = 11)]
         public virtual USER USER { get; set; }
-        [DataMember(Order = 12)]    
+        [DataMember(Order = 12)]
         public virtual STRAY STRAY { get; set; }
     }
 

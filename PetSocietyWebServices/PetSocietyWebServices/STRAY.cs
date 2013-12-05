@@ -47,7 +47,7 @@ namespace PetSocietyWebServices
 
         [DataMember(Order = 12)]
         public virtual ICollection<REVIEW> REVIEWs { get; set; }
-        [DataMember(Order = 13)]    
+        [DataMember(Order = 13)]
         public virtual USER USER { get; set; }
     }
 

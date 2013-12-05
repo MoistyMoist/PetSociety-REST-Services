@@ -29,7 +29,7 @@ namespace PetSocietyWebServices
         [DataMember(Order = 6)]
         public string Duration { get; set; }
 
-        [DataMember(Order = 7)]    
+        [DataMember(Order = 7)]
         public virtual ORGANIZATION ORGANIZATION { get; set; }
     }
 }

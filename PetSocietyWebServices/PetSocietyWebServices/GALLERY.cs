@@ -50,7 +50,7 @@ namespace PetSocietyWebServices
         public virtual ICollection<IMAGE> IMAGEs { get; set; }
         [DataMember(Order = 12)]
         public virtual ICollection<LOCATION> LOCATIONs { get; set; }
-        [DataMember(Order = 13)]    
+        [DataMember(Order = 13)]
         public virtual ICollection<PET> PETs { get; set; }
     }
 

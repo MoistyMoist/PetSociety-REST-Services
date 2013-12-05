@@ -256,11 +256,6 @@
     <Compile Include="Controllers\AccountControls\RetrieveImageController.cs" />
     <Compile Include="Controllers\AccountControls\UpdateUserController.cs" />
     <Compile Include="Controllers\AccountControls\UpoadImageController.cs" />
-    <Compile Include="Controllers\AnalysisControls\AnalysisAccidentController.cs" />
-    <Compile Include="Controllers\AnalysisControls\AnalysisEventController.cs" />
-    <Compile Include="Controllers\AnalysisControls\AnalysisLostController.cs" />
-    <Compile Include="Controllers\AnalysisControls\AnalysisPetController.cs" />
-    <Compile Include="Controllers\AnalysisControls\AnalysisStrayController.cs" />
     <Compile Include="Controllers\AnalysisControls\RetrieveLocationReviewByIDController.cs" />
     <Compile Include="Controllers\AnalysisControls\RetrieveStrayReviewsByIDController.cs" />
     <Compile Include="Controllers\CrowdSourcingControls\AddLocationController.cs" />

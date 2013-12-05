@@ -1,4 +1,12 @@
-﻿using System;
+﻿//==============================================================================//
+// Created By   : Lee Kai Quan
+// Last Updated : 12/6/2013
+// Tested       : NO
+// URL          : 
+//==============================================================================//
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -15,5 +23,10 @@ namespace PetSocietyWebServices.Controllers.EventControls
     public class RetrieveEventController : ApiController
     {
        
+        [HttpGet]
+        public LocationModel retrieveAllEvent(string INtoken, DateTime INstartDateTime, DateTime INendDateTime)
+        {
+            return null;
+        }
     }
 }

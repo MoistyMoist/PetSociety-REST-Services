@@ -49,7 +49,7 @@ namespace PetSocietyWebServices
         public virtual GALLERY GALLERY { get; set; }
         [DataMember(Order = 13)]
         public virtual USER USER { get; set; }
-        [DataMember(Order = 14)]    
+        [DataMember(Order = 14)]
         public virtual ICollection<REVIEW> REVIEWs { get; set; }
     }
 

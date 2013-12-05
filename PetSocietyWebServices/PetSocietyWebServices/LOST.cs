@@ -41,7 +41,7 @@ namespace PetSocietyWebServices
 
         [DataMember(Order = 12)]
         public virtual PET PET { get; set; }
-        [DataMember(Order = 13)]    
+        [DataMember(Order = 13)]
         public virtual USER USER { get; set; }
     }
 

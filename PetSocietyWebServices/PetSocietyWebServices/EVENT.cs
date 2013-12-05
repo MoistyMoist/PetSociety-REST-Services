@@ -29,11 +29,11 @@ namespace PetSocietyWebServices
         [DataMember(Order = 3)]
         public string Description { get; set; }
         [DataMember(Order = 4)]
-        public Nullable<System.DateTime> DateTime { get; set; }
+        public System.DateTime StartDateTime { get; set; }
         [DataMember(Order = 5)]
-        public string Duration { get; set; }
+        public System.DateTime EndDateTime { get; set; }
         [DataMember(Order = 6)]
-        public Nullable<System.DateTime> DateTimeCreated { get; set; }
+        public System.DateTime DateTimeCreated { get; set; }
         [DataMember(Order = 7)]
         public double X { get; set; }
         [DataMember(Order = 8)]
@@ -47,15 +47,15 @@ namespace PetSocietyWebServices
         [DataMember(Order = 12)]
         public int UserID { get; set; }
 
+
         [DataMember(Order = 13)]
         public virtual ICollection<ATTENDEE> ATTENDEEs { get; set; }
         [DataMember(Order = 14)]
         public virtual GALLERY GALLERY { get; set; }
         [DataMember(Order = 15)]
         public virtual USER USER { get; set; }
-        [DataMember(Order = 16)]        
+        [DataMember(Order = 16)]    
         public virtual ICollection<GALLERY> GALLERies { get; set; }
     }
 
 }
-

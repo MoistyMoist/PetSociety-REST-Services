@@ -52,7 +52,7 @@ namespace PetSocietyWebServices
         public virtual GALLERY GALLERY { get; set; }
         [DataMember(Order = 14)]
         public virtual ICollection<LOST> LOSTs { get; set; }
-        [DataMember(Order = 15)]    
+        [DataMember(Order = 15)]
         public virtual USER USER { get; set; }
     }
 

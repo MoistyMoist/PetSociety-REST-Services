@@ -84,7 +84,7 @@ namespace PetSocietyWebServices
         public virtual ICollection<PET> PETs { get; set; }
         [DataMember(Order = 25)]
         public virtual ICollection<REVIEW> REVIEWs { get; set; }
-        [DataMember(Order = 26)]    
+        [DataMember(Order = 26)]
         public virtual ICollection<STRAY> STRAYs { get; set; }
     }
 

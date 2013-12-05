@@ -144,9 +144,9 @@
           <Property Name="EventID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="varchar(max)" Nullable="false" />
           <Property Name="Description" Type="varchar(max)" Nullable="false" />
-          <Property Name="DateTime" Type="datetime" />
-          <Property Name="Duration" Type="varchar(max)" />
-          <Property Name="DateTimeCreated" Type="datetime" />
+          <Property Name="StartDateTime" Type="datetime" Nullable="false" />
+          <Property Name="EndDateTime" Type="datetime" Nullable="false" />
+          <Property Name="DateTimeCreated" Type="datetime" Nullable="false" />
           <Property Name="X" Type="float" Nullable="false" />
           <Property Name="Y" Type="float" Nullable="false" />
           <Property Name="Status" Type="int" />
@@ -732,9 +732,9 @@
           <Property Name="EventID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
-          <Property Name="DateTime" Type="DateTime" Precision="3" />
-          <Property Name="Duration" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
-          <Property Name="DateTimeCreated" Type="DateTime" Precision="3" />
+          <Property Name="StartDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateTimeCreated" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="X" Type="Double" Nullable="false" />
           <Property Name="Y" Type="Double" Nullable="false" />
           <Property Name="Status" Type="Int32" />
@@ -1252,8 +1252,8 @@
                 <ScalarProperty Name="EventID" ColumnName="EventID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
-                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+                <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
                 <ScalarProperty Name="DateTimeCreated" ColumnName="DateTimeCreated" />
                 <ScalarProperty Name="X" ColumnName="X" />
                 <ScalarProperty Name="Y" ColumnName="Y" />

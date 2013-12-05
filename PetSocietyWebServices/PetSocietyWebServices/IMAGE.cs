@@ -17,16 +17,16 @@ namespace PetSocietyWebServices
     public partial class IMAGE
     {
 
-         [DataMember(Order = 1)]
+        [DataMember(Order = 1)]
         public int ImageID { get; set; }
-         [DataMember(Order = 2)]
+        [DataMember(Order = 2)]
         public string Type { get; set; }
-         [DataMember(Order = 3)]
+        [DataMember(Order = 3)]
         public string ImageURL { get; set; }
-         [DataMember(Order = 4)]
+        [DataMember(Order = 4)]
         public Nullable<int> GalleryID { get; set; }
 
-         [DataMember(Order = 5)]
+        [DataMember(Order = 5)]
         public virtual GALLERY GALLERY { get; set; }
     }
 }
