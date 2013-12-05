@@ -20,7 +20,7 @@ namespace PetSocietyWebServices.Controllers
             using (PetSocietyDBEntities db = new PetSocietyDBEntities())
             {
 
-                db.Configuration.LazyLoadingEnabled = false;
+                db.Configuration.LazyLoadingEnabled = true;
                 List<USER> errors = new List<USER>();
 
               errors =db.USERs.ToList();

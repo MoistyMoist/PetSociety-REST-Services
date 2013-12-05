@@ -4,46 +4,45 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="deee7e418604415c8d9587af5fa7551c" Name="Diagram1">
-        <EntityTypeShape EntityType="PetSocietyDBModel.ACHIEVEMENT" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PetSocietyDBModel.ADVERT" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PetSocietyDBModel.ATTENDEE" Width="1.5" PointX="5.25" PointY="15.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PetSocietyDBModel.EVENT" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PetSocietyDBModel.FRIEND_LIST" Width="1.5" PointX="3" PointY="15.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="PetSocietyDBModel.FRIEND_REQUEST" Width="1.5" PointX="3" PointY="18.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="PetSocietyDBModel.GALLERY" Width="1.5" PointX="5.25" PointY="26.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="PetSocietyDBModel.IMAGE" Width="1.5" PointX="7.5" PointY="29.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PetSocietyDBModel.LOCATION" Width="1.5" PointX="3" PointY="24.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="PetSocietyDBModel.LOST" Width="1.5" PointX="8.25" PointY="24.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="PetSocietyDBModel.ORGANIZATION" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PetSocietyDBModel.PET" Width="1.5" PointX="3" PointY="33.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="PetSocietyDBModel.PIN" Width="1.5" PointX="5.25" PointY="22.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="PetSocietyDBModel.REVIEW" Width="1.5" PointX="5.25" PointY="30.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="PetSocietyDBModel.STRAY" Width="1.5" PointX="3" PointY="37.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PetSocietyDBModel.USER" Width="1.5" PointX="0.75" PointY="16.5" IsExpanded="true" />
+      <Diagram DiagramId="01ead34c22aa4e5a81b563050a3d3692" Name="Diagram1">
+        <EntityTypeShape EntityType="PetSocietyDBModel.ADVERT" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PetSocietyDBModel.ATTENDEE" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PetSocietyDBModel.EVENT" Width="1.5" PointX="6" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="PetSocietyDBModel.FRIEND_LIST" Width="1.5" PointX="3" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PetSocietyDBModel.FRIEND_REQUEST" Width="1.5" PointX="3" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PetSocietyDBModel.GALLERY" Width="1.5" PointX="8.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PetSocietyDBModel.IMAGE" Width="1.5" PointX="10.5" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="PetSocietyDBModel.LOCATION" Width="1.5" PointX="13.5" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PetSocietyDBModel.LOST" Width="1.5" PointX="12.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PetSocietyDBModel.ORGANIZATION" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PetSocietyDBModel.PET" Width="1.5" PointX="10.5" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="PetSocietyDBModel.REVIEW" Width="1.5" PointX="15.75" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="PetSocietyDBModel.STRAY" Width="1.5" PointX="3" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PetSocietyDBModel.USER" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <AssociationConnector Association="PetSocietyDBModel.FK_ADVERT_0" ManuallyRouted="false" />
         <AssociationConnector Association="PetSocietyDBModel.FK_ATTENDEE_0" ManuallyRouted="false" />
         <AssociationConnector Association="PetSocietyDBModel.FK_ATTENDEE_1" ManuallyRouted="false" />
         <AssociationConnector Association="PetSocietyDBModel.FK_EVENT_0" ManuallyRouted="false" />
-        <AssociationConnector Association="PetSocietyDBModel.FK_PIN_3" ManuallyRouted="false" />
-        <AssociationConnector Association="PetSocietyDBModel.FK_FRIEND_LIST_0" ManuallyRouted="false" />
-        <AssociationConnector Association="PetSocietyDBModel.FK_FRIEND_REQUEST_0" ManuallyRouted="false" />
+        <AssociationConnector Association="PetSocietyDBModel.FK_EVENT_1" ManuallyRouted="false" />
         <AssociationConnector Association="PetSocietyDBModel.FK_GALLERY_0" ManuallyRouted="false" />
+        <AssociationConnector Association="PetSocietyDBModel.FK_FRIEND_LIST_0" ManuallyRouted="false" />
+        <AssociationConnector Association="PetSocietyDBModel.FK_FRIEND_LIST_1" ManuallyRouted="false" />
+        <AssociationConnector Association="PetSocietyDBModel.FK_FRIEND_REQUEST_0" ManuallyRouted="false" />
+        <AssociationConnector Association="PetSocietyDBModel.FK_FRIEND_REQUEST_1" ManuallyRouted="false" />
         <AssociationConnector Association="PetSocietyDBModel.FK_GALLERY_1" ManuallyRouted="false" />
+        <AssociationConnector Association="PetSocietyDBModel.FK_GALLERY_2" ManuallyRouted="false" />
+        <AssociationConnector Association="PetSocietyDBModel.FK_GALLERY_3" ManuallyRouted="false" />
         <AssociationConnector Association="PetSocietyDBModel.FK_IMAGE_0" ManuallyRouted="false" />
-        <AssociationConnector Association="PetSocietyDBModel.FK_PIN_2" ManuallyRouted="false" />
         <AssociationConnector Association="PetSocietyDBModel.FK_LOCATION_0" ManuallyRouted="false" />
-        <AssociationConnector Association="PetSocietyDBModel.FK_PIN_4" ManuallyRouted="false" />
-        <AssociationConnector Association="PetSocietyDBModel.FK_REVIEW_0" ManuallyRouted="false" />
+        <AssociationConnector Association="PetSocietyDBModel.FK_PET_0" ManuallyRouted="false" />
+        <AssociationConnector Association="PetSocietyDBModel.FK_LOCATION_1" ManuallyRouted="false" />
+        <AssociationConnector Association="PetSocietyDBModel.FK_REVIEW_1" ManuallyRouted="false" />
         <AssociationConnector Association="PetSocietyDBModel.FK_LOST_0" ManuallyRouted="false" />
         <AssociationConnector Association="PetSocietyDBModel.FK_LOST_1" ManuallyRouted="false" />
-        <AssociationConnector Association="PetSocietyDBModel.FK_PET_0" ManuallyRouted="false" />
-        <AssociationConnector Association="PetSocietyDBModel.FK_PIN_1" ManuallyRouted="false" />
-        <AssociationConnector Association="PetSocietyDBModel.FK_PIN_0" ManuallyRouted="false" />
-        <AssociationConnector Association="PetSocietyDBModel.FK_REVIEW_1" ManuallyRouted="false" />
+        <AssociationConnector Association="PetSocietyDBModel.FK_PET_1" ManuallyRouted="false" />
+        <AssociationConnector Association="PetSocietyDBModel.FK_REVIEW_0" ManuallyRouted="false" />
         <AssociationConnector Association="PetSocietyDBModel.FK_REVIEW_2" ManuallyRouted="false" />
         <AssociationConnector Association="PetSocietyDBModel.FK_STRAY_0" ManuallyRouted="false" />
-        <AssociationConnector Association="PetSocietyDBModel.FK_GALLERY_3" />
-        <AssociationConnector Association="PetSocietyDBModel.FK_GALLERY_2" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

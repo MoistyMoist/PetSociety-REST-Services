@@ -27,21 +27,20 @@ namespace PetSocietyWebServices
         [DataMember(Order = 5)]
         public string Dislikes { get; set; }
         [DataMember(Order = 6)]
-        public string DateCreated { get; set; }
+        public Nullable<System.DateTime> DateTimeCreated { get; set; }
         [DataMember(Order = 7)]
-        public string TimeCreated { get; set; }
+        public Nullable<int> LocationID { get; set; }
         [DataMember(Order = 8)]
-        public int LocationID { get; set; }
+        public Nullable<int> UserID { get; set; }
         [DataMember(Order = 9)]
-        public int UserID { get; set; }
-        [DataMember(Order = 10)]
         public Nullable<int> StrayID { get; set; }
 
-        [DataMember(Order = 11)]
+
+        [DataMember(Order = 10)]
         public virtual LOCATION LOCATION { get; set; }
-        [DataMember(Order = 12)]
+        [DataMember(Order = 11)]
         public virtual USER USER { get; set; }
-        [DataMember(Order = 13)]
+        [DataMember(Order = 12)]    
         public virtual STRAY STRAY { get; set; }
     }
 

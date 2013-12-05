@@ -18,15 +18,16 @@ namespace PetSocietyWebServices
     {
         public LOCATION()
         {
-            this.REVIEWs = new HashSet<REVIEW>();
             this.GALLERies = new HashSet<GALLERY>();
+            this.REVIEWs = new HashSet<REVIEW>();
         }
+
         [DataMember(Order = 1)]
         public int LocationID { get; set; }
         [DataMember(Order = 2)]
-        public string X { get; set; }
+        public double X { get; set; }
         [DataMember(Order = 3)]
-        public string Y { get; set; }
+        public double Y { get; set; }
         [DataMember(Order = 4)]
         public string Description { get; set; }
         [DataMember(Order = 5)]
@@ -36,21 +37,20 @@ namespace PetSocietyWebServices
         [DataMember(Order = 7)]
         public string Type { get; set; }
         [DataMember(Order = 8)]
-        public string DateCreated { get; set; }
+        public System.DateTime DateTimeCreated { get; set; }
         [DataMember(Order = 9)]
-        public string TimeCreated { get; set; }
-        [DataMember(Order = 10)]
-        public Nullable<int> PinID { get; set; }
-        [DataMember(Order = 11)]
         public int UserID { get; set; }
+        [DataMember(Order = 10)]
+        public Nullable<int> GalleryID { get; set; }
 
-        [DataMember(Order = 12)]
-        public virtual USER USER { get; set; }
-        [DataMember(Order = 13)]
-        public virtual PIN PIN { get; set; }
-        [DataMember(Order = 14)]
-        public virtual ICollection<REVIEW> REVIEWs { get; set; }
-        [DataMember(Order = 15)]
+        [DataMember(Order = 11)]
         public virtual ICollection<GALLERY> GALLERies { get; set; }
+        [DataMember(Order = 12)]
+        public virtual GALLERY GALLERY { get; set; }
+        [DataMember(Order = 13)]
+        public virtual USER USER { get; set; }
+        [DataMember(Order = 14)]    
+        public virtual ICollection<REVIEW> REVIEWs { get; set; }
     }
+
 }

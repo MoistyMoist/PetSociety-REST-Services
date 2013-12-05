@@ -17,7 +17,7 @@ namespace PetSocietyWebServices
     public partial class FRIEND_LIST
     {
         [DataMember(Order = 1)]
-        public int Firend_ListID { get; set; }
+        public int Friend_ListID { get; set; }
         [DataMember(Order = 2)]
         public int UserID { get; set; }
         [DataMember(Order = 3)]
@@ -25,5 +25,7 @@ namespace PetSocietyWebServices
 
         [DataMember(Order = 4)]
         public virtual USER USER { get; set; }
+        [DataMember(Order = 5)]
+        public virtual USER USER1 { get; set; }
     }
 }

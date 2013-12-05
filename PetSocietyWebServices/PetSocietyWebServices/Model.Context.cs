@@ -25,7 +25,6 @@ namespace PetSocietyWebServices
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<ACHIEVEMENT> ACHIEVEMENTs { get; set; }
         public DbSet<ADVERT> ADVERTs { get; set; }
         public DbSet<ATTENDEE> ATTENDEEs { get; set; }
         public DbSet<EVENT> EVENTs { get; set; }
@@ -37,7 +36,6 @@ namespace PetSocietyWebServices
         public DbSet<LOST> LOSTs { get; set; }
         public DbSet<ORGANIZATION> ORGANIZATIONs { get; set; }
         public DbSet<PET> PETs { get; set; }
-        public DbSet<PIN> PINs { get; set; }
         public DbSet<REVIEW> REVIEWs { get; set; }
         public DbSet<STRAY> STRAYs { get; set; }
         public DbSet<USER> USERs { get; set; }

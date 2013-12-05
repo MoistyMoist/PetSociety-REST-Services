@@ -19,7 +19,7 @@ namespace PetSocietyWebServices
         [DataMember(Order = 1)]
         public int AttendeeID { get; set; }
         [DataMember(Order = 2)]
-        public string Status { get; set; }
+        public int Status { get; set; }
         [DataMember(Order = 3)]
         public int EventID { get; set; }
         [DataMember(Order = 4)]

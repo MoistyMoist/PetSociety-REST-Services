@@ -19,13 +19,15 @@ namespace PetSocietyWebServices
         [DataMember(Order = 1)]
         public int Friend_RequestID { get; set; }
         [DataMember(Order = 2)]
-        public string Accepted { get; set; }
+        public int Accepted { get; set; }
         [DataMember(Order = 3)]
         public int UserID { get; set; }
         [DataMember(Order = 4)]
-        public int FriendID { get; set; }
+        public Nullable<int> FriendID { get; set; }
 
         [DataMember(Order = 5)]
         public virtual USER USER { get; set; }
+        [DataMember(Order = 6)]
+        public virtual USER USER1 { get; set; }
     }
 }

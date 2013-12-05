@@ -25,8 +25,11 @@ namespace PetSocietyWebServices
         [DataMember(Order = 4)]
         public string Description { get; set; }
         [DataMember(Order = 5)]
-        public string DateCreated { get; set; }
+        public Nullable<System.DateTime> DateCreated { get; set; }
         [DataMember(Order = 6)]
         public string Duration { get; set; }
+
+        [DataMember(Order = 7)]    
+        public virtual ORGANIZATION ORGANIZATION { get; set; }
     }
 }

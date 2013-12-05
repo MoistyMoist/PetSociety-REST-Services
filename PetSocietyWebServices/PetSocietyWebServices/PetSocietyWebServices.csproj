@@ -209,9 +209,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ACHIEVEMENT.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="ADVERT.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -308,7 +305,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\AchievementModel.cs" />
     <Compile Include="Models\AdvertModel.cs" />
     <Compile Include="Models\AttendeeModel.cs" />
     <Compile Include="Models\EventModel.cs" />
@@ -317,7 +313,6 @@
     <Compile Include="Models\LocationModel.cs" />
     <Compile Include="Models\LostModel.cs" />
     <Compile Include="Models\PetModel.cs" />
-    <Compile Include="Models\PinModel.cs" />
     <Compile Include="Models\ReviewModel.cs" />
     <Compile Include="Models\StrayModel.cs" />
     <Compile Include="Models\UserModel.cs" />
@@ -325,9 +320,6 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="PET.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PIN.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

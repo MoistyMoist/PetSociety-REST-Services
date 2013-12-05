@@ -15,7 +15,7 @@ namespace PetSocietyWebServices.Controllers.AccountControls
     public class RegisterUserController : ApiController
     {
        [HttpGet]
-       public UserModel RegisterUser(String token,String INname, String INemail, String INbirthday, String INpassword, String INaddress, String INbiography, String INprivicy, String INsex, String INcontact, String INx, String INy)
+       public UserModel RegisterUser(String token,String INname, String INemail, String INbirthday, String INpassword, String INaddress, String INbiography, String INprivicy, String INsex, String INcontact, double INx, double INy)
        {
            using (PetSocietyDBEntities db = new PetSocietyDBEntities())
            {

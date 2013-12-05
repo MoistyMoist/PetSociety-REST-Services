@@ -23,7 +23,7 @@ namespace PetSocietyWebServices.Controllers.AccountControls
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
                 var query = from c in db.GALLERies.Include("Images")
-                            where (c.GalleryID==INgalleryID || c.UserID==INuserID || c.PetID==INpetID)
+                            where (c.GalleryID==INgalleryID || c.userID==INuserID || c.PetID==INpetID)
                             select c;
 
                  //CONVERT THE RESULT TO A LIST

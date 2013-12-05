@@ -21,7 +21,9 @@ namespace PetSocietyWebServices
             this.ATTENDEEs = new HashSet<ATTENDEE>();
             this.EVENTs = new HashSet<EVENT>();
             this.FRIEND_LIST = new HashSet<FRIEND_LIST>();
+            this.FRIEND_LIST1 = new HashSet<FRIEND_LIST>();
             this.FRIEND_REQUEST = new HashSet<FRIEND_REQUEST>();
+            this.FRIEND_REQUEST1 = new HashSet<FRIEND_REQUEST>();
             this.GALLERies = new HashSet<GALLERY>();
             this.LOCATIONs = new HashSet<LOCATION>();
             this.LOSTs = new HashSet<LOST>();
@@ -29,6 +31,7 @@ namespace PetSocietyWebServices
             this.REVIEWs = new HashSet<REVIEW>();
             this.STRAYs = new HashSet<STRAY>();
         }
+
         [DataMember(Order = 1)]
         public int UserID { get; set; }
         [DataMember(Order = 2)]
@@ -52,11 +55,12 @@ namespace PetSocietyWebServices
         [DataMember(Order = 11)]
         public string Credibility { get; set; }
         [DataMember(Order = 12)]
-        public string X { get; set; }
+        public Nullable<double> X { get; set; }
         [DataMember(Order = 13)]
-        public string Y { get; set; }
+        public Nullable<double> Y { get; set; }
         [DataMember(Order = 14)]
-        public Nullable<int> ProfileImageID { get; set; }
+        public string ProfileImageURL { get; set; }
+
 
         [DataMember(Order = 15)]
         public virtual ICollection<ATTENDEE> ATTENDEEs { get; set; }
@@ -65,20 +69,22 @@ namespace PetSocietyWebServices
         [DataMember(Order = 17)]
         public virtual ICollection<FRIEND_LIST> FRIEND_LIST { get; set; }
         [DataMember(Order = 18)]
-        public virtual ICollection<FRIEND_REQUEST> FRIEND_REQUEST { get; set; }
+        public virtual ICollection<FRIEND_LIST> FRIEND_LIST1 { get; set; }
         [DataMember(Order = 19)]
-        public virtual ICollection<GALLERY> GALLERies { get; set; }
+        public virtual ICollection<FRIEND_REQUEST> FRIEND_REQUEST { get; set; }
         [DataMember(Order = 20)]
-        public virtual ICollection<LOCATION> LOCATIONs { get; set; }
+        public virtual ICollection<FRIEND_REQUEST> FRIEND_REQUEST1 { get; set; }
         [DataMember(Order = 21)]
-        public virtual ICollection<LOST> LOSTs { get; set; }
+        public virtual ICollection<GALLERY> GALLERies { get; set; }
         [DataMember(Order = 22)]
-        public virtual ICollection<PET> PETs { get; set; }
+        public virtual ICollection<LOCATION> LOCATIONs { get; set; }
         [DataMember(Order = 23)]
-        public virtual PIN PIN { get; set; }
+        public virtual ICollection<LOST> LOSTs { get; set; }
         [DataMember(Order = 24)]
-        public virtual ICollection<REVIEW> REVIEWs { get; set; }
+        public virtual ICollection<PET> PETs { get; set; }
         [DataMember(Order = 25)]
+        public virtual ICollection<REVIEW> REVIEWs { get; set; }
+        [DataMember(Order = 26)]    
         public virtual ICollection<STRAY> STRAYs { get; set; }
     }
 

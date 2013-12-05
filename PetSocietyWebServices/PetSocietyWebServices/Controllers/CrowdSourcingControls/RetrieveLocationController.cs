@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using MySql.Data.MySqlClient;
+using System.Configuration;
+using System.Net.Mail;
+using System.Data.Entity.Validation;
+using PetSocietyWebServices.Models;
+
+namespace PetSocietyWebServices.Controllers.CrowdSourcingControls
+{
+    public class RetrieveLocationController : ApiController
+    {
+        [HttpGet]
+        public LocationModel RetrieveLocationByID(String token, int INid)
+        {
+            return new LocationModel();
+        }
+
+        [HttpGet]
+        public LocationModel RetrieveAlLocation(String token)
+        {
+            return new LocationModel(); 
+        }
+
+        [HttpGet]
+        public LocationModel RetrieveNearbyLocation(String token, String INx, String INy)
+        {
+            return new LocationModel();
+        }
+    }
+}

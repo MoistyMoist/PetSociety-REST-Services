@@ -11,17 +11,22 @@ namespace PetSocietyWebServices
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
+    [DataContract(IsReference = true)]
     public partial class IMAGE
     {
+
+         [DataMember(Order = 1)]
         public int ImageID { get; set; }
+         [DataMember(Order = 2)]
         public string Type { get; set; }
+         [DataMember(Order = 3)]
         public string ImageURL { get; set; }
-        public Nullable<int> UserID { get; set; }
-        public Nullable<int> PetID { get; set; }
+         [DataMember(Order = 4)]
         public Nullable<int> GalleryID { get; set; }
-    
+
+         [DataMember(Order = 5)]
         public virtual GALLERY GALLERY { get; set; }
-        public virtual PIN PIN { get; set; }
     }
 }

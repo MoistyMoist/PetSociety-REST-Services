@@ -21,7 +21,7 @@ namespace PetSocietyWebServices.Controllers.AccountControls
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
                 var query = from c in db.IMAGEs
-                            where (c.GalleryID == INimageID || c.UserID == INuserID || c.PetID == INpetID)
+                            where (c.GalleryID == INimageID || c.ImageID == INuserID)
                             select c;
 
                 //CONVERT THE RESULT TO A LIST

@@ -16,6 +16,11 @@ namespace PetSocietyWebServices
     [DataContract(IsReference = true)]
     public partial class ORGANIZATION
     {
+        public ORGANIZATION()
+        {
+            this.ADVERTs = new HashSet<ADVERT>();
+        }
+
         [DataMember(Order = 1)]
         public int OrganizationID { get; set; }
         [DataMember(Order = 2)]
@@ -25,8 +30,11 @@ namespace PetSocietyWebServices
         [DataMember(Order = 4)]
         public string Email { get; set; }
         [DataMember(Order = 5)]
-        public string password { get; set; }
+        public string Password { get; set; }
         [DataMember(Order = 6)]
-        public Nullable<int> ImageID { get; set; }
+        public string ImageURL { get; set; }
+
+        [DataMember(Order = 7)]
+        public virtual ICollection<ADVERT> ADVERTs { get; set; }
     }
 }

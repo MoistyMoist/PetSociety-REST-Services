@@ -21,6 +21,7 @@ namespace PetSocietyWebServices
             this.GALLERies = new HashSet<GALLERY>();
             this.LOSTs = new HashSet<LOST>();
         }
+
         [DataMember(Order = 1)]
         public int PetID { get; set; }
         [DataMember(Order = 2)]
@@ -38,20 +39,21 @@ namespace PetSocietyWebServices
         [DataMember(Order = 8)]
         public int UserID { get; set; }
         [DataMember(Order = 9)]
-        public Nullable<int> PinID { get; set; }
+        public Nullable<int> GalleryID { get; set; }
         [DataMember(Order = 10)]
-        public Nullable<int> ProfileImageID { get; set; }
+        public string ProfileImageURL { get; set; }
         [DataMember(Order = 11)]
-        public string DateCreated { get; set; }
+        public Nullable<System.DateTime> DateTimeCreated { get; set; }
+
 
         [DataMember(Order = 12)]
         public virtual ICollection<GALLERY> GALLERies { get; set; }
         [DataMember(Order = 13)]
-        public virtual ICollection<LOST> LOSTs { get; set; }
+        public virtual GALLERY GALLERY { get; set; }
         [DataMember(Order = 14)]
+        public virtual ICollection<LOST> LOSTs { get; set; }
+        [DataMember(Order = 15)]    
         public virtual USER USER { get; set; }
-        [DataMember(Order = 15)]
-        public virtual PIN PIN { get; set; }
     }
 
 }
