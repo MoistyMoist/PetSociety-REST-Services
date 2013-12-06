@@ -15,17 +15,371 @@ namespace PetSocietyWebServices.Controllers.LostControls
     public class RetrieveLostController : ApiController
     {
         [HttpGet]
-        public LostModel Retrieve(string token)
+        public LostModel RetrieveAllLost(string INtoken)
         {
-            return null;
+            using (PetSocietyDBEntities db = new PetSocietyDBEntities())
+            {
+                db.Configuration.LazyLoadingEnabled = false;
+                //LOAD THE QUERY
+                var query = from c in db.LOSTs
+                            select c;
+
+                //CONVERT THE RESULT TO A LIST
+                List<LOST> OUTlost = query.ToList();
+                if (INtoken.Equals("token"))
+                {
+                    if (OUTlost.Count() == 0)
+                    {
+                        LostModel model = new LostModel();
+                        model.Status = 1;
+                        model.Message = "NO record exists";
+                        return model;
+                    }
+                    else
+                    {
+                        LostModel model = new LostModel();
+                        model.Status = 0;
+                        model.Message = "Retrieve successfull";
+                        model.Data = OUTlost;
+                        return model;
+                    }
+                }
+                else
+                {
+                    LostModel model = new LostModel();
+                    model.Status = 1;
+                    model.Message = "Token error, invalid token";
+                    return model;
+                }
+            }
         }
 
         [HttpGet]
-        public LostModel RetrieveByID (string token, string id)
+        public LostModel RetrieveLostByID (string INtoken, int INlostID)
         {
-            return null; ;
+            using (PetSocietyDBEntities db = new PetSocietyDBEntities())
+            {
+                db.Configuration.LazyLoadingEnabled = false;
+                //LOAD THE QUERY
+                var query = from c in db.LOSTs
+                            where(c.LostID==INlostID)
+                            select c;
+
+                //CONVERT THE RESULT TO A LIST
+                List<LOST> OUTlost = query.ToList();
+                if (INtoken.Equals("token"))
+                {
+                    if (OUTlost.Count() == 0)
+                    {
+                        LostModel model = new LostModel();
+                        model.Status = 1;
+                        model.Message = "NO record exists";
+                        return model;
+                    }
+                    else
+                    {
+                        LostModel model = new LostModel();
+                        model.Status = 0;
+                        model.Message = "Retrieve successfull";
+                        model.Data = OUTlost;
+                        return model;
+                    }
+                }
+                else
+                {
+                    LostModel model = new LostModel();
+                    model.Status = 1;
+                    model.Message = "Token error, invalid token";
+                    return model;
+                }
+            }
         }
 
+        [HttpGet]
+        public LostModel RetrieveLostByFound(string INtoken, char INfound)
+        {
+            using (PetSocietyDBEntities db = new PetSocietyDBEntities())
+            {
+                db.Configuration.LazyLoadingEnabled = false;
+                //LOAD THE QUERY
+                var query = from c in db.LOSTs
+                            where (c.Found.Equals(INfound))
+                            select c;
+
+                //CONVERT THE RESULT TO A LIST
+                List<LOST> OUTlost = query.ToList();
+                if (INtoken.Equals("token"))
+                {
+                    if (OUTlost.Count() == 0)
+                    {
+                        LostModel model = new LostModel();
+                        model.Status = 1;
+                        model.Message = "NO record exists";
+                        return model;
+                    }
+                    else
+                    {
+                        LostModel model = new LostModel();
+                        model.Status = 0;
+                        model.Message = "Retrieve successfull";
+                        model.Data = OUTlost;
+                        return model;
+                    }
+                }
+                else
+                {
+                    LostModel model = new LostModel();
+                    model.Status = 1;
+                    model.Message = "Token error, invalid token";
+                    return model;
+                }
+            }            
+        }
+
+        [HttpGet]
+        public LostModel RetrieveLostByDate(string INtoken, DateTime INdateTimeCreated)
+        {
+            using (PetSocietyDBEntities db = new PetSocietyDBEntities())
+            {
+                db.Configuration.LazyLoadingEnabled = false;
+                //LOAD THE QUERY
+                var query = from c in db.LOSTs
+                            where (c.DateTimeCreated>=INdateTimeCreated)
+                            select c;
+
+                //CONVERT THE RESULT TO A LIST
+                List<LOST> OUTlost = query.ToList();
+                if (INtoken.Equals("token"))
+                {
+                    if (OUTlost.Count() == 0)
+                    {
+                        LostModel model = new LostModel();
+                        model.Status = 1;
+                        model.Message = "NO record exists";
+                        return model;
+                    }
+                    else
+                    {
+                        LostModel model = new LostModel();
+                        model.Status = 0;
+                        model.Message = "Retrieve successfull";
+                        model.Data = OUTlost;
+                        return model;
+                    }
+                }
+                else
+                {
+                    LostModel model = new LostModel();
+                    model.Status = 1;
+                    model.Message = "Token error, invalid token";
+                    return model;
+                }
+            }
+        }
         
+        [HttpGet]
+        public LostModel RetrieveLostByType(string INtoken, string INtype)
+        {
+            using (PetSocietyDBEntities db = new PetSocietyDBEntities())
+            {
+                db.Configuration.LazyLoadingEnabled = false;
+                //LOAD THE QUERY
+                var query = from c in db.LOSTs
+                            where (c.PET.Type.Equals(INtype))
+                            select c;
+
+                //CONVERT THE RESULT TO A LIST
+                List<LOST> OUTlost = query.ToList();
+                if (INtoken.Equals("token"))
+                {
+                    if (OUTlost.Count() == 0)
+                    {
+                        LostModel model = new LostModel();
+                        model.Status = 1;
+                        model.Message = "NO record exists";
+                        return model;
+                    }
+                    else
+                    {
+                        LostModel model = new LostModel();
+                        model.Status = 0;
+                        model.Message = "Retrieve successfull";
+                        model.Data = OUTlost;
+                        return model;
+                    }
+                }
+                else
+                {
+                    LostModel model = new LostModel();
+                    model.Status = 1;
+                    model.Message = "Token error, invalid token";
+                    return model;
+                }
+            }
+        }
+
+        [HttpGet]
+        public LostModel RetrieveLostByFound_N_Date(string INtoken, char INfound, DateTime INdateTimeCreated)
+        {
+            using (PetSocietyDBEntities db = new PetSocietyDBEntities())
+            {
+                db.Configuration.LazyLoadingEnabled = false;
+                //LOAD THE QUERY
+                var query = from c in db.LOSTs
+                            where (c.Found.Equals(INfound)&& c.DateTimeCreated>=INdateTimeCreated)
+                            select c;
+
+                //CONVERT THE RESULT TO A LIST
+                List<LOST> OUTlost = query.ToList();
+                if (INtoken.Equals("token"))
+                {
+                    if (OUTlost.Count() == 0)
+                    {
+                        LostModel model = new LostModel();
+                        model.Status = 1;
+                        model.Message = "NO record exists";
+                        return model;
+                    }
+                    else
+                    {
+                        LostModel model = new LostModel();
+                        model.Status = 0;
+                        model.Message = "Retrieve successfull";
+                        model.Data = OUTlost;
+                        return model;
+                    }
+                }
+                else
+                {
+                    LostModel model = new LostModel();
+                    model.Status = 1;
+                    model.Message = "Token error, invalid token";
+                    return model;
+                }
+            }
+        }
+
+        [HttpGet]
+        public LostModel RetrieveLostByFound_N_Type(string INtoken, char INfound, string INtype)
+        {
+            using (PetSocietyDBEntities db = new PetSocietyDBEntities())
+            {
+                db.Configuration.LazyLoadingEnabled = false;
+                //LOAD THE QUERY
+                var query = from c in db.LOSTs
+                            where (c.Found.Equals(INfound)&&c.PET.Type.Equals(INtype))
+                            select c;
+
+                //CONVERT THE RESULT TO A LIST
+                List<LOST> OUTlost = query.ToList();
+                if (INtoken.Equals("token"))
+                {
+                    if (OUTlost.Count() == 0)
+                    {
+                        LostModel model = new LostModel();
+                        model.Status = 1;
+                        model.Message = "NO record exists";
+                        return model;
+                    }
+                    else
+                    {
+                        LostModel model = new LostModel();
+                        model.Status = 0;
+                        model.Message = "Retrieve successfull";
+                        model.Data = OUTlost;
+                        return model;
+                    }
+                }
+                else
+                {
+                    LostModel model = new LostModel();
+                    model.Status = 1;
+                    model.Message = "Token error, invalid token";
+                    return model;
+                }
+            }
+        }
+
+        [HttpGet]
+        public LostModel RetrieveLostByDate_N_Type(string INtoken, DateTime INdateTimeCreated, string INtype)
+        {
+            using (PetSocietyDBEntities db = new PetSocietyDBEntities())
+            {
+                db.Configuration.LazyLoadingEnabled = false;
+                //LOAD THE QUERY
+                var query = from c in db.LOSTs
+                            where (c.PET.Type.Equals(INtype)&& c.DateTimeCreated>=INdateTimeCreated)
+                            select c;
+
+                //CONVERT THE RESULT TO A LIST
+                List<LOST> OUTlost = query.ToList();
+                if (INtoken.Equals("token"))
+                {
+                    if (OUTlost.Count() == 0)
+                    {
+                        LostModel model = new LostModel();
+                        model.Status = 1;
+                        model.Message = "NO record exists";
+                        return model;
+                    }
+                    else
+                    {
+                        LostModel model = new LostModel();
+                        model.Status = 0;
+                        model.Message = "Retrieve successfull";
+                        model.Data = OUTlost;
+                        return model;
+                    }
+                }
+                else
+                {
+                    LostModel model = new LostModel();
+                    model.Status = 1;
+                    model.Message = "Token error, invalid token";
+                    return model;
+                }
+            }
+        }
+
+        [HttpGet]
+        public LostModel RetrieveLostByDate_N_Found_N_Type(string INtoken, DateTime INdateTimeCreated, char INfound, string INtype)
+        {
+            using (PetSocietyDBEntities db = new PetSocietyDBEntities())
+            {
+                db.Configuration.LazyLoadingEnabled = false;
+                //LOAD THE QUERY
+                var query = from c in db.LOSTs
+                            where (c.DateTimeCreated>=INdateTimeCreated && c.Found.Equals(INfound) && c.PET.Type.Equals(INtype))
+                            select c;
+
+                //CONVERT THE RESULT TO A LIST
+                List<LOST> OUTlost = query.ToList();
+                if (INtoken.Equals("token"))
+                {
+                    if (OUTlost.Count() == 0)
+                    {
+                        LostModel model = new LostModel();
+                        model.Status = 1;
+                        model.Message = "NO record exists";
+                        return model;
+                    }
+                    else
+                    {
+                        LostModel model = new LostModel();
+                        model.Status = 0;
+                        model.Message = "Retrieve successfull";
+                        model.Data = OUTlost;
+                        return model;
+                    }
+                }
+                else
+                {
+                    LostModel model = new LostModel();
+                    model.Status = 1;
+                    model.Message = "Token error, invalid token";
+                    return model;
+                }
+            }
+        }
     }
 }

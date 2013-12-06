@@ -271,7 +271,6 @@
     <Compile Include="Controllers\LostControls\ReportLostController.cs" />
     <Compile Include="Controllers\LostControls\RetrieveLostController.cs" />
     <Compile Include="Controllers\AccountControls\UpdatePetController.cs" />
-    <Compile Include="Controllers\LostControls\RetrieveRecentLostController.cs" />
     <Compile Include="Controllers\Social\AddFriendController.cs" />
     <Compile Include="Controllers\Social\AnswerFriendRequestController.cs" />
     <Compile Include="Controllers\TestController.cs" />
