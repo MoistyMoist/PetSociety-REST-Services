@@ -12,42 +12,41 @@ using PetSocietyWebServices.Models;
 
 namespace PetSocietyWebServices.Controllers.CrowdSourcingControls
 {
-    public class RetrieveLocationController : ApiController
+    public class RetrieveReviewController : ApiController
     {
         [HttpGet]
-        public LocationModel RetrieveLocationByID(string INtoken, int INlocationID)
+        public ReviewModel RetrieveAllReview(string INtoken)
         {
             using (PetSocietyDBEntities db = new PetSocietyDBEntities())
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.LOCATIONs
-                            where c.LocationID==INlocationID
+                var query = from c in db.REVIEWs
                             select c;
 
                 //CONVERT THE RESULT TO A LIST
-                List<LOCATION> OUTlocation = query.ToList();
+                List<REVIEW> OUTreview = query.ToList();
                 if (INtoken.Equals("token"))
                 {
-                    if (OUTlocation.Count() == 0)
+                    if (OUTreview.Count() == 0)
                     {
-                        LocationModel model = new LocationModel();
+                        ReviewModel model = new ReviewModel();
                         model.Status = 1;
                         model.Message = "NO record exists";
                         return model;
                     }
                     else
                     {
-                        LocationModel model = new LocationModel();
+                        ReviewModel model = new ReviewModel();
                         model.Status = 0;
                         model.Message = "Retrieve successfull";
-                        model.Data = OUTlocation;
+                        model.Data = OUTreview;
                         return model;
                     }
                 }
                 else
                 {
-                    LocationModel model = new LocationModel();
+                    ReviewModel model = new ReviewModel();
                     model.Status = 1;
                     model.Message = "Token error, invalid token";
                     return model;
@@ -56,120 +55,80 @@ namespace PetSocietyWebServices.Controllers.CrowdSourcingControls
         }
 
         [HttpGet]
-        public LocationModel RetrieveAllLocation(string INtoken)
+        public ReviewModel RetrieveReviewByID(string INtoken, int INreviewID)
         {
             using (PetSocietyDBEntities db = new PetSocietyDBEntities())
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.LOCATIONs
+                var query = from c in db.REVIEWs
+                            where c.ReviewID==INreviewID
                             select c;
 
                 //CONVERT THE RESULT TO A LIST
-                List<LOCATION> OUTlocation = query.ToList();
+                List<REVIEW> OUTreview = query.ToList();
                 if (INtoken.Equals("token"))
                 {
-                    if (OUTlocation.Count() == 0)
+                    if (OUTreview.Count() == 0)
                     {
-                        LocationModel model = new LocationModel();
+                        ReviewModel model = new ReviewModel();
                         model.Status = 1;
                         model.Message = "NO record exists";
                         return model;
                     }
                     else
                     {
-                        LocationModel model = new LocationModel();
+                        ReviewModel model = new ReviewModel();
                         model.Status = 0;
                         model.Message = "Retrieve successfull";
-                        model.Data = OUTlocation;
+                        model.Data = OUTreview;
                         return model;
                     }
                 }
                 else
                 {
-                    LocationModel model = new LocationModel();
+                    ReviewModel model = new ReviewModel();
                     model.Status = 1;
                     model.Message = "Token error, invalid token";
                     return model;
                 }
             }
         }
-
+        
         [HttpGet]
-        public LocationModel RetrieveLocationByType(string INtoken, string INtype)
+        public ReviewModel RetrieveReviewByUserID(string INtoken, int INuserID)
         {
             using (PetSocietyDBEntities db = new PetSocietyDBEntities())
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.LOCATIONs
-                            where c.Type.Equals(INtype)
-                            select c;
-
-                //CONVERT THE RESULT TO A LIST
-                List<LOCATION> OUTlocation = query.ToList();
-                if (INtoken.Equals("token"))
-                {
-                    if (OUTlocation.Count() == 0)
-                    {
-                        LocationModel model = new LocationModel();
-                        model.Status = 1;
-                        model.Message = "NO record exists";
-                        return model;
-                    }
-                    else
-                    {
-                        LocationModel model = new LocationModel();
-                        model.Status = 0;
-                        model.Message = "Retrieve successfull";
-                        model.Data = OUTlocation;
-                        return model;
-                    }
-                }
-                else
-                {
-                    LocationModel model = new LocationModel();
-                    model.Status = 1;
-                    model.Message = "Token error, invalid token";
-                    return model;
-                }
-            }
-        }
-
-        [HttpGet]
-        public LocationModel RetrieveLocationByUser(string INtoken, int INuserID)
-        {
-            using (PetSocietyDBEntities db = new PetSocietyDBEntities())
-            {
-                db.Configuration.LazyLoadingEnabled = false;
-                //LOAD THE QUERY
-                var query = from c in db.LOCATIONs
+                var query = from c in db.REVIEWs
                             where c.UserID==INuserID
                             select c;
 
                 //CONVERT THE RESULT TO A LIST
-                List<LOCATION> OUTlocation = query.ToList();
+                List<REVIEW> OUTreview = query.ToList();
                 if (INtoken.Equals("token"))
                 {
-                    if (OUTlocation.Count() == 0)
+                    if (OUTreview.Count() == 0)
                     {
-                        LocationModel model = new LocationModel();
+                        ReviewModel model = new ReviewModel();
                         model.Status = 1;
                         model.Message = "NO record exists";
                         return model;
                     }
                     else
                     {
-                        LocationModel model = new LocationModel();
+                        ReviewModel model = new ReviewModel();
                         model.Status = 0;
                         model.Message = "Retrieve successfull";
-                        model.Data = OUTlocation;
+                        model.Data = OUTreview;
                         return model;
                     }
                 }
                 else
                 {
-                    LocationModel model = new LocationModel();
+                    ReviewModel model = new ReviewModel();
                     model.Status = 1;
                     model.Message = "Token error, invalid token";
                     return model;
@@ -178,53 +137,87 @@ namespace PetSocietyWebServices.Controllers.CrowdSourcingControls
         }
 
         [HttpGet]
-        public TypeModel RetrieveLocationTypes(string token)
+        public ReviewModel RetrieveReviewByLocationID(string INtoken, int INlocationID)
         {
             using (PetSocietyDBEntities db = new PetSocietyDBEntities())
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.LOCATIONs
+                var query = from c in db.REVIEWs
+                            where c.LocationID==INlocationID
                             select c;
 
                 //CONVERT THE RESULT TO A LIST
-                List<LOCATION> OUTlocation = query.ToList();
- 
-
-                if (token.Equals("token"))
+                List<REVIEW> OUTreview = query.ToList();
+                if (INtoken.Equals("token"))
                 {
-                    if (OUTlocation.Count() == 0)
+                    if (OUTreview.Count() == 0)
                     {
-                        TypeModel model = new TypeModel();
+                        ReviewModel model = new ReviewModel();
                         model.Status = 1;
                         model.Message = "NO record exists";
                         return model;
                     }
                     else
                     {
-                        List<string> list = new List<string>();
-                        for (int i = 0; i < OUTlocation.Count(); i++)
-                        {
-                            if (!list.Contains(OUTlocation[i].Type))
-                            {
-                                list.Add(OUTlocation[i].Type);
-                            }
-                        }
-                        TypeModel model = new TypeModel();
+                        ReviewModel model = new ReviewModel();
                         model.Status = 0;
                         model.Message = "Retrieve successfull";
-                        model.Data = list;
+                        model.Data = OUTreview;
                         return model;
                     }
                 }
                 else
                 {
-                    TypeModel model = new TypeModel();
+                    ReviewModel model = new ReviewModel();
                     model.Status = 1;
                     model.Message = "Token error, invalid token";
                     return model;
                 }
             }
         }
+
+        [HttpGet]
+        public ReviewModel RetrieveReviewByStrayID(string INtoken, int INstrayID)
+        {
+            using (PetSocietyDBEntities db = new PetSocietyDBEntities())
+            {
+                db.Configuration.LazyLoadingEnabled = false;
+                //LOAD THE QUERY
+                var query = from c in db.REVIEWs
+                            where c.StrayID==INstrayID
+                            select c;
+
+                //CONVERT THE RESULT TO A LIST
+                List<REVIEW> OUTreview = query.ToList();
+                if (INtoken.Equals("token"))
+                {
+                    if (OUTreview.Count() == 0)
+                    {
+                        ReviewModel model = new ReviewModel();
+                        model.Status = 1;
+                        model.Message = "NO record exists";
+                        return model;
+                    }
+                    else
+                    {
+                        ReviewModel model = new ReviewModel();
+                        model.Status = 0;
+                        model.Message = "Retrieve successfull";
+                        model.Data = OUTreview;
+                        return model;
+                    }
+                }
+                else
+                {
+                    ReviewModel model = new ReviewModel();
+                    model.Status = 1;
+                    model.Message = "Token error, invalid token";
+                    return model;
+                }
+            }
+        }
+
+
     }
 }
