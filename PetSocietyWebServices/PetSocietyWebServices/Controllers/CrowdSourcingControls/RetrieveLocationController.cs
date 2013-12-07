@@ -177,7 +177,7 @@ namespace PetSocietyWebServices.Controllers.CrowdSourcingControls
             }
         }
 
-        [HttpGet]
+       /* [HttpGet]
         public TypeModel RetrieveLocationTypes(string token)
         {
             using (PetSocietyDBEntities db = new PetSocietyDBEntities())
@@ -225,6 +225,6 @@ namespace PetSocietyWebServices.Controllers.CrowdSourcingControls
                     return model;
                 }
             }
-        }
+        }*/
     }
 }
