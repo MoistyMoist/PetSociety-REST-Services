@@ -21,7 +21,7 @@ namespace PetSocietyWebServices.Controllers.CrowdSourcingControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.LOCATIONs
+                var query = from c in db.LOCATIONs.Include("USER")
                             where c.LocationID==INlocationID
                             select c;
 
@@ -62,7 +62,7 @@ namespace PetSocietyWebServices.Controllers.CrowdSourcingControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.LOCATIONs
+                var query = from c in db.LOCATIONs.Include("USER")
                             select c;
 
                 //CONVERT THE RESULT TO A LIST
@@ -102,7 +102,7 @@ namespace PetSocietyWebServices.Controllers.CrowdSourcingControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.LOCATIONs
+                var query = from c in db.LOCATIONs.Include("USER")
                             where c.Type.Equals(INtype)
                             select c;
 
@@ -143,7 +143,7 @@ namespace PetSocietyWebServices.Controllers.CrowdSourcingControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.LOCATIONs
+                var query = from c in db.LOCATIONs.Include("USER")
                             where c.UserID==INuserID
                             select c;
 
@@ -184,7 +184,7 @@ namespace PetSocietyWebServices.Controllers.CrowdSourcingControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.LOCATIONs
+                var query = from c in db.LOCATIONs.Include("USER")
                             select c;
 
                 //CONVERT THE RESULT TO A LIST

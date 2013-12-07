@@ -21,7 +21,7 @@ namespace PetSocietyWebServices.Controllers.LostControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.LOSTs
+                var query = from c in db.LOSTs.Include("USER")
                             select c;
 
                 //CONVERT THE RESULT TO A LIST
@@ -61,7 +61,7 @@ namespace PetSocietyWebServices.Controllers.LostControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.LOSTs
+                var query = from c in db.LOSTs.Include("USER")
                             where(c.LostID==INlostID)
                             select c;
 
@@ -102,7 +102,7 @@ namespace PetSocietyWebServices.Controllers.LostControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.LOSTs
+                var query = from c in db.LOSTs.Include("USER")
                             where (c.Found.Equals(INfound))
                             select c;
 
@@ -143,7 +143,7 @@ namespace PetSocietyWebServices.Controllers.LostControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.LOSTs
+                var query = from c in db.LOSTs.Include("USER")
                             where (c.DateTimeCreated>=INdateTimeCreated)
                             select c;
 
@@ -184,7 +184,7 @@ namespace PetSocietyWebServices.Controllers.LostControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.LOSTs
+                var query = from c in db.LOSTs.Include("USER")
                             where (c.PET.Type.Equals(INtype))
                             select c;
 
@@ -225,7 +225,7 @@ namespace PetSocietyWebServices.Controllers.LostControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.LOSTs
+                var query = from c in db.LOSTs.Include("USER")
                             where (c.Found.Equals(INfound)&& c.DateTimeCreated>=INdateTimeCreated)
                             select c;
 
@@ -266,7 +266,7 @@ namespace PetSocietyWebServices.Controllers.LostControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.LOSTs
+                var query = from c in db.LOSTs.Include("USER")
                             where (c.Found.Equals(INfound)&&c.PET.Type.Equals(INtype))
                             select c;
 
@@ -307,7 +307,7 @@ namespace PetSocietyWebServices.Controllers.LostControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.LOSTs
+                var query = from c in db.LOSTs.Include("USER")
                             where (c.PET.Type.Equals(INtype)&& c.DateTimeCreated>=INdateTimeCreated)
                             select c;
 
@@ -348,7 +348,7 @@ namespace PetSocietyWebServices.Controllers.LostControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.LOSTs
+                var query = from c in db.LOSTs.Include("USER")
                             where (c.DateTimeCreated>=INdateTimeCreated && c.Found.Equals(INfound) && c.PET.Type.Equals(INtype))
                             select c;
 
