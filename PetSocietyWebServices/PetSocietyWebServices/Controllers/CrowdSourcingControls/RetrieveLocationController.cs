@@ -177,54 +177,5 @@ namespace PetSocietyWebServices.Controllers.CrowdSourcingControls
             }
         }
 
-       /* [HttpGet]
-        public TypeModel RetrieveLocationTypes(string token)
-        {
-            using (PetSocietyDBEntities db = new PetSocietyDBEntities())
-            {
-                db.Configuration.LazyLoadingEnabled = false;
-                //LOAD THE QUERY
-                var query = from c in db.LOCATIONs.Include("USER")
-                            select c;
-
-                //CONVERT THE RESULT TO A LIST
-                List<LOCATION> OUTlocation = query.ToList();
- 
-
-                if (token.Equals("token"))
-                {
-                    if (OUTlocation.Count() == 0)
-                    {
-                        TypeModel model = new TypeModel();
-                        model.Status = 1;
-                        model.Message = "NO record exists";
-                        return model;
-                    }
-                    else
-                    {
-                        List<string> list = new List<string>();
-                        for (int i = 0; i < OUTlocation.Count(); i++)
-                        {
-                            if (!list.Contains(OUTlocation[i].Type))
-                            {
-                                list.Add(OUTlocation[i].Type);
-                            }
-                        }
-                        TypeModel model = new TypeModel();
-                        model.Status = 0;
-                        model.Message = "Retrieve successfull";
-                        model.Data = list;
-                        return model;
-                    }
-                }
-                else
-                {
-                    TypeModel model = new TypeModel();
-                    model.Status = 1;
-                    model.Message = "Token error, invalid token";
-                    return model;
-                }
-            }
-        }*/
     }
 }
