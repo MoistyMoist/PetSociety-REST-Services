@@ -18,10 +18,10 @@ namespace PetSocietyWebServices
     {
         public GALLERY()
         {
-            this.EVENTs = new HashSet<EVENT>();
-            this.IMAGEs = new HashSet<IMAGE>();
-            this.LOCATIONs = new HashSet<LOCATION>();
-            this.PETs = new HashSet<PET>();
+            this.EVENTs = new List<EVENT>();
+            this.IMAGEs = new List<IMAGE>();
+            this.LOCATIONs = new List<LOCATION>();
+            this.PETs = new List<PET>();
         }
 
         [DataMember(Order = 1)]
@@ -37,7 +37,7 @@ namespace PetSocietyWebServices
 
 
         [DataMember(Order = 6)]
-        public virtual ICollection<EVENT> EVENTs { get; set; }
+        public virtual List<EVENT> EVENTs { get; set; }
         [DataMember(Order = 7)]
         public virtual EVENT EVENT { get; set; }
         [DataMember(Order = 8)]
@@ -47,11 +47,11 @@ namespace PetSocietyWebServices
         [DataMember(Order = 10)]
         public virtual USER USER { get; set; }
         [DataMember(Order = 11)]
-        public virtual ICollection<IMAGE> IMAGEs { get; set; }
+        public virtual List<IMAGE> IMAGEs { get; set; }
         [DataMember(Order = 12)]
-        public virtual ICollection<LOCATION> LOCATIONs { get; set; }
+        public virtual List<LOCATION> LOCATIONs { get; set; }
         [DataMember(Order = 13)]
-        public virtual ICollection<PET> PETs { get; set; }
+        public virtual List<PET> PETs { get; set; }
     }
 
 }

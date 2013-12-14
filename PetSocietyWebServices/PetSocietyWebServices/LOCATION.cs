@@ -18,8 +18,8 @@ namespace PetSocietyWebServices
     {
         public LOCATION()
         {
-            this.GALLERies = new HashSet<GALLERY>();
-            this.REVIEWs = new HashSet<REVIEW>();
+            this.GALLERies = new List<GALLERY>();
+            this.REVIEWs = new List<REVIEW>();
         }
 
         [DataMember(Order = 1)]
@@ -44,13 +44,13 @@ namespace PetSocietyWebServices
         public Nullable<int> GalleryID { get; set; }
 
         [DataMember(Order = 11)]
-        public virtual ICollection<GALLERY> GALLERies { get; set; }
+        public virtual List<GALLERY> GALLERies { get; set; }
         [DataMember(Order = 12)]
         public virtual GALLERY GALLERY { get; set; }
         [DataMember(Order = 13)]
         public virtual USER USER { get; set; }
         [DataMember(Order = 14)]
-        public virtual ICollection<REVIEW> REVIEWs { get; set; }
+        public virtual List<REVIEW> REVIEWs { get; set; }
     }
 
 }

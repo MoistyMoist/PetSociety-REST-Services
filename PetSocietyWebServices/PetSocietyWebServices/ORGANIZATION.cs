@@ -18,7 +18,7 @@ namespace PetSocietyWebServices
     {
         public ORGANIZATION()
         {
-            this.ADVERTs = new HashSet<ADVERT>();
+            this.ADVERTs = new List<ADVERT>();
         }
 
         [DataMember(Order = 1)]
@@ -35,6 +35,6 @@ namespace PetSocietyWebServices
         public string ImageURL { get; set; }
 
         [DataMember(Order = 7)]
-        public virtual ICollection<ADVERT> ADVERTs { get; set; }
+        public virtual List<ADVERT> ADVERTs { get; set; }
     }
 }

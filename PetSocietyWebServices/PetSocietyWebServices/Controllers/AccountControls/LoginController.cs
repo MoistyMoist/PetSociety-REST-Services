@@ -20,7 +20,7 @@ namespace PetSocietyWebServices.Controllers.AccountControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.USERs
+                var query = from c in db.USERs.Include("EVENTs")
                             where (c.Email.Equals(INemail) && c.Password.Equals(INpassword))
                             select c;
 

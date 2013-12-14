@@ -18,8 +18,8 @@ namespace PetSocietyWebServices
     {
         public PET()
         {
-            this.GALLERies = new HashSet<GALLERY>();
-            this.LOSTs = new HashSet<LOST>();
+            this.GALLERies = new List<GALLERY>();
+            this.LOSTs = new List<LOST>();
         }
 
         [DataMember(Order = 1)]
@@ -47,11 +47,11 @@ namespace PetSocietyWebServices
 
 
         [DataMember(Order = 12)]
-        public virtual ICollection<GALLERY> GALLERies { get; set; }
+        public virtual List<GALLERY> GALLERies { get; set; }
         [DataMember(Order = 13)]
         public virtual GALLERY GALLERY { get; set; }
         [DataMember(Order = 14)]
-        public virtual ICollection<LOST> LOSTs { get; set; }
+        public virtual List<LOST> LOSTs { get; set; }
         [DataMember(Order = 15)]
         public virtual USER USER { get; set; }
     }

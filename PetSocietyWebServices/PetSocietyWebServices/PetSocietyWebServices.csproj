@@ -251,7 +251,6 @@
     </Compile>
     <Compile Include="Controllers\AccountControls\AddPetController.cs" />
     <Compile Include="Controllers\AccountControls\ForgetPassController.cs" />
-    <Compile Include="Controllers\AccountControls\IloginService.cs" />
     <Compile Include="Controllers\AccountControls\LoginController.cs" />
     <Compile Include="Controllers\AccountControls\RegisterUserController.cs" />
     <Compile Include="Controllers\AccountControls\ResetPasswordController.cs" />

@@ -18,7 +18,7 @@ namespace PetSocietyWebServices
     {
         public STRAY()
         {
-            this.REVIEWs = new HashSet<REVIEW>();
+            this.REVIEWs = new List<REVIEW>();
         }
 
         [DataMember(Order = 1)]
@@ -46,7 +46,7 @@ namespace PetSocietyWebServices
 
 
         [DataMember(Order = 12)]
-        public virtual ICollection<REVIEW> REVIEWs { get; set; }
+        public virtual List<REVIEW> REVIEWs { get; set; }
         [DataMember(Order = 13)]
         public virtual USER USER { get; set; }
     }
