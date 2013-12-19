@@ -14,7 +14,7 @@ namespace PetSocietyWebServices.Controllers.AccountControls
     /// <summary>
     /// Summary description for LoginService
     /// </summary>
-    [WebService(Namespace = "http://tempuri.org/")]
+    [WebService(Namespace = "http://petsociety.cloudapp.net/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
@@ -23,7 +23,7 @@ namespace PetSocietyWebServices.Controllers.AccountControls
     {
 
         [WebMethod]
-        public USER Get(string token, string INemail, string INpassword)
+        public UserModel login(string token, string INemail, string INpassword)
         {
             using (PetSocietyDBEntities db = new PetSocietyDBEntities())
             {
@@ -42,7 +42,7 @@ namespace PetSocietyWebServices.Controllers.AccountControls
                         UserModel model = new UserModel();
                         model.Status = 1;
                         model.Message = "Username or password is wrong";
-                        return null;
+                        return model;
                     }
                     else
                     {
@@ -50,7 +50,7 @@ namespace PetSocietyWebServices.Controllers.AccountControls
                         model.Status = 0;
                         model.Message = "Login successfull";
                         model.Data = OUTusers;
-                        return null;
+                        return model;
                     }
                 }
                 else
@@ -58,7 +58,7 @@ namespace PetSocietyWebServices.Controllers.AccountControls
                     UserModel model = new UserModel();
                     model.Status = 1;
                     model.Message = "Token error, invalid token";
-                    return null;
+                    return model;
                 }
 
             }
