@@ -21,7 +21,7 @@ namespace PetSocietyWebServices.Controllers.LostControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.LOSTs.Include("USER").Include("PET")
+                var query = from c in db.LOSTs.Include("PET")
                             select c;
 
                 //CONVERT THE RESULT TO A LIST
