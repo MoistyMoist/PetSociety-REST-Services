@@ -96,13 +96,13 @@ namespace PetSocietyWebServices.Controllers.LostControls
         }
 
         [HttpGet]
-        public LostModel RetrieveLostByFound(string INtoken, char INfound)
+        public LostModel RetrieveLostByFound(string INtoken, string INfound)
         {
             using (PetSocietyDBEntities db = new PetSocietyDBEntities())
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.LOSTs.Include("USER")
+                var query = from c in db.LOSTs
                             where (c.Found.Equals(INfound))
                             select c;
 
@@ -219,7 +219,7 @@ namespace PetSocietyWebServices.Controllers.LostControls
         }
 
         [HttpGet]
-        public LostModel RetrieveLostByFound_N_Date(string INtoken, char INfound, DateTime INdateTimeCreated)
+        public LostModel RetrieveLostByFound_N_Date(string INtoken, string INfound, DateTime INdateTimeCreated)
         {
             using (PetSocietyDBEntities db = new PetSocietyDBEntities())
             {
@@ -260,7 +260,7 @@ namespace PetSocietyWebServices.Controllers.LostControls
         }
 
         [HttpGet]
-        public LostModel RetrieveLostByFound_N_Type(string INtoken, char INfound, string INtype)
+        public LostModel RetrieveLostByFound_N_Type(string INtoken, string INfound, string INtype)
         {
             using (PetSocietyDBEntities db = new PetSocietyDBEntities())
             {
@@ -342,7 +342,7 @@ namespace PetSocietyWebServices.Controllers.LostControls
         }
 
         [HttpGet]
-        public LostModel RetrieveLostByDate_N_Found_N_Type(string INtoken, DateTime INdateTimeCreated, char INfound, string INtype)
+        public LostModel RetrieveLostByDate_N_Found_N_Type(string INtoken, DateTime INdateTimeCreated, string INfound, string INtype)
         {
             using (PetSocietyDBEntities db = new PetSocietyDBEntities())
             {
