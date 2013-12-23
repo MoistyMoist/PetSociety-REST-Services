@@ -18,7 +18,42 @@ namespace PetSocietyWebServices.Controllers.AccountControls
         [HttpGet]
         public UserModel RetrieveUsers(String token)
         {
-            return new UserModel();
+            using (PetSocietyDBEntities db = new PetSocietyDBEntities())
+            {
+                db.Configuration.LazyLoadingEnabled = false;
+                //LOAD THE QUERY
+                var query = from c in db.USERs
+                            select c;
+
+                //CONVERT THE RESULT TO A LIST
+                List<USER> OUTusers = query.ToList();
+                if (token.Equals("token"))
+                {
+                    if (OUTusers.Count() == 0)
+                    {
+                        UserModel model = new UserModel();
+                        model.Status = 1;
+                        model.Message = "No Users";
+                        return model;
+                    }
+                    else
+                    {
+                        UserModel model = new UserModel();
+                        model.Status = 0;
+                        model.Message = "successfull";
+                        model.Data = OUTusers;
+                        return model;
+                    }
+                }
+                else
+                {
+                    UserModel model = new UserModel();
+                    model.Status = 1;
+                    model.Message = "Token error, invalid token";
+                    return model;
+                }
+
+            }
         }
     }
 }
