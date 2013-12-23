@@ -21,7 +21,7 @@ namespace PetSocietyWebServices.Controllers.CrowdSourcingControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.STRAYs.Include("USER")
+                var query = from c in db.STRAYs
                             select c;
 
                 //CONVERT THE RESULT TO A LIST
