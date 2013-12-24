@@ -16,7 +16,7 @@ namespace PetSocietyWebServices.Controllers.AccountControls
     public class RetrieveUserController : ApiController
     {
         [HttpGet]
-        public UserModel RetrieveUsers(String token)
+        public UserModel RetrieveUsers(String INtoken, int INuserID)
         {
             using (PetSocietyDBEntities db = new PetSocietyDBEntities())
             {
@@ -27,7 +27,13 @@ namespace PetSocietyWebServices.Controllers.AccountControls
 
                 //CONVERT THE RESULT TO A LIST
                 List<USER> OUTusers = query.ToList();
-                if (token.Equals("token"))
+                for(int i=0;i<OUTusers.Count;i++)
+                {
+                    if (OUTusers.ElementAt(i).UserID == INuserID)
+                        OUTusers.RemoveAt(i);
+                }
+
+                if (INtoken.Equals("token"))
                 {
                     if (OUTusers.Count() == 0)
                     {
