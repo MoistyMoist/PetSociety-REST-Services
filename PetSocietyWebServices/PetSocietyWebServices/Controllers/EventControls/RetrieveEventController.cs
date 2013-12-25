@@ -70,7 +70,7 @@ namespace PetSocietyWebServices.Controllers.EventControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.EVENTs.Include("USER")
+                var query = from c in db.EVENTs
                             select c;
 
                 //CONVERT THE RESULT TO A LIST
@@ -151,7 +151,7 @@ namespace PetSocietyWebServices.Controllers.EventControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.EVENTs.Include("USER")
+                var query = from c in db.EVENTs
                             where (c.StartDateTime>=INtodayDate)
                             select c;
 
