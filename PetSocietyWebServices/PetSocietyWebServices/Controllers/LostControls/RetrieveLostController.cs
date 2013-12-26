@@ -21,7 +21,7 @@ namespace PetSocietyWebServices.Controllers.LostControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.LOSTs.Include("PET")
+                var query = from c in db.LOSTs
                             select c;
 
                 //CONVERT THE RESULT TO A LIST
@@ -61,7 +61,7 @@ namespace PetSocietyWebServices.Controllers.LostControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.LOSTs.Include("USER")
+                var query = from c in db.LOSTs)
                             where(c.LostID==INlostID)
                             select c;
 
@@ -184,7 +184,7 @@ namespace PetSocietyWebServices.Controllers.LostControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.LOSTs.Include("USER")
+                var query = from c in db.LOSTs
                             where (c.PET.Type.Equals(INtype))
                             select c;
 

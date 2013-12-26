@@ -29,7 +29,7 @@ namespace PetSocietyWebServices.Controllers.EventControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.EVENTs.Include("USER")
+                var query = from c in db.EVENTs
                             where (c.StartDateTime>=INstartDateTime && c.EndDateTime<=INendDateTime)
                             select c;
 
@@ -192,7 +192,7 @@ namespace PetSocietyWebServices.Controllers.EventControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.EVENTs.Include("USER")
+                var query = from c in db.EVENTs
                             where (c.EventID == INeventID)
                             select c;
 
