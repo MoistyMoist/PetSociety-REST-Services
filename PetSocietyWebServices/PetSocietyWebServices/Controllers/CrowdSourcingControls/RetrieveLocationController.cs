@@ -103,7 +103,7 @@ namespace PetSocietyWebServices.Controllers.CrowdSourcingControls
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
                 var query = from c in db.LOCATIONs
-                            where c.Type.Equals(INtype)
+                            where c.Type.Equals(string.SmallCharToUpper(INtype))
                             select c;
 
                 //CONVERT THE RESULT TO A LIST

@@ -61,7 +61,7 @@ namespace PetSocietyWebServices.Controllers.LostControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.LOSTs)
+                var query = from c in db.LOSTs
                             where(c.LostID==INlostID)
                             select c;
 
