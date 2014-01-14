@@ -22,7 +22,7 @@ namespace PetSocietyWebServices.Controllers.AccountControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.PETs.Include("USER")
+                var query = from c in db.PETs
                             select c;
 
                 //CONVERT THE RESULT TO A LIST
@@ -62,7 +62,7 @@ namespace PetSocietyWebServices.Controllers.AccountControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.PETs.Include("USER")
+                var query = from c in db.PETs
                             where c.PetID==INpetID
                             select c;
 
@@ -103,7 +103,7 @@ namespace PetSocietyWebServices.Controllers.AccountControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.PETs.Include("USER")
+                var query = from c in db.PETs
                             where c.UserID==INuserID
                             select c;
 
@@ -144,7 +144,7 @@ namespace PetSocietyWebServices.Controllers.AccountControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.PETs.Include("USER")
+                var query = from c in db.PETs
                             where c.Type.Equals(INtype)
                             select c;
 
@@ -185,7 +185,7 @@ namespace PetSocietyWebServices.Controllers.AccountControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.PETs.Include("USER")
+                var query = from c in db.PETs
                             where c.Breed.Equals(INbreed)
                             select c;
 
@@ -226,7 +226,7 @@ namespace PetSocietyWebServices.Controllers.AccountControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.PETs.Include("USER")
+                var query = from c in db.PETs
                             where c.Age.Equals(INage)
                             select c;
 
@@ -267,7 +267,7 @@ namespace PetSocietyWebServices.Controllers.AccountControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.PETs.Include("USER")
+                var query = from c in db.PETs
                             where (c.Type.Equals(INtype)&& c.Breed.Equals(INbreed))
                             select c;
 
