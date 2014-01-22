@@ -264,6 +264,7 @@
     <Compile Include="Controllers\CrowdSourcingControls\AddReviewController.cs" />
     <Compile Include="Controllers\CrowdSourcingControls\DislikeReviewController.cs" />
     <Compile Include="Controllers\CrowdSourcingControls\LikeReviewController.cs" />
+    <Compile Include="Controllers\CrowdSourcingControls\ReportStrayController.cs" />
     <Compile Include="Controllers\CrowdSourcingControls\RetrieveLocationController.cs" />
     <Compile Include="Controllers\CrowdSourcingControls\RetrieveReviewController.cs" />
     <Compile Include="Controllers\CrowdSourcingControls\RetrieveStrayController.cs" />
