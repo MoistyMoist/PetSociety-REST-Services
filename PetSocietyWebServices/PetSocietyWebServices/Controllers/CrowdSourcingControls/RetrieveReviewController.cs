@@ -21,7 +21,7 @@ namespace PetSocietyWebServices.Controllers.CrowdSourcingControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.REVIEWs.Include("USER")
+                var query = from c in db.REVIEWs
                             select c;
 
                 //CONVERT THE RESULT TO A LIST
@@ -61,7 +61,7 @@ namespace PetSocietyWebServices.Controllers.CrowdSourcingControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.REVIEWs.Include("USER")
+                var query = from c in db.REVIEWs
                             where c.ReviewID==INreviewID
                             select c;
 
@@ -102,7 +102,7 @@ namespace PetSocietyWebServices.Controllers.CrowdSourcingControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.REVIEWs.Include("USER")
+                var query = from c in db.REVIEWs
                             where c.UserID==INuserID
                             select c;
 
@@ -143,7 +143,7 @@ namespace PetSocietyWebServices.Controllers.CrowdSourcingControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.REVIEWs.Include("USER")
+                var query = from c in db.REVIEWs
                             where c.LocationID==INlocationID
                             select c;
 
@@ -184,7 +184,7 @@ namespace PetSocietyWebServices.Controllers.CrowdSourcingControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.REVIEWs.Include("USER")
+                var query = from c in db.REVIEWs
                             where c.StrayID==INstrayID
                             select c;
 
