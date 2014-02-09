@@ -10,39 +10,38 @@ using System.Net.Mail;
 using System.Data.Entity.Validation;
 using PetSocietyWebServices.Models;
 
-namespace PetSocietyWebServices.Controllers.AccountControls
+namespace PetSocietyWebServices.Controllers.CrowdSourcingControls
 {
-    public class AddPetController : ApiController
+    public class UpdateLocationController : ApiController
     {
         [HttpGet]
-        public PetModel AddPet(String INname, String INbreed, String INtype, String INsex, String INage, String INbiography, int INUserID)
+        public LocationModel UpateLocation(string token,int INlocationID, String INimageURL)
         {
             using (PetSocietyDBEntities db = new PetSocietyDBEntities())
             {
+
                 int result = 0;
                 List<string> errors = new List<string>();
-                db.Configuration.LazyLoadingEnabled = false;
-                db.Configuration.ProxyCreationEnabled = false;
+                db.Configuration.LazyLoadingEnabled = true;
+                db.Configuration.ProxyCreationEnabled = true;
+
                 //LOAD THE QUERY
-                var query = db.PETs;
-                List<PET> OUTusers = query.ToList();
+                var query = db.IMAGEs;
 
-                //CREATING THE USER OBJECT
-                PET newUser = new PET();
-                newUser.Name = INname;
-                newUser.Breed = INbreed;
-                newUser.Type = INtype;
-                newUser.Sex = INsex;
-                newUser.Biography = INbiography;
-                newUser.Age = INage;
-                newUser.UserID = INUserID;
+                //CONVERT THE RESULT TO A LIST
+                
+                IMAGE i = new IMAGE();
+                i.ImageURL = INimageURL;
+                i.Type = INlocationID.ToString();
+               
 
-                String token = "token";
+               
+
 
                 if (token.Equals("token"))
                 {
+                    query.Add(i);
 
-                    query.Add(newUser);
                     try
                     {
                         result = db.SaveChanges();
@@ -60,37 +59,34 @@ namespace PetSocietyWebServices.Controllers.AccountControls
                             }
                         }
                     }
-                    //IF SOME ERROR HAPPENDS
                     if (result == 0)
                     {
-                        PetModel model = new PetModel();
+                        LocationModel model = new LocationModel();
                         model.Status = 1;
-                        model.Message = "Failed to add user.\nTry again later";
+                        model.Message = "Failed to add new location";
                         model.ErrorList = errors;
                         model.Data = null;
                         return model;
                     }
                     else
                     {
-                        PetModel model = new PetModel();
+                        LocationModel model = new LocationModel();
                         model.Status = 0;
-                        model.Message = "Registeration Successfull";
+                        model.Message = "New Location updated successfullt";
                         model.ErrorList = errors;
-                        model.Data = new List<PET> { newUser };
+                        model.Data = null;
                         return model;
                     }
                 }
-
                 else
                 {
-                    PetModel model = new PetModel();
+                    LocationModel model = new LocationModel();
                     model.Status = 1;
                     model.Message = "Token error, invalid token";
                     return model;
                 }
+
             }
-
-
         }
     }
 }

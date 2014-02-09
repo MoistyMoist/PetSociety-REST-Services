@@ -19,7 +19,7 @@ namespace PetSocietyWebServices.Controllers.CrowdSourcingControls
         {
             using (PetSocietyDBEntities db = new PetSocietyDBEntities())
             {
-                db.Configuration.LazyLoadingEnabled = false;
+                db.Configuration.LazyLoadingEnabled = true;
                 //LOAD THE QUERY
                 var query = from c in db.LOCATIONs
                             where c.LocationID==INlocationID
@@ -62,7 +62,7 @@ namespace PetSocietyWebServices.Controllers.CrowdSourcingControls
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.LOCATIONs
+                var query = from c in db.LOCATIONs.Include("GALLERY")
                             select c;
 
                 //CONVERT THE RESULT TO A LIST

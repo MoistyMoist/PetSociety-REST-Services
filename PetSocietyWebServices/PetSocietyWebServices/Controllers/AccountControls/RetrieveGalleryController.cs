@@ -16,30 +16,30 @@ namespace PetSocietyWebServices.Controllers.AccountControls
     public class RetrieveGalleryController : ApiController
     {
         [HttpGet]
-        public GalleryModel retrieveGallery(String token,int INgalleryID, int INuserID, int INpetID)
+        public ImageModel retrieveGallery(String token, int locationID)
         {
             using (PetSocietyDBEntities db = new PetSocietyDBEntities())
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 //LOAD THE QUERY
-                var query = from c in db.GALLERies.Include("Images")
-                            where (c.GalleryID==INgalleryID || c.userID==INuserID || c.PetID==INpetID)
+                var query = from c in db.IMAGEs
+                            //where (c.Type.Equals(locationID.ToString()))
                             select c;
 
                  //CONVERT THE RESULT TO A LIST
-                List<GALLERY> OUTgallery = query.ToList();
+                List<IMAGE> OUTgallery = query.ToList();
                 if(token.Equals("token"))
                 {
                     if (OUTgallery.Count() == 0)
                     {
-                        GalleryModel model = new GalleryModel();
+                        ImageModel model = new ImageModel();
                         model.Status = 1;
                         model.Message = "No such gallery exists. please create one if needed or check again";
                         return model;
                     }
                     else
                     {
-                        GalleryModel model = new GalleryModel();
+                        ImageModel model = new ImageModel();
                         model.Status = 0;
                         model.Message = "Retrieve success";
                         model.Data = OUTgallery;
@@ -48,7 +48,7 @@ namespace PetSocietyWebServices.Controllers.AccountControls
                 }
                 else
                 {
-                    GalleryModel model = new GalleryModel();
+                    ImageModel model = new ImageModel();
                     model.Status = 1;
                     model.Message = "Token error, invalid token";
                     return model;   

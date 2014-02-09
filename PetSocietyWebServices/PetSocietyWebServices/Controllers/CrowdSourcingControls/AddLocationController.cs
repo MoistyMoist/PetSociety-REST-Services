@@ -39,6 +39,8 @@ namespace PetSocietyWebServices.Controllers.CrowdSourcingControls
                 newlocation.Type = INtype;
                 newlocation.UserID = INuserID;
                 newlocation.DateTimeCreated = date;
+                //newlocation.GALLERY = new GALLERY();
+
 
 
                 if (token.Equals("token"))

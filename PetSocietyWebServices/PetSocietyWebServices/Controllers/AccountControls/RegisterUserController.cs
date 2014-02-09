@@ -15,7 +15,7 @@ namespace PetSocietyWebServices.Controllers.AccountControls
     public class RegisterUserController : ApiController
     {
        [HttpGet]
-       public UserModel RegisterUser(String token,String INname, String INemail, String INbirthday, String INpassword, String INaddress, String INbiography, String INprivicy, String INsex, String INcontact, double INx, double INy)
+       public UserModel RegisterUser(String token,String INname, String INemail, String INpassword, String INsex)
        {
            using (PetSocietyDBEntities db = new PetSocietyDBEntities())
            {
@@ -31,16 +31,16 @@ namespace PetSocietyWebServices.Controllers.AccountControls
                USER newUser = new USER();
                newUser.Name = INname;
                newUser.Email = INemail;
-               newUser.Birthday = INbirthday;
+               newUser.Birthday = "";
                newUser.Password = INpassword;
-               newUser.Address = INaddress;
-               newUser.Biography = INbiography;
-               newUser.Privicy = INprivicy;
+               newUser.Address = "";
+               newUser.Biography = "";
+               newUser.Privicy = "0";
                newUser.Sex = INsex;
-               newUser.Contact = INcontact;
+               newUser.Contact = "";
                newUser.Credibility = "0";
-               newUser.X = INx;
-               newUser.Y = INy;
+               newUser.X = 1.38282012939453;
+               newUser.Y = 103.899680137634;
 
                if (token.Equals("token"))
                {
